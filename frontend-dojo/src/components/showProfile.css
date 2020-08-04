@@ -1,0 +1,189 @@
+
+.showProfile-body {
+    position: relative;
+    height: 30rem;
+}
+
+.showProfile-img {
+    position: absolute;
+    top: 1rem;
+    left: 1.5rem;
+    width: 13.5rem;
+    height: 13.5rem;
+}
+
+.showProfile-nickname-container {
+    position: absolute;
+    width: 35.7rem;
+    height: 7.5rem;
+    left: 17rem;
+    text-align: left;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+
+.showProfile-nickname {
+    display: inline-block;
+    font-size: 75px;
+    width: max-content;
+    letter-spacing: 0px;
+    
+}
+
+.showProfile-dojo {
+    position: absolute;
+    display: inline-block;
+    top: 7rem;
+    left: 20rem;
+    font-size: 30px;
+    width: max-content;
+}
+
+.showProfile-bar {
+    position: absolute;
+    border-bottom: 2px solid rgb(117, 5, 5);
+    top: 8rem;
+    left: 17.3rem;
+    width: 34rem;
+    height: 2rem;
+}
+
+.showProfile-data {
+    position: absolute;
+    top: 11rem;
+    right: 0rem;
+    width: 26rem;
+    height: 19rem;
+    overflow: hidden;
+}
+
+.showProfile-name {
+    position: absolute;
+    font-size: 22px;
+    color: rgb(100, 98, 98);
+}
+
+.showProfile-name-content {
+    position: absolute;
+    left: 8rem;
+    font-size: 22px;
+}
+
+.showProfile-rank {
+    position: absolute;
+    top: 2rem;
+    font-size: 22px;
+    color: rgb(100, 98, 98);
+}
+
+.showProfile-rank-content {
+    position: absolute;
+    top: 2rem;
+    left: 8rem;
+    font-size: 22px;
+}
+
+.showProfile-instructor {
+    position: absolute;
+    top: 4rem;
+    font-size: 22px;
+    color: rgb(100, 98, 98);
+}
+
+.showProfile-instructor-content {
+    position: absolute;
+    top: 4rem;
+    left: 8rem;
+    font-size: 22px;
+}
+
+.showProfile-mail {
+    position: absolute;
+    top: 6rem;
+    font-size: 22px;
+    color: rgb(100, 98, 98);
+}
+
+.showProfile-mail-content {
+    position: absolute;
+    top: 6rem;
+    left: 8rem;
+    font-size: 22px;
+}
+
+.showProfile-cellphone {
+    position: absolute;
+    top: 8rem;
+    font-size: 22px;
+    color: rgb(100, 98, 98);
+}
+
+.showProfile-cellphone-content {
+    position: absolute;
+    top: 8rem;
+    left: 8rem;
+    font-size: 22px;
+}
+
+.showProfile-age {
+    position: absolute;
+    top: 10rem;
+    font-size: 22px;
+    color: rgb(100, 98, 98);
+}
+
+.showProfile-age-content {
+    position: absolute;
+    top: 10rem;
+    left: 8rem;
+    font-size: 22px;
+}
+
+.showProfile-birthDate {
+    position: absolute;
+    top: 12rem;
+    /* left: 29rem; */
+    font-size: 22px;
+    color: rgb(100, 98, 98);
+}
+
+.showProfile-birthDate-content {
+    position: absolute;
+    top: 12rem;
+    left: 13.5rem;
+    font-size: 22px;
+}
+
+.showProfile-initialDate {
+    position: absolute;
+    top: 14rem;
+    /* left: 29rem; */
+    font-size: 22px;
+    color: rgb(100, 98, 98);
+}
+
+.showProfile-initialDate-content {
+    position: absolute;
+      top: 14rem;
+    left: 11rem;
+    font-size: 22px;
+}
+
+.showProfile-aboutMe {
+    position: relative;
+    top: 14rem;
+    width: 25rem;
+    height: 14.6rem;
+    font-size: 14px;
+}
+
+.showProfile-spinner {
+position: absolute;
+}
+
+.showProfile-spinner-text {
+position: absolute;
+left: 5rem;
+font-size: 25px;
+}

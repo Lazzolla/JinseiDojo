@@ -1,0 +1,173 @@
+.boardMixing-gral {
+    position: absolute;
+    top: 15rem;
+    left: 3rem;
+    width: 80rem;
+    height: 15rem;
+}
+
+.boardMixing-text {
+    position: absolute;
+    text-align: center;
+    bottom: 20rem;
+}
+
+.boardMixing-warningText {
+    position: absolute;
+    text-align: center;
+    bottom: 16.5rem;
+    left: 26rem;
+    color: rgb(185, 13, 13);
+}
+
+.boardMixing-refreshContainer {
+    position: absolute;
+    bottom: 17rem;
+}
+
+.boardMixing-refreshIcon {
+    position: relative;
+    font-size: 60px;
+    color: #817878;
+    filter: drop-shadow(15px 8px 4px #817878);
+}
+
+.boardMixing-refreshIcon:active {
+    transform: translateY(2px);
+    position: relative;
+    font-size: 60px;
+    color: #817878;
+    filter: drop-shadow(6px 6px 2px #686363);
+}
+
+
+.dropzone-one {
+    position: absolute;
+    width: 240px;
+    height: 240px;
+    border: 5px dashed #a0a0a0;
+    outline: none;
+    cursor: pointer;
+}
+
+.dropzone-two {
+    position: absolute;
+    left: 16rem;
+    width: 240px;
+    height: 240px;
+    border: 5px dashed #a0a0a0;
+    outline: none;
+    cursor: pointer;
+}
+
+.dropzone-three {
+    position: absolute;
+    left: 32rem;
+    width: 240px;
+    height: 240px;
+    border: 5px dashed #a0a0a0;
+    outline: none;
+    cursor: pointer;
+}
+
+.dropzone-four {
+    position: absolute;
+    left: 48rem;
+    width: 240px;
+    height: 240px;
+    border: 5px dashed #a0a0a0;
+    outline: none;
+    cursor: pointer;
+}
+
+.dropzone-five {
+    position: absolute;
+    left: 64rem;
+    width: 240px;
+    height: 240px;
+    border: 5px dashed #a0a0a0;
+    outline: none;
+    cursor: pointer;
+}
+
+.dropzone-active {
+    background-color: #f1e2ff;
+    border: 5px solid #2fd7b5;
+}
+
+.dropzone-content {
+    position: relative;
+    align-self: center;
+    top: 3rem;
+    color:grey;
+    font-size: 90px;
+}
+
+.dropzone-content-drop {
+    position: relative;
+    align-self: center;
+    top: 3rem;
+    color:green;
+    font-size: 90px;
+}
+
+.file-list {
+    margin: 20px 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.file-item {
+    position: relative;
+    bottom: 1.25rem;
+    width: 240px;
+    height: 240px;
+    margin-right: 1rem;
+    border: 1px solid #eaeaea;
+    border-radius: 4px;
+    cursor: move;
+    transition: all 0.2s linear;
+    box-shadow:
+  0 -1.1px 0.6px rgba(0, 0, 0, 0.205),
+  0 -0.7px 1.5px rgba(0, 0, 0, 0.26),
+  0 -0.1px 2.8px rgba(0, 0, 0, 0.286),
+  0 0.8px 4.9px rgba(0, 0, 0, 0.293),
+  0 2px 9.2px rgba(0, 0, 0, 0.279),
+  0 4px 22px rgba(0, 0, 0, 0.19)
+;
+}
+
+.file-img {
+    width: 100%;
+    height: 100%;
+}
+
+.board-button-save {
+    position: absolute;
+    top: 17rem;
+    left: 29em;
+    width: 20rem;
+    height: 2rem;
+    z-index: 12;
+}
+
+.dropzone-trash {
+    position: absolute;
+}
+
+.dropzone-content-drop_trash {
+    position: relative;
+    align-self: center;
+    color: #817878;
+    bottom: 14.5rem;
+    left: 13rem;
+    font-size: 20px;
+    z-index: 100;
+}
+
+.remove-dropzone_gral {
+    position: relative;
+    bottom: 20rem;
+}

@@ -1,0 +1,97 @@
+.chat-gral {
+    position: absolute;
+    width: 23.2rem;
+    top: 3rem;
+    left: 2rem;
+    border: 1px solid rgb(165, 164, 164);
+    border-radius: 14px !important;
+}
+
+.chat-gral-title {
+    background-image: url('../../../pictures/bg_pub_board2.jpg');
+    background-position: center;
+    border-radius: 13px 13px 0 0 !important;
+}
+
+.chat-gral-footer {
+    background-image: url('../../../pictures/bg_pub_board2.jpg');
+    background-position: center;
+    border-radius: 0 0 13px 13px !important;
+}
+
+.chat-gral-body {
+    position: relative;
+    background-image: url('../../../pictures/chat/backgrounds/chatBackground.jpg');
+    background-size: contain;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    height: 20rem;
+    overflow-y: scroll;
+    bottom: 0;
+    padding: 0;
+}
+
+.chat-inst-body {
+    position: relative;
+    background-image: url('../../../pictures/chat/backgrounds/instChatBackground.jpg');
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    height: 20rem;
+    overflow-y: scroll;
+    bottom: 0;
+    padding: 0;
+}
+
+div.chat-gral-body::-webkit-scrollbar {
+    background-image: url('../../../pictures/bgGral.png');
+    width: 1rem;
+}
+
+div.chat-gral-body::-webkit-scrollbar-thumb {
+    border-radius: 25px;
+    background-image: url('../../../pictures/chat_profile_bg.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+
+div.chat-inst-body::-webkit-scrollbar {
+    background-image: url('../../../pictures/bgGral.png');
+    width: 1rem;
+}
+
+div.chat-inst-body::-webkit-scrollbar-thumb {
+    border-radius: 25px;
+    background-image: url('../../../pictures/chat_profile_bg.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.gralChat-typing {
+    position: absolute;
+    background-color: darkgrey; 
+    align-self: center;
+    text-align: center;
+    font-size: smaller;
+    bottom: 6.5rem;
+    width: auto;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    z-index: 1001;
+}
+
+.gralChat-fetching {
+    position: absolute;
+    background-color: darkgrey; 
+    align-self: center;
+    text-align: center;
+    font-size: smaller;
+    top: 2.5rem;
+    left: 9.5rem;
+    width: auto;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    z-index: 1001;
+}

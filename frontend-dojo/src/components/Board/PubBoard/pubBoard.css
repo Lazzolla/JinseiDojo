@@ -1,0 +1,106 @@
+.bg-pub-board {
+    background-image: url('../../../pictures/bg_pub_board2.jpg');
+    border-radius: 14px;
+    border: 1px solid rgb(93, 93, 93);
+    transition-duration: 50ms;
+    width: 55rem;
+    height: 4rem;
+    background-repeat: round;
+    background-size: cover;
+    margin-bottom: .3rem;
+    box-shadow:
+    0 1.7px 3.8px rgba(0, 0, 0, 0.237),
+    0 3px 9.2px rgba(0, 0, 0, 0.301),
+    0 4.3px 17.3px rgba(0, 0, 0, 0.331),
+    0 6.5px 30.8px rgba(0, 0, 0, 0.339),
+    0 13px 57.7px rgba(0, 0, 0, 0.323),
+    0 100px 138px rgba(0, 0, 0, 0.22)
+    ;
+    z-index: 5;
+  }
+
+  .bg-pub-board:active {
+    transform:  translateY(2px);
+    transition-duration: 50ms;
+    border: 2px solid rgb(93, 93, 93);
+    box-shadow: none;
+  } 
+  
+  .modal-login-pub {
+    max-width: 28% !important;
+    margin: auto;
+  }
+
+  .bg-pub-board-title {
+    position: relative;
+    background-image: url('../../../pictures/bg_pub_board2.jpg');
+    border-radius: 14px;
+    border: 1px solid rgb(93, 93, 93);
+    height: auto;
+    background-repeat: round;
+    background-size: initial;
+    box-shadow:
+    0 1.7px 3.8px rgba(0, 0, 0, 0.237),
+    0 3px 9.2px rgba(0, 0, 0, 0.301),
+    0 4.3px 17.3px rgba(0, 0, 0, 0.331),
+    0 6.5px 30.8px rgba(0, 0, 0, 0.339),
+    0 13px 57.7px rgba(0, 0, 0, 0.323),
+    0 100px 138px rgba(0, 0, 0, 0.22)
+    ;
+  }
+
+  .board-profile-img {
+    position: absolute;
+    top: -25px;
+    left: -10px;
+    width: 4.6rem;
+    height: 4.6rem;
+  }
+
+.pubBoard-author {
+    position: relative;
+    display: inline-block;
+    bottom: .1rem;
+}
+
+.pubBoard-author:hover {
+    color: black !important;
+}
+
+.pubBoard-modalUser {
+position: absolute;
+left: 35rem;
+}
+
+.pubBoard-modalUserCustom .modal-content {
+    border-radius: 14px;
+    width: 55rem;
+    height: max-content;
+}
+
+.pubBoard-modalUserCustom .modal-header {
+  display: none;
+}
+
+.pubBoard-modalUserCustom .modal-title {
+  display: inline-block;
+   font-size: 45px;
+   font-weight: 600;
+   width: 51rem;
+   text-align: center;
+   letter-spacing: 10px;
+   filter: drop-shadow(10px 10px 2px #363636);
+}
+
+@media (max-width: 1820px) {
+
+}
+@media (max-width: 1681px) {
+ 
+}
+@media (max-width: 1370px) {
+
+}
+@media (max-width: 1290px) {
+
+}

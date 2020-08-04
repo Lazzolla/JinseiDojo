@@ -1,0 +1,71 @@
+.publishCard-comment {
+    position: relative;
+    width: 100%;
+    padding: 0;
+    overflow: hidden;
+}
+
+.publishCard-comment-img-div {
+    position: absolute;
+}
+
+.publishCard-comment-img {
+    position: relative;
+    display: inline-block;
+    top: .2rem;
+    left: .2rem; 
+    width: 2.2rem;
+    height: 2.2rem;
+}
+
+.publishCard-comment-div {
+    position: relative;
+    display: block;
+    left: 2.5rem;
+    font-size: 20px;
+    width: 43.9rem;
+}
+
+.publishCard-comment-nickname {
+    position: relative;
+    display: inline-block;
+    left: .2rem;
+    font-size: 15px;
+    color: rgb(48, 114, 168);
+}
+
+.publishCard-comment-comment {
+    position: relative;
+    display: inline;
+    margin-left: .8rem;
+    font-size: 15px;
+}
+
+.publishCard-comment-trash {
+    position: absolute;
+    margin-top: .5rem;
+    left: 46.4rem;
+    right: .4rem;
+}
+
+.publishCard-comment-trashIcon {
+    position: absolute;
+    z-index: 2;
+}
+
+.comment-delete-div {
+    position: absolute;
+    background-color: rgb(165, 164, 164);
+    width: 47.75rem;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 5s;
+}
+
+.comment-delete-icon {
+    position: absolute;
+    left: -.3rem;
+    font-size: 24px;
+    opacity: 0;
+    z-index: 0;
+}

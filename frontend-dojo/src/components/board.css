@@ -1,0 +1,61 @@
+.board-bg-gral {
+    background-image: url("../pictures/bgGral.png");
+    background-position: 0 -6rem;
+    background-size: cover;
+    padding-top: 60px;
+    height: 100vh;
+}
+
+.board-container {
+    width: 100vw;
+}
+
+
+.board-carouselCol {
+    position: absolute;
+    width: 51.5%;
+    height: 53rem;
+}
+
+.board-blogCol {
+    position: absolute;
+    width: 48.5%;
+    right: 0;
+}
+
+@media (max-width: 1820px) {
+
+}
+@media (max-width: 1681px) {
+
+    .board-carouselCol {
+        height: 51rem;
+    }
+}
+@media (max-width: 1446px) {
+   
+}
+@media (max-width: 1370px) {
+    .board-bg-gral {
+        background-position: 0 2rem;
+    }
+
+    .board-blogCol {
+        top: 1rem;
+        right: 6rem;
+        transform: scale(.7);
+    }
+    .board-carouselCol {
+        height: 36.5rem;
+    }
+}
+@media (max-width: 1290px) {
+    .board-blogCol {
+        top: 1rem;
+        right: 6rem;
+        transform: scale(.65);
+    }
+    .board-carouselCol {
+        height: 37rem;
+    }
+}

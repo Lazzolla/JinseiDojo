@@ -1,0 +1,95 @@
+.filtersCard-card-filters {
+    position: absolute;
+    background-image: url('../../pictures/backgrounds/bgGral.jpg');
+    background-size: cover;
+    border-radius: 14px;
+    top: 9rem;
+    left: 1rem;
+    width: 18rem;
+    height: 20rem;
+    box-shadow: 0 -39.6px 1.2px rgba(0, 0, 0, -0.043), 0 -37.3px 2.7px rgba(0, 0, 0, -0.064), 0 -27.5px 4.5px rgba(0, 0, 0, -0.068), 0 -13.5px 6.9px rgba(0, 0, 0, -0.058), 0 3.6px 9.9px rgba(0, 0, 0, -0.035), 0 23.3px 14px rgba(0, 0, 0, -0.002), 0 45.6px 19.9px rgba(0, 0, 0, 0.043), 0 70.9px 28.8px rgba(0, 0, 0, 0.099), 0 100.8px 44.4px rgba(0, 0, 0, 0.169), 0 153px 79px rgba(0, 0, 0, 0.28);
+}
+
+.filtersCard-form-search-author {
+    position: relative;
+    width: 22rem;
+}
+
+.filtersCard-form-h3-author {
+    display: inline-block;
+    margin-top: 1rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    font-size: 20px;
+    position: relative;
+}
+
+.filtersCard-form-input-author {
+    display: inline-block;
+    position: relative;
+    width: 11rem;
+}
+
+.filtersCard-form-search-title {
+    position: relative;
+    width: 22rem;
+}
+
+.filtersCard-form-h3-title {
+    display: inline-block;
+    margin-top: 1rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    font-size: 20px;
+    position: relative;
+}
+
+.filtersCard-form-input-title {
+    display: inline-block;
+    position: relative;
+    width: 11rem;
+}
+
+.filtersCard-filters-timeFilter {
+    position: absolute;
+    top: 8rem;
+    left: 1.5rem;
+    width: 15rem;
+    height: 10rem;
+}
+
+.filtersCard-filters-recents {
+    position: absolute;
+    transform: translateY(6rem);
+    transition-duration: 400ms;
+    transition-timing-function: ease-out;
+    left: 4rem;
+    font-size: 20px;
+    filter: drop-shadow(10px 10px 3px rgb(61, 61, 61));
+}
+
+.filtersCard-filters-olders {
+    position: absolute;
+    transform: translateY();
+    transition-duration: 400ms;
+    transition-timing-function: ease-out;
+    left: 4rem;
+    font-size: 20px;
+    filter: drop-shadow(10px 10px 3px rgb(61, 61, 61));
+}
+
+.filtersCard-filters-icon {
+    position: absolute;
+    top: 2rem;
+    left: 6.3rem;
+    font-size: 20px;
+    transition-duration: 100ms;
+    color: rgb(179, 172, 172);
+    filter: drop-shadow(10px 10px 3px rgb(61, 61, 61));
+}
+
+.filtersCard-filters-icon:active {
+    transform: translateY(2px);
+    transition-duration: 100ms;
+    filter: drop-shadow(2px 2px 1px rgb(32, 32, 32));
+}

@@ -1,0 +1,71 @@
+.chat-gral-card-user {
+    margin-top: .1rem;
+    /* margin-left: .3rem; */
+    position: relative;
+    width: 1.75rem;
+    box-shadow: 0 0.2px 0.4px rgba(0, 0, 0, 0.061), 0 0.5px 0.9px rgba(0, 0, 0, 0.081), 0 0.8px 1.5px rgba(0, 0, 0, 0.093), 0 1.2px 2.4px rgba(0, 0, 0, 0.101), 0 1.8px 3.5px rgba(0, 0, 0, 0.105), 0 2.5px 5px rgba(0, 0, 0, 0.108), 0 3.5px 7.2px rgba(0, 0, 0, 0.107), 0 5.1px 10.5px rgba(0, 0, 0, 0.104), 0 7.9px 16px rgba(0, 0, 0, 0.097), 0 14px 25px rgba(0, 0, 0, 0.07);
+}
+
+.chat-gral-bodyTable {
+    border-radius: 5%;
+    background-image: url('../../pictures/WhatsApp\ Image\ 2020-05-06\ at\ 21.46.32.jpeg');
+    background-position: center;
+    background-size: 40%;
+    width: 1.75rem;
+    
+    height: min-content;
+    object-fit: contain;
+    object-position: center;
+    position: relative;
+}
+
+.chat-gral-icon {
+    position: relative;
+    left: .65rem;
+}
+
+.chat-verticalText-gral {
+    margin-left: .35rem;
+    font-size: .70rem;
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    position: relative;
+}
+
+.chat-gral-profile-img {
+    position: relative;
+    width: 2rem;
+    height: 2rem;
+}
+
+.container-usersConnected {
+    position: absolute;
+    overflow: auto;
+    top: 2.5rem;
+    right: 1rem;
+    width: 8rem;
+    height: 22rem;
+}
+
+div.container-usersConnected::-webkit-scrollbar {
+    background-image: url('../../pictures/bg_pub_board2.jpg');
+    border-radius: 25px;
+    height: 1rem;
+}
+
+div.container-usersConnected::-webkit-scrollbar-thumb {
+    border-radius: 25px;
+    background-image: url('../../pictures/chat_profile_bg.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.usersConnected-input-container {
+    position: absolute;
+    top: 25.4rem;
+    width: 8rem;
+}
+
+.usersConnected-input::placeholder {
+    font-size: 11px;
+}

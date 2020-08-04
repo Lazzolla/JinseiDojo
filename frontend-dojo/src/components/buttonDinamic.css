@@ -1,0 +1,77 @@
+.buttonDinamic {
+    transition-duration: 50ms;
+    border: 1px solid rgb(93, 93, 93);
+    border-radius: 10px;
+    background-image: url('../pictures/chat_profile_bg.jpg');
+    background-position: center;
+    background-size: 130%;
+    box-shadow:
+    0 1.7px 3.8px rgba(0, 0, 0, 0.237),
+    0 3px 9.2px rgba(0, 0, 0, 0.301),
+    0 4.3px 17.3px rgba(0, 0, 0, 0.331),
+    0 6.5px 30.8px rgba(0, 0, 0, 0.339),
+    0 13px 57.7px rgba(0, 0, 0, 0.323),
+    0 100px 138px rgba(0, 0, 0, 0.22)
+    ;
+}
+
+.buttonDinamic:focus {
+    outline: none;
+}
+
+.buttonDinamic:active {
+    transform:  translateY(2px);
+    transition-duration: 50ms;
+    border: 2px solid rgb(93, 93, 93);
+    box-shadow: none;
+  }
+
+  .persistClick {
+    transform:  translateY(2px);
+    transition-duration: 50ms;
+    border-radius: 10px;
+    background-image: url('../pictures/chat_profile_bg.jpg');
+    background-position: center;
+    background-size: 130%;
+    border: 2px solid rgb(93, 93, 93);
+    box-shadow: none;
+  }
+
+  .persistClick:focus {
+      outline: none;
+  }
+
+  .buttonDinamic-primaryText {
+      padding: 0;
+      margin: 0;
+      font-size: 25px;   
+      color: black;
+  }
+  
+  .buttonDinamic-secondaryText {
+      padding: 0;
+      margin: 0;
+      font-size: 25px;   
+      color: black;
+  }
+
+  .buttonDinamic-spinner {
+      color: black;
+  }
+
+  .buttonDinamic:disabled {
+    transform:  none;
+    border: 1px solid rgb(93, 93, 93);
+    border-radius: 10px;
+    background-image: url('../pictures/backgrounds/grey_chat_profile_bg.jpg');
+    background-position: center;
+    background-size: 130%;
+    box-shadow:
+    0 1.7px 3.8px rgba(0, 0, 0, 0.237),
+    0 3px 9.2px rgba(0, 0, 0, 0.301),
+    0 4.3px 17.3px rgba(0, 0, 0, 0.331),
+    0 6.5px 30.8px rgba(0, 0, 0, 0.339),
+    0 13px 57.7px rgba(0, 0, 0, 0.323),
+    0 100px 138px rgba(0, 0, 0, 0.22)
+    ;
+}

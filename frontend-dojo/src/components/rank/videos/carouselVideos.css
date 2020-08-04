@@ -1,0 +1,74 @@
+
+.videos-carousel-title {
+  position: relative;
+}
+
+.videos-row {
+  position: relative;
+  top: 25rem;
+  left: 1.2rem;
+  width: 82rem;
+}
+
+.videos-row-title {
+  position: relative;
+  top: 22rem;
+  left: 32.2rem;
+  width: 30rem;
+}
+
+.player-wrapper {
+  position: relative;
+  padding-top: 56.25%;
+}
+
+.react-player {
+  position: relative;
+  margin-right: 1rem;
+
+}
+
+.videos-prevArrow {
+  position: relative;
+  bottom: .5rem;
+  color: rgb(129, 114, 99);
+}
+
+.video-button-up-carousel {
+  position: absolute;
+  top: 25rem;
+  left: 29.4rem;
+  width: 25rem;
+}
+
+.video-button-up-carousel-button {
+  position: relative;
+  height: 2rem;
+
+}
+
+.video-button-up-carousel-icon {
+  position: relative;
+  bottom: .8rem;
+  font-size: 17px;
+  color: rgb(129, 114, 99);
+}
+
+.video-button-down-carousel {
+  position: relative;
+  top: 25.4rem;
+  left: 29.4rem;
+  width: 25rem;
+}
+
+.video-button-down-carousel-button {
+  position: relative;
+  height: 2rem;
+}
+
+.video-button-down-carousel-icon {
+  position: relative;
+  bottom: .8rem;
+  font-size: 17px;
+  color: rgb(129, 114, 99);
+}

@@ -1,0 +1,105 @@
+.chat-private-window {
+    position: absolute;
+    border: 1px solid rgb(165, 164, 164) ;
+    border-radius: 14px !important;
+    width: 20rem;
+    z-index: 2000;
+}
+
+.chat-private-title {
+    display: flex;
+    background-image: url('../../../pictures/bg_pub_board2.jpg');
+    border-radius: 13px 13px 0 0 !important;
+
+    background-position: center;
+    height: 2.2rem;
+}
+
+.chat-private-title-name {
+    position: absolute;
+    font-size: 20px;
+    top: .1rem;
+}
+
+.chat-private-title-name:hover {
+    color: black;
+    filter: drop-shadow(3px 3px 5px rgb(139, 137, 137));
+}
+
+.chat-private-closeBut {
+    position: absolute;
+    left: 11rem;
+    top: .4rem;
+}
+
+.close-chat-icon {
+    color:  rgb(107, 107, 107);
+}
+
+.close-chat-icon:hover {
+    color: rgb(51, 51, 51);
+}
+
+.chat-private-body {
+    position: relative;
+    background-image: url('../../../pictures/chat/backgrounds/chatBackground.jpg');
+    background-size: contain;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    overflow-y: scroll;
+    height: 20rem;
+    bottom: 0;
+    padding: 0;
+}
+
+div.chat-private-body::-webkit-scrollbar {
+    background-image: url('../../../pictures/bgGral.png');
+    width: 1rem;
+}
+
+div.chat-private-body::-webkit-scrollbar-thumb {
+    border-radius: 25px;
+    background-image: url('../../../pictures/chat_profile_bg.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+
+.close-chat-icon {
+    position: relative;
+    left: 7rem;
+}
+
+.private-chat-typing {
+    position: absolute;
+    background-color: darkgrey;
+    align-self: center;
+    text-align: center;
+    font-size: smaller;
+    bottom: 6.5rem;
+    width: auto;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    z-index: 1001;
+}
+
+.private-chat-footer {
+    background-image: url('../../../pictures/bg_pub_board2.jpg');
+    background-position: center;
+    border-radius: 0 0 13px 13px !important;
+}
+
+.chat-private-fetching {
+    position: absolute;
+    background-color: darkgrey; 
+    align-self: center;
+    text-align: center;
+    font-size: smaller;
+    top: 2.5rem;
+    left: 7.5rem;
+    width: auto;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    z-index: 1001;
+}

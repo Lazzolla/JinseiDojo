@@ -1,0 +1,189 @@
+.rank {
+  background-image: url('../../pictures/backgrounds/rankBackground.png');
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.rank-belts {
+  position: absolute;
+  z-index: 11;
+}
+
+.rank-tab-videos {
+  position: absolute;
+  top: 1rem;
+  height: 90vh;
+}
+
+.rank-tab-exam {
+  position: absolute;
+  top: 1rem;
+  height: 90vh;
+}
+
+.rank-carousel-video {
+  position: relative;
+  top: 20rem;
+}
+
+.rank-button-tab-videos {
+  position: absolute;
+  top: 10rem;
+  left: 85rem;
+  width: 25rem;
+  height: 2rem;
+  z-index: 12;
+}
+
+.rank-button-tab-exam {
+  position: absolute;
+  top: 13rem;
+  left: 85rem;
+  width: 25rem;
+  height: 2rem;
+  z-index: 12;
+}
+
+.rank-button-tab-glosary {
+  position: absolute;
+  top: 16rem;
+  left: 85rem;
+  width: 25rem;
+  height: 2rem;
+  z-index: 12;
+}
+
+@media (max-width: 1820px) {}
+
+@media (max-width: 1681px) {
+  .rank-tab-videos {
+    left: -3rem;
+    transform: scale(.9);
+  }
+  .rank-tab-exam {
+    transform: scale(.8);
+    left: -8rem;
+  }
+  .rank-tab-glossary {
+    position: absolute;
+    top: 3rem;
+    left: -7.5rem;
+    transform: scale(.8);
+  }
+  .rank-button-tab-videos {
+    left: 75rem;
+  }
+  .rank-button-tab-exam {
+    left: 75rem;
+  }
+  .rank-button-tab-glosary {
+    left: 75rem;
+  }
+}
+
+@media (max-width: 1446px) {
+  .rank-belts {
+    top: -1rem;
+    right: 4rem;
+  }
+  .rank-tab-videos {
+    left: -6rem;
+    transform: scale(.8);
+  }
+  .rank-tab-exam {
+    transform: scale(.75);
+    top: 2rem;
+    left: -11rem;
+  }
+  .rank-tab-glossary {
+    position: absolute;
+    top: 1rem;
+    left: -11rem;
+    transform: scale(.7);
+  }
+  .rank-button-tab-videos {
+    transform: scale(.9);
+    left: 64rem;
+  }
+  .rank-button-tab-exam {
+    transform: scale(.9);
+    left: 64rem;
+  }
+  .rank-button-tab-glosary {
+    transform: scale(.9);
+    left: 64rem;
+  }
+}
+
+@media (max-width: 1370px) {
+  .rank-belts {
+    transform: scale(.8);
+    top: -2.6rem;
+    right: 39rem;
+  }
+  .rank-tab-videos {
+    top: -5rem;
+    left: -12rem;
+    transform: scale(.7);
+  }
+  .rank-tab-exam {
+    transform: scale(.63);
+    top: -3rem;
+    left: -14rem;
+  }
+  .rank-tab-glossary {
+    position: absolute;
+    top: -4rem;
+    left: -12rem;
+    transform: scale(.62);
+  }
+  .rank-button-tab-videos {
+    transform: scale(.75);
+    left: 58rem;
+  }
+  .rank-button-tab-exam {
+    transform: scale(.75);
+    left: 58rem;
+  }
+  .rank-button-tab-glosary {
+    transform: scale(.75);
+    left: 58rem;
+  }
+}
+
+@media (max-width: 1280px) {
+  .rank-belts {
+    transform: scale(.85);
+    top: -2.8rem;
+    right: 32.6rem;
+  }
+  .rank-tab-videos {
+    top: -2rem;
+    left: -12.5rem;
+    transform: scale(.7);
+  }
+  .rank-tab-exam {
+    transform: scale(.6);
+    top: -2rem;
+    left: -14.5rem;
+  }
+  .rank-tab-glossary {
+    position: absolute;
+    top: -3rem;
+    left: -14.5rem;
+    transform: scale(.6);
+  }
+  .rank-button-tab-videos {
+    transform: scale(.7);
+    left: 55rem;
+  }
+  .rank-button-tab-exam {
+    transform: scale(.7);
+    left: 55rem;
+  }
+  .rank-button-tab-glosary {
+    transform: scale(.7);
+    left: 55rem;
+  }
+}

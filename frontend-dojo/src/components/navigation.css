@@ -1,0 +1,155 @@
+
+.navigation-wrapper {
+    border-bottom: 2px solid rgb(93, 93, 93);
+    box-shadow:
+    0 3.3px 2.1px -12px rgba(0, 0, 0, 0.132),
+    0 6.2px 4.6px -12px rgba(0, 0, 0, 0.173),
+    0 8.9px 7.6px -12px rgba(0, 0, 0, 0.199),
+    0 11.3px 11.6px -12px rgba(0, 0, 0, 0.215),
+    0 13.5px 16.7px -12px rgba(0, 0, 0, 0.226),
+    0 15.7px 23.6px -12px rgba(0, 0, 0, 0.231),
+    0 18.1px 33.4px -12px rgba(0, 0, 0, 0.23),
+    0 21.2px 48.5px -12px rgba(0, 0, 0, 0.224),
+    0 26.8px 74.8px -12px rgba(0, 0, 0, 0.208),
+    0 42px 133px -12px rgba(0, 0, 0, 0.15)
+  ; 
+  height: 50px;
+  
+}
+
+.navigation-wrapper::before {
+    background-image: url('../pictures/backgrounds/instructorBackground.png'); 
+    content: "";
+    position: absolute;
+    top: 0;
+     left: 0;
+    width: 100%;
+     height: 100%;
+    filter: blur(2px) brightness(100%); 
+  
+    
+} 
+
+.navigation-brand {
+    position: absolute;
+    font-size: 22px !important;
+}
+
+.navigation-currentLocation {
+    position: absolute;
+    display: inline-block;
+    left: 34rem;
+    width: 50rem;
+    text-align: center;
+    font-size: 30px !important;
+    font-weight: 600;
+    letter-spacing: 20px;
+    filter: drop-shadow(3px 3px 3px #363636);
+    color: rgb(100, 86, 86) !important;
+}
+
+.navigation-homeNav {
+    position: relative;
+}
+
+.navigation-WhatIsAikido {
+    color: black !important;
+
+}
+
+.navigation-WhatIsAikido:hover {
+    filter: drop-shadow(2px 2px 2px rgb(93, 93, 93));
+}
+
+.navigation-schedule {
+    color: black !important;
+}
+
+.navigation-schedule:hover {
+    filter: drop-shadow(2px 2px 2px rgb(93, 93, 93));
+}
+
+.navigation-contactUs {
+    color: black !important;
+}
+
+.navigation-contactUs:hover {
+    filter: drop-shadow(2px 2px 2px rgb(93, 93, 93));
+}
+
+.navigation-blog {
+    color: black !important;
+}
+
+.navigation-blog:hover {
+    filter: drop-shadow(2px 2px 2px rgb(93, 93, 93));
+}
+
+.navigation-nickname {
+    color: black !important;
+}
+
+
+.dropdown-toggle {
+    color: black !important;
+}
+
+.navigation-signup {
+    color: black !important;
+}
+
+.navigation-signup:hover {
+    filter: drop-shadow(2px 2px 2px rgb(93, 93, 93));
+}
+
+.navigation-login {
+    color: black !important;
+}
+
+.navigation-login:hover {
+    filter: drop-shadow(2px 2px 2px rgb(93, 93, 93));
+}
+
+.navigation-logout {
+    background-image: url('../pictures/backgrounds/logoutBackground.png');
+    background-size: contain;
+    border-radius: 14px;
+    height: 41rem;
+    opacity: 1;
+}
+
+.navigation-logout .modal-header {
+    display: none;
+}
+
+.navigation-logout .modal-content {
+    display: none;
+}
+
+.navigation-blog .modal-body {
+    display: none;
+}
+
+
+@media (max-width: 1820px) {
+
+}
+@media (max-width: 1681px) {
+    .navigation-currentLocation {
+        left: 15rem;
+        font-size: 1.5625rem !important;
+    }
+}
+@media (max-width: 1446px) {
+    .navigation-currentLocation {
+        left: 5rem;
+        font-size: 15px !important;
+    }
+}
+@media (max-width: 1290px) {
+    .navigation-currentLocation {
+        left: 1rem;
+        font-size: 15px !important;
+        letter-spacing: 15px;
+    }
+}

@@ -1,0 +1,581 @@
+.bg {
+    background-image: url("../../pictures/backgrounds/profileBackground.png");
+    height: 100vh;
+}
+
+.profile-container {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+}
+
+.profile-card {
+    position: absolute;
+    border-radius: 14px;
+    top: 6rem;
+    left: 24rem;
+    width: 69.4rem;
+    height: 50rem;
+}
+
+.profile-info-privacy {
+    position: absolute;
+    border-radius: 14px;
+    width: 69.4em;
+    height: 50rem;
+    top: 6rem;
+    left: 24rem;
+    background-color: rgba(0, 0, 0, 50%);
+    z-index: 0;
+    opacity: 0;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
+.profile-icon-privacy {
+    position: absolute;
+    color: rgb(153, 15, 15);
+    top: 7rem;
+    left: 90rem;
+    z-index: 20;
+}
+
+.profile-icon-privacy:hover+.profile-info-privacy {
+    opacity: 1;
+    z-index: 10;
+}
+
+.profile-privacy-picture {
+    position: absolute;
+    top: 6rem;
+    left: 5.5rem;
+    font-size: 30px;
+    color: rgb(153, 15, 15);
+    z-index: 1;
+}
+
+.profile-privacy-nickname {
+    position: absolute;
+    top: 2.5rem;
+    left: 33rem;
+    font-size: 20px;
+    color: rgb(153, 15, 15);
+}
+
+.profile-privacy-name {
+    position: absolute;
+    top: 6.5rem;
+    left: 19rem;
+    font-size: 20px;
+    color: rgb(153, 15, 15);
+}
+
+.profile-privacy-lastName {
+    position: absolute;
+    top: 6.5rem;
+    left: 40rem;
+    font-size: 20px;
+    color: rgb(153, 15, 15);
+}
+
+.profile-privacy-mail {
+    position: absolute;
+    top: 13.5rem;
+    left: 10rem;
+    font-size: 20px;
+    color: rgb(153, 15, 15);
+}
+
+.profile-privacy-birhDate {
+    position: absolute;
+    top: 18.5rem;
+    left: 8rem;
+    font-size: 20px;
+    color: rgb(153, 15, 15);
+}
+
+.profile-privacy-initialDate {
+    position: absolute;
+    top: 18.5rem;
+    left: 48rem;
+    font-size: 20px;
+    color: rgb(153, 15, 15);
+}
+
+.profile-privacy-instructor {
+    position: absolute;
+    top: 26rem;
+    left: 10rem;
+    font-size: 20px;
+    color: rgb(153, 15, 15);
+}
+
+.profile-privacy-dojo {
+    position: absolute;
+    top: 26.5rem;
+    left: 29rem;
+    font-size: 20px;
+    color: rgb(153, 15, 15);
+    z-index: 1;
+}
+
+.profile-privacy-rank {
+    position: absolute;
+    top: 26rem;
+    left: 50rem;
+    font-size: 20px;
+    color: rgb(153, 15, 15);
+}
+
+.profile-privacy-aboutMe {
+    position: absolute;
+    top: 33rem;
+    left: 10rem;
+    font-size: 20px;
+    color: rgb(153, 15, 15);
+}
+
+.profile-privacy-cellphone {
+    position: absolute;
+    top: 33rem;
+    left: 48rem;
+    font-size: 20px;
+    color: rgb(153, 15, 15);
+}
+
+.profile-picture {
+    position: absolute;
+    top: 1rem;
+    left: 2rem;
+    height: 13rem;
+    width: 13rem;
+}
+
+.profile-icon-img {
+    position: absolute;
+    top: 8rem;
+    left: 9.5rem;
+}
+
+div.profile-icon-img.card-img-overlay {
+    width: 4rem;
+    height: 4rem;
+}
+
+.profile-img-validText {
+    position: relative;
+    text-align: center;
+    top: -4rem;
+    right: 8.4rem;
+    width: 12rem;
+    color: rgb(233, 222, 222);
+}
+
+.profile-picture-div .profile-picture {
+    transition: .5s;
+}
+
+.profile-picture-div {
+    margin-left: 7.5rem;
+    margin-top: 6.5rem;
+}
+
+.profile-picture-div :not(.profile-picture) {
+    opacity: 0;
+    transition: .2s;
+}
+
+.profile-picture-div:hover .profile-picture {
+    filter: blur(3px) brightness(80%);
+}
+
+.profile-picture-div:hover :not(.profile-picture) {
+    opacity: 1;
+}
+
+.profile-kanjis {
+    transition: ease-in 500ms;
+    position: absolute;
+    width: 9rem;
+    height: auto;
+    top: 7.5rem;
+    left: 30.2rem;
+}
+
+.profile-kanjis:hover {
+    transition: ease-in 500ms;
+    filter: drop-shadow(10px 10px 4px #000000);
+}
+
+.profile-edit-icon {
+    position: absolute;
+    top: 4.6rem;
+    left: 45rem;
+    font-size: 20px;
+}
+
+.profile-edit-pending {
+    position: absolute;
+    display: inline-block;
+    width: 30rem;
+    top: -4rem;
+    left: -25.5rem;
+    font-size: 25px;
+}
+
+.nickname-profile {
+    display: inline-block;
+    position: absolute;
+    border: none;
+    top: 4rem;
+    left: 25rem;
+    width: 19rem;
+    font-size: 40px;
+    opacity: 1;
+    transition: opacity 1s;
+}
+
+.nickname-profile-close {
+    display: inline-block;
+    position: absolute;
+    border: none;
+    top: 4rem;
+    left: 25rem;
+    width: 19rem;
+    font-size: 40px;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.name-profile {
+    display: inline-block;
+    position: absolute;
+    border: none;
+    top: 8rem;
+    left: 17rem;
+    width: 15rem;
+    font-size: 30px;
+    opacity: 1;
+    transition: opacity 1s;
+}
+
+.name-profile-close {
+    display: inline-block;
+    position: absolute;
+    border: none;
+    top: 8rem;
+    left: 17rem;
+    width: 15rem;
+    font-size: 30px;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.lastName-profile {
+    display: inline-block;
+    position: absolute;
+    border: none;
+    top: 8rem;
+    left: 39rem;
+    width: 13rem;
+    font-size: 30px;
+    opacity: 1;
+    transition: opacity 1s;
+}
+
+.lastName-profile-close {
+    display: inline-block;
+    position: absolute;
+    border: none;
+    top: 8rem;
+    left: 39rem;
+    width: 13rem;
+    font-size: 30px;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.mail-profile {
+    display: inline-block;
+    position: absolute;
+    border: none;
+    top: 15rem;
+    left: 4rem;
+    width: 24rem;
+    font-size: 25px;
+    opacity: 1;
+    transition: opacity 1s;
+}
+
+.mail-profile-close {
+    display: inline-block;
+    position: absolute;
+    border: none;
+    top: 15rem;
+    left: 4rem;
+    width: 24rem;
+    font-size: 25px;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.profile-password {
+    position: absolute;
+    top: 15rem;
+    left: 50rem;
+    font-size: 25px;
+}
+
+.profile-birthday-title {
+    position: absolute;
+    top: 20rem;
+    left: 8.5rem;
+    font-size: 25px;
+}
+
+.profile-birthday {
+    position: absolute;
+    top: 23rem;
+    left: 11.5rem;
+    font-size: 25px;
+    opacity: 1;
+    transition: opacity 1s;
+}
+
+.profile-birthday-close {
+    position: absolute;
+    top: 23rem;
+    left: 11.5rem;
+    font-size: 25px;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.profile-initialDate-title {
+    position: absolute;
+    top: 20rem;
+    left: 47rem;
+    font-size: 25px;
+}
+
+.profile-initialDate {
+    position: absolute;
+    top: 23rem;
+    left: 52.5rem;
+    font-size: 25px;
+    opacity: 1;
+    transition: opacity 1s;
+}
+
+.profile-initialDate-close {
+    position: absolute;
+    top: 23rem;
+    left: 52.5rem;
+    font-size: 25px;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.profile-instructor-title {
+    position: absolute;
+    top: 27.5rem;
+    left: 12.5rem;
+    font-size: 25px;
+}
+
+.profile-instructor {
+    position: absolute;
+    top: 30.5rem;
+    left: 8.5rem;
+    width: 15rem;
+    font-size: 25px;
+    opacity: 1;
+    transition: opacity 1s;
+}
+
+.profile-instructor-close {
+    position: absolute;
+    top: 30.5rem;
+    left: 8.5rem;
+    width: 15rem;
+    font-size: 25px;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.profile-dojo-title {
+    position: absolute;
+    top: 27.5rem;
+    left: 33rem;
+    font-size: 25px;
+}
+
+.profile-dojo {
+    position: absolute;
+    top: 30.5rem;
+    left: 28rem;
+    width: 13rem;
+    font-size: 25px;
+    opacity: 1;
+    transition: opacity 1s;
+}
+
+.profile-dojo-close {
+    position: absolute;
+    top: 30.5rem;
+    left: 28rem;
+    width: 13rem;
+    font-size: 25px;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.profile-rank-title {
+    position: absolute;
+    top: 27.5rem;
+    left: 52rem;
+    font-size: 25px;
+}
+
+.profile-rank {
+    position: absolute;
+    top: 30.5rem;
+    left: 46.5rem;
+    width: 20rem;
+    font-size: 25px;
+    opacity: 1;
+    transition: opacity 1s;
+}
+
+.profile-rank-close {
+    position: absolute;
+    top: 30.5rem;
+    left: 46.5rem;
+    width: 20rem;
+    font-size: 25px;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.profile-cellphone-title {
+    position: absolute;
+    top: 34.5rem;
+    left: 53.5rem;
+    font-size: 25px;
+}
+
+.profile-cellphone {
+    position: absolute;
+    display: inline-block;
+    top: 37.5rem;
+    left: 51rem;
+    width: 10rem;
+    font-size: 20px;
+    opacity: 1;
+    transition: opacity 1s;
+}
+
+.profile-cellphone-close {
+    position: absolute;
+    display: inline-block;
+    top: 37.5rem;
+    left: 51rem;
+    width: 10rem;
+    font-size: 20px;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.profile-aboutMe-title {
+    position: absolute;
+    top: 34.5rem;
+    left: 12.5rem;
+    font-size: 25px;
+}
+
+.profile-aboutMe {
+    position: absolute;
+    width: 32rem;
+    height: 5rem;
+    top: 37.5rem;
+    left: 2rem;
+    font-size: 15px;
+    opacity: 1;
+    transition: opacity 1s;
+}
+
+.profile-aboutMe-close {
+    position: absolute;
+    width: 30rem;
+    height: 5rem;
+    top: 37.5rem;
+    left: 2rem;
+    font-size: 15px;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.profile_edit::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: rgb(185, 10, 10);
+    transform-origin: bottom center;
+    transition: transform 0.25s ease-out;
+}
+
+.profile_edit:hover:before {
+    transform: scaleX(1);
+    transform-origin: bottom center;
+}
+
+.profile-edition-show {
+    transition: opacity 1s;
+    opacity: 1;
+}
+
+.profile-edition-close {
+    transition: opacity 1s;
+    opacity: 0;
+}
+
+
+
+@media (max-width: 1820px) {}
+
+@media (max-width: 1681px) {
+    .profile-container {
+        transform: scale(.9);
+        top: 2rem;
+        left: -2rem;
+    }
+}
+
+@media (max-width: 1446px) {
+    .profile-container {
+        transform: scale(.85);
+        top: 2rem;
+        left: 2rem;
+    }
+}
+@media (max-width: 1370px) {
+    .profile-container {
+        transform: scale(.65);
+        top: 1rem;
+        left: 2rem;
+    }
+}
+
+@media (max-width: 1290px) {
+    .profile-container {
+        transform: scale(.65);
+        top: 2rem;
+        left: -5rem;
+    }
+}

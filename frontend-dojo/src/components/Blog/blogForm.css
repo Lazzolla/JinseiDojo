@@ -1,0 +1,107 @@
+.blogForm-container {
+    position: absolute;
+    left: 1rem;
+    direction: rtl;
+    overflow: auto;
+    width: 55rem;
+    height: 51rem;
+
+}
+
+.blogForm-row {
+    position: relative;
+    direction: ltr;
+    right: 13rem;
+    width: 40rem;
+    height: 52rem;
+    z-index: 15;
+}
+
+div.blogForm-container::-webkit-scrollbar {
+    background-image: url('../../pictures/bgGral.png');
+    border-radius: 25px;
+    width: 1rem;
+}
+
+div.blogForm-container::-webkit-scrollbar-thumb {
+    border-radius: 25px;
+    background-image: url('../../pictures/chat_profile_bg.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.blogForm-card-filters {
+    position: absolute;
+    border-radius: 14px;
+    top: 5rem;
+    left: 44rem;
+    width: 15rem;
+    height: 13rem;
+}
+
+
+.blogForm-form-search-title {
+    position: relative;
+    display: inline-block;
+    width: 15rem;
+}
+
+.blogForm-form-h3-title {
+    position: relative;
+    display: inline-block;
+    margin-top: 1rem;
+    margin-right: .5rem;
+    margin-left: 1rem;
+    font-size: 20px;
+    filter: drop-shadow(10px 10px 3px rgb(61, 61, 61));
+
+}
+
+.blogForm-form-input-title {
+    display: inline-block;
+    position: relative;
+    width: 9rem;
+}
+
+.blogForm-filters-timeFilter {
+    position: absolute;
+    top: 4rem;
+    width: 15rem;
+    height: 10rem;
+}
+
+.blogForm-filters-recents {
+    position: absolute;
+    transform: translateY(6rem);
+    transition-duration: 400ms;
+    transition-timing-function: ease-out;
+    left: 4rem;
+    font-size: 20px;
+    filter: drop-shadow(10px 10px 3px rgb(61, 61, 61));
+}
+
+.blogForm-filters-olders {
+    position: absolute;
+    transform: translateY();
+    transition-duration: 400ms;
+    transition-timing-function: ease-out;
+    left: 4rem;
+    font-size: 20px;
+    filter: drop-shadow(10px 10px 3px rgb(61, 61, 61));
+}
+
+.blogForm-filters-icon {
+    position: absolute;
+    top: 2rem;
+    left: 6.3rem;
+    font-size: 20px;
+    transition-duration: 100ms;
+    color: rgb(179, 172, 172);
+    filter: drop-shadow(10px 10px 3px rgb(61, 61, 61));
+}
+
+.blogForm-filters-icon:active {
+    transform: translateY(2px);
+    transition-duration: 100ms;
+    filter: drop-shadow(2px 2px 1px rgb(32, 32, 32));
+}

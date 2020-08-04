@@ -1,0 +1,79 @@
+.notifications-main {
+    position: relative;
+    width: 7rem;
+    bottom: .2rem;
+    right: 1rem;
+}
+
+.notifications-main .dropdown-toggle {
+    width: 7rem;
+    height: 1.5rem;
+    border-radius: 14px;
+    padding: 0;
+    color: white !important;
+}
+
+.notifications-main .dropdown-menu {
+    background-image: url('../../../pictures/bgGral.png');
+    border-radius: 7px;
+    border: 1px solid rgb(165, 164, 164);
+    padding: 0;
+    box-shadow: 0 2.8px 1.9px rgba(0, 0, 0, 0.07), 0 6.7px 4.5px rgba(0, 0, 0, 0.103), 0 12.5px 8.4px rgba(0, 0, 0, 0.108), 0 22.3px 15px rgba(0, 0, 0, 0.105), 0 41.8px 28px rgba(0, 0, 0, 0.096), 0 100px 67px rgba(0, 0, 0, 0.075);
+}
+
+.notifications-item-first {
+    width: 13.5rem;
+    height: 2.5rem;
+    padding: 0;
+}
+
+.notifications-item-first:hover {
+    border-top-right-radius: 7px;
+    border-top-left-radius: 7px;
+}
+
+.notifications-item-middle {
+    width: 13.5rem;
+    height: 2.5rem;
+    padding: 0;
+}
+
+.notifications-item-last {
+    width: 13.5rem;
+    height: 2.5rem;
+    padding: 0;
+}
+
+.notifications-item-last:hover {
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+}
+
+.notifications-image-container {
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+}
+
+.notifications-image {
+    position: absolute;
+    width: 2.4rem;
+    height: 2.4rem;
+    left: 0.2rem;
+}
+
+.notifications-nickname {
+    display: inline-block;
+    position: relative;
+    margin-top: .25rem;
+    left: 3rem;
+    width: 9rem;
+    overflow: hidden;
+    color: black;
+}
+
+.notifications-badge {
+    position: absolute;
+    margin-top: .5rem;
+    right: .2rem;
+}

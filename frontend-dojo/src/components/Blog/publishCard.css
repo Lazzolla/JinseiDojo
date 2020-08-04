@@ -1,0 +1,108 @@
+.publishCard-card {
+    display: inline-block;
+    position: relative;
+    border: 1px solid rgb(179, 172, 172);
+    border-radius: 14px;
+    width: 18rem;
+    height: 9rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 1.4px 0.5px rgba(0, 0, 0, 0.118), 0 1.3px 1.1px rgba(0, 0, 0, 0.158), 0 1px 2.1px rgba(0, 0, 0, 0.178), 0 0.7px 3.8px rgba(0, 0, 0, 0.185), 0 0.6px 7.1px rgba(0, 0, 0, 0.177), 0 2px 17px rgba(0, 0, 0, 0.12);
+}
+
+.publishCard-body {
+    position: relative;
+    border-radius: 14px;
+    background-image: url("../../pictures/SVwriG.png");
+    background-size: cover;
+    height: 8.85rem;
+    opacity: .8;
+}
+.publishCard-body:hover {
+    opacity: 1;
+}
+
+.publishCard-title {
+    position: absolute;
+    top: .5rem;
+    left: 7rem;
+    width: 10rem;
+}
+
+.publishCard-trashIcon {
+    position: absolute;
+    top: .5rem;
+}
+
+.publishCard-img {
+    position: absolute;
+    top: .5rem;
+    left: .5rem;
+    width: 3.4rem;
+    height: 3.4rem;
+}
+
+.publishCard-card-footer {
+    position: absolute;
+    width: 17.9rem;
+    top: 6rem;
+    left: 0;
+    border-top: 1px solid rgb(218, 39, 39);
+}
+
+.publishCard-show {
+    position: absolute;
+    top: 4.3rem;
+    left: 9rem;
+}
+
+.publishCard-user {
+    position: absolute;
+    top: 4.1rem;
+    font-size: 20px;
+    width: 7.5rem;
+}
+
+.publishCard-user:hover {
+    filter: drop-shadow(3px 3px 2px rgb(179, 172, 172));
+}
+
+.publishCard-card-timeAgo {
+    display: inline-block;
+    position: absolute;
+    top: .5rem;
+    left: 7rem;
+    width: 10rem;
+}
+
+.publishCard-custom-dialog {
+    max-width: 45% !important;
+    margin: auto;
+}
+
+.publishCard-comment-input {
+    position: relative;
+    width: 47.4rem;
+    left: -1rem;
+}
+
+
+@media (max-width: 1820px) {}
+
+@media (max-width: 1681px) {
+
+}
+@media (max-width: 1446px) {
+   .pubBoard-modalUser {
+       top: 2rem;
+       left: 20rem;
+   }
+}
+@media (max-width: 1370px) {
+
+}
+@media (max-width: 1290px) {
+    .pubBoard-modalUser {
+        left: 14rem;
+    }
+}

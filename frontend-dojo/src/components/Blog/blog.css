@@ -1,0 +1,200 @@
+.bg-blog {
+    background-image: url('../../pictures/backgrounds/blogBackground.png');
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.blog-card {
+    position: absolute;
+    top: 7rem;
+    left: 22rem;
+    width: 67rem;
+    height: 43rem;
+}
+
+.blog-card-filters {
+    position: absolute;
+    border-radius: 14px;
+    top: 15rem;
+    left: 1.2rem;
+    width: 18rem;
+    height: 20rem;
+}
+
+.blog-form-search-author {
+    position: relative;
+    width: 22rem;
+}
+
+.blog-form-h3-author {
+    position: relative;
+    display: inline-block;
+    margin-top: 1rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    font-size: 20px;
+    filter: drop-shadow(10px 10px 3px rgb(61, 61, 61));
+}
+
+.blog-form-input-author {
+    display: inline-block;
+    position: relative;
+    width: 11rem;
+}
+
+.blog-form-search-title {
+    position: relative;
+    width: 22rem;
+}
+
+.blog-form-h3-title {
+    position: relative;
+    display: inline-block;
+    margin-top: 1rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    font-size: 20px;
+    filter: drop-shadow(10px 10px 3px rgb(61, 61, 61));
+}
+
+.blog-form-input-title {
+    display: inline-block;
+    position: relative;
+    width: 11rem;
+}
+
+.blog-filters-timeFilter {
+    position: absolute;
+    top: 8rem;
+    left: 1.5rem;
+    width: 15rem;
+    height: 10rem;
+}
+
+.blog-filters-recents {
+    position: absolute;
+    transform: translateY(6rem);
+    transition-duration: 400ms;
+    transition-timing-function: ease-out;
+    left: 4rem;
+    font-size: 20px;
+    filter: drop-shadow(10px 10px 3px rgb(61, 61, 61));
+}
+
+.blog-filters-olders {
+    position: absolute;
+    transform: translateY();
+    transition-duration: 400ms;
+    transition-timing-function: ease-out;
+    left: 4rem;
+    font-size: 20px;
+    filter: drop-shadow(10px 10px 3px rgb(61, 61, 61));
+}
+
+.blog-filters-icon {
+    position: absolute;
+    top: 2rem;
+    left: 6.3rem;
+    font-size: 20px;
+    transition-duration: 100ms;
+    color: rgb(179, 172, 172);
+    filter: drop-shadow(10px 10px 3px rgb(61, 61, 61));
+}
+
+.blog-filters-icon:active {
+    transform: translateY(2px);
+    transition-duration: 100ms;
+    filter: drop-shadow(2px 2px 1px rgb(32, 32, 32));
+}
+
+.blog-title-gral {
+    position: absolute;
+    top: .5rem;
+    left: 17rem;
+    filter: drop-shadow(3px 3px 5px rgb(139, 137, 137));
+}
+
+.blog-subtitle-gral {
+    position: absolute;
+    color: rgb(128, 128, 128);
+    top: 4rem;
+    left: 10.5rem;
+    filter: drop-shadow(3px 3px 5px rgb(128, 128, 128));
+}
+
+.blog-subtitle-gral:hover {
+   color: rgb(148, 148, 148);
+}
+
+.blog-subtitle-gral:active {
+    transform: translateY(2px);
+    filter: drop-shadow(1px 1px 1px rgb(73, 73, 73));
+}
+
+.blog-container {
+    position: absolute;
+    border: 1px solid rgb(153, 153, 153);
+    border-radius: 10px;
+    overflow: auto;
+    padding-top: .5rem;
+    padding-left: 1rem;
+    top: 7rem;
+    width: 59.2rem;
+    height: 41.5rem;
+}
+
+div.blog-container::-webkit-scrollbar {
+    background-image: url('../../pictures/bgGral.png');
+    border-radius: 25px;
+    width: 1rem;
+}
+
+div.blog-container::-webkit-scrollbar-thumb {
+    border-radius: 25px;
+    background-image: url('../../pictures/chat_profile_bg.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+@media (max-width: 1446px) {
+
+    .blog-card {
+        top: 2rem;
+        left: 15rem;
+    transform: scale(.9);
+    }
+
+    .blog-card-filters {
+        top: 10rem;
+        left: 0;
+  transform: scale(.9);
+    }
+}
+
+@media (max-width: 1370px) {
+    .blog-card {
+        top: -2rem;
+        left: 12rem;
+    transform: scale(.75);
+    }
+
+    .blog-card-filters {
+        top: 8rem;
+        left: 0;
+  transform: scale(.75);
+    }
+}
+
+@media (max-width: 1290px) {
+    .blog-card {
+        top: -2rem;
+        left: 10rem;
+    transform: scale(.75);
+    }
+
+    .blog-card-filters {
+        top: 7rem;
+        left: 0;
+  transform: scale(.75);
+    }
+}

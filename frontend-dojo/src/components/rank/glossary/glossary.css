@@ -1,0 +1,253 @@
+.glossary-card {
+    position: relative;
+    background-image: url('../../../pictures/backgrounds/bgGral.jpg');
+    background-size: cover;
+    border-radius: 14px;
+    top: 13rem;
+    left: .5rem;
+    width: 67em;
+    height: 43rem;
+    box-shadow: 0 -39.6px 1.2px rgba(0, 0, 0, -0.043), 0 -37.3px 2.7px rgba(0, 0, 0, -0.064), 0 -27.5px 4.5px rgba(0, 0, 0, -0.068), 0 -13.5px 6.9px rgba(0, 0, 0, -0.058), 0 3.6px 9.9px rgba(0, 0, 0, -0.035), 0 23.3px 14px rgba(0, 0, 0, -0.002), 0 45.6px 19.9px rgba(0, 0, 0, 0.043), 0 70.9px 28.8px rgba(0, 0, 0, 0.099), 0 100.8px 44.4px rgba(0, 0, 0, 0.169), 0 153px 79px rgba(0, 0, 0, 0.28);
+    font-size: 20px;
+    z-index: 10;
+}
+
+.glossary-table {
+    position: absolute;
+    top: 5rem;
+    left: 12rem;
+    width: 70rem;
+    height: 40rem;
+    z-index: 10;
+}
+
+.glosary-table-body {
+    display: block;
+    overflow: auto;
+    height: 33rem;
+}
+
+tbody.glosary-table-body::-webkit-scrollbar {
+    background-image: url('../../../pictures/bgGral.png');
+    border-radius: 25px;
+    width: 1rem;
+
+}
+
+tbody.glosary-table-body::-webkit-scrollbar-thumb {
+    border-radius: 25px;
+    height: 2rem;
+    background-image: url('../../../pictures/chat_profile_bg.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.glossary-table-th {
+    display: inline-block;
+    background: transparent;
+    position: sticky;
+    margin-right: 10.5rem;
+    top: 0;
+}
+
+.glossary-form-search {
+    position: absolute;
+    top: 14.5rem;
+    left: 30rem;
+    z-index: 12 ;
+}
+
+.glossary-form-row {
+    position: absolute;
+    width: 70rem;
+}
+
+.glossary-form-colH3 {
+    text-align: right;
+}
+
+.glossary-button-attacks {
+    position: absolute;
+    bottom: 15rem;
+    right: 46rem;
+    width: 8rem;
+}
+
+.glossary-button-technique {
+    position: absolute;
+    bottom: 12rem;
+    right: 46rem;
+    width: 8rem;
+}
+.glossary-button-exercise {
+    position: absolute;
+    bottom: 9rem;
+    right: 46rem;
+    width: 8rem;
+}
+.glossary-button-weapons {
+    position: absolute;
+    bottom: 6rem;
+    right: 46rem;
+    width: 8rem;
+}
+        
+.glossary-button-numbers {
+    position: absolute;
+    bottom: 3rem;
+    right: 46rem;
+    width: 8rem;
+}
+
+.glossary-button-everything {
+    position: absolute;
+    bottom: 0rem;
+    right: 46rem;
+    width: 8rem;
+}
+
+
+
+
+
+
+
+
+
+
+/* .instructorVideos_form {
+    position: absolute;
+    width: 15rem;
+    height: 22.5rem;
+}
+
+.instructorVideos_selectBelt {
+    position: relative;
+    border-radius: 14px;
+    border: 2px solid #817878;
+    bottom: .1rem;
+    left: 1rem;
+    width: 15rem;
+    height: 23rem !important;
+}
+
+.instructorVideos_selectBelt::-webkit-scrollbar {
+    display: none;
+}
+
+.instructorVideos_divTable {
+    position: absolute;
+    border-radius: 14px;
+    border: 2px solid #817878;
+    bottom: 2.5rem;
+    left: 19rem;
+    width: 61rem;
+    height: 20rem;
+}
+
+div.instructorVideos_divTable::-webkit-scrollbar {
+    width: 1rem;
+    border-radius: 14px;
+    background-image: url('../../../pictures/bgGral.png');
+}
+
+div.instructorVideos_divTable::-webkit-scrollbar-thumb {
+    border-radius: 14px;
+    background-image: url('../../../pictures/chat_profile_bg.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.instructorVideos_formCol {
+    position: relative;
+    padding: 0;
+    margin-bottom: .3rem;
+}
+
+.instructorVideos_formTitle {
+    position: relative;
+    width: 27rem;
+}
+
+.instructorVideos_formUrl {
+    position: relative;
+    width: 27rem;
+}
+
+.instructorVideos_videosTitle {
+    position: absolute;
+    top: 24rem;
+    left: 30rem;
+}
+
+.instructorVideos_carousel {
+    position: absolute;
+    top: 28.5rem;
+    right: 3rem;
+}
+
+.instructorVideos_titleForm {
+    position: relative;
+    font-size: 20px;
+}
+
+.videoTable_iconPlus {
+    position: relative;
+    font-size: 20px;
+    right: 1rem;
+}
+
+.videoTable_textPlus {
+    display: inline;
+    font-size: 20px;
+    margin-right: 40rem;
+}
+
+.instructorVideos_removeIcon {
+    width: 2rem;
+    align-items: center;
+    padding: 0 !important;
+}
+
+.instructorVideos_iconRemove {
+    position: relative;
+    font-size: 20px;
+    top: 1rem;
+}
+
+.instructorVideos_iconRemoveDiv {
+    height: 4.25rem;
+}
+
+.instructorVideos_titleCol {
+    width: 29rem;
+}
+
+.instructorVideos_refreshContainer {
+    position: absolute;
+    top: 23rem;
+    left: 20rem;
+}
+
+.instructorVideos_refreshIcon {
+    position: relative;
+    font-size: 60px;
+    color: #817878;
+    filter: drop-shadow(15px 8px 4px #817878);
+}
+
+.instructorVideos_refreshIcon:active {
+    transform: translateY(2px);
+    position: relative;
+    font-size: 60px;
+    color: #817878;
+    filter: drop-shadow(6px 6px 2px #686363);
+}
+
+.instructorVideos-button-save {
+    position: absolute;
+    width: 15rem;
+    top: 24.2rem;
+    left: 59rem;
+    z-index: 100;
+} */

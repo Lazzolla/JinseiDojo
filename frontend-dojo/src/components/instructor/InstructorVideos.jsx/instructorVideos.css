@@ -1,0 +1,163 @@
+
+.instructorVideos-card {
+    position: relative;
+    background-image: url('../../../pictures/backgrounds/bgGral.jpg');
+    background-size: cover;
+    border-radius: 14px;
+    top: 10rem;
+    left: .5rem;
+    width: 67em;
+    height: 46rem;
+    box-shadow:
+    0 -39.6px 1.2px rgba(0, 0, 0, -0.043),
+    0 -37.3px 2.7px rgba(0, 0, 0, -0.064),
+    0 -27.5px 4.5px rgba(0, 0, 0, -0.068),
+    0 -13.5px 6.9px rgba(0, 0, 0, -0.058),
+    0 3.6px 9.9px rgba(0, 0, 0, -0.035),
+    0 23.3px 14px rgba(0, 0, 0, -0.002),
+    0 45.6px 19.9px rgba(0, 0, 0, 0.043),
+    0 70.9px 28.8px rgba(0, 0, 0, 0.099),
+    0 100.8px 44.4px rgba(0, 0, 0, 0.169),
+    0 153px 79px rgba(0, 0, 0, 0.28)
+  ;
+
+  font-size: 20px;
+}
+
+.instructorVideos-form {
+    position: absolute;
+    width: 15rem;
+    height: 22.5rem;
+}
+
+.instructorVideos-selectBelt {
+    position: relative;
+    border-radius: 14px;
+    border: 2px solid #817878;
+    bottom: .1rem;
+    left: 1rem;
+    width: 15rem;
+    height: 23rem !important;
+}
+
+.instructorVideos-selectBelt::-webkit-scrollbar {
+    display: none;
+}
+
+.instructorVideos-divTable {
+    position: absolute;
+    border-radius: 14px;
+    border: 2px solid #817878;
+    bottom: 2.5rem;
+    left: 19rem;
+    width: 61rem;
+    height: 20rem;
+}
+
+div.instructorVideos-divTable::-webkit-scrollbar {
+    width: 1rem;
+    border-radius: 14px;
+    background-image: url('../../../pictures/bgGral.png');    
+}
+
+div.instructorVideos-divTable::-webkit-scrollbar-thumb {
+    border-radius: 14px;
+    background-image: url('../../../pictures/chat_profile_bg.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.instructorVideos-formCol {
+    position: relative;
+    padding: 0;
+    margin-bottom: .3rem;
+}
+
+.instructorVideos-formTitle {
+    position: relative;
+    width: 27rem;
+}
+
+.instructorVideos-formUrl {
+    position: relative;
+    width: 27rem;
+}
+
+.instructorVideos-videosTitle {
+    position: absolute;
+    top: 24rem;
+    left: 30rem;
+}
+
+.instructorVideos-carousel {
+    position: absolute;
+    top: 28.5rem;
+    right: 3rem;
+}
+
+.instructorVideos-titleForm {
+    position: relative;
+    font-size: 20px;
+}
+
+.videoTable-iconPlus {
+    position: relative;
+    font-size: 20px;
+    right: 1rem;
+}
+
+.videoTable-textPlus {
+    display: inline;
+    font-size: 20px;
+    margin-right: 40rem;
+}
+
+.instructorVideos-removeIcon {
+    width: 2rem;
+    align-items: center;
+    padding: 0 !important;
+}
+
+.instructorVideos-iconRemove {
+    position: relative;
+    font-size: 20px;
+    top: 1rem;
+
+}
+
+.instructorVideos-iconRemoveDiv {
+    height: 4.25rem;
+}
+
+.instructorVideos-titleCol {
+    width: 29rem;
+}
+
+.instructorVideos-refreshContainer {
+    position: absolute;
+    top: 23rem;
+    left: 20rem;
+}
+
+.instructorVideos-refreshIcon {
+    position: relative;
+    font-size: 60px;
+    color: #817878;
+    filter: drop-shadow(15px 8px 4px #817878);
+}
+
+.instructorVideos-refreshIcon:active {
+    transform: translateY(2px);
+    position: relative;
+    font-size: 60px;
+    color: #817878;
+    filter: drop-shadow(6px 6px 2px #686363);
+}
+
+.instructorVideos-button-save {
+    position: absolute;
+    width: 15rem;
+    top: 24.2rem;
+    left: 59rem;
+    z-index: 100;
+}

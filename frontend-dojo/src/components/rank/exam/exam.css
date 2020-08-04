@@ -1,0 +1,109 @@
+
+.exam-carousel {
+    position: relative;
+    top: 15.5rem;
+    left: 3rem;
+    width: 80rem;
+    height: 42rem;
+    padding-left: 1rem;
+}
+
+.exam-carousel-item {
+    position: relative;
+    height: 42rem;
+}
+
+.exam-card-userExam {
+    position: relative;
+    width: 35rem;
+    height: 40rem;
+}
+
+.exam-card-exam {
+    position: relative;
+    background-image: url('../../../pictures/backgrounds/bgGralVertical.png');
+    background-size: cover;
+    border-radius: 14px;
+    width: 37rem;
+    height: 40rem;
+    box-shadow:
+    0 -39.6px 1.2px rgba(0, 0, 0, -0.043),
+    0 -37.3px 2.7px rgba(0, 0, 0, -0.064),
+    0 -27.5px 4.5px rgba(0, 0, 0, -0.068),
+    0 -13.5px 6.9px rgba(0, 0, 0, -0.058),
+    0 3.6px 9.9px rgba(0, 0, 0, -0.035),
+    0 23.3px 14px rgba(0, 0, 0, -0.002),
+    0 45.6px 19.9px rgba(0, 0, 0, 0.043),
+    0 70.9px 28.8px rgba(0, 0, 0, 0.099),
+    0 100.8px 44.4px rgba(0, 0, 0, 0.169),
+    0 153px 79px rgba(0, 0, 0, 0.28)
+  ;
+}
+
+.exam-card-body {
+position: relative;
+overflow: auto;
+}
+
+div.exam-card-body::-webkit-scrollbar {
+    background-image: url('../../../pictures/bgGral.png');
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 1rem;
+}
+
+div.exam-card-body::-webkit-scrollbar-thumb {
+    border-radius: 25px;
+    background-image: url('../../../pictures/chat_profile_bg.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.exam-card-print-icon {
+    position: absolute;
+    top: 1rem;
+    left: 33rem;
+    color: rgb(129, 114, 99);
+    z-index: 3001;
+}
+
+.exam-item-row {
+    position: relative;
+    left: 2rem;
+    width: 76.2rem;
+    height: 40rem;
+}
+
+.exam-item-col {
+    position: relative;
+    margin: 0;
+    padding-left: .5rem;
+}
+
+.exam-attacks-img {
+    position: relative;
+    left: 3rem;
+    width: 80%;
+    height: auto;
+}
+
+.exam-horizontal-nextIcon {
+    position: relative;
+    left: .2rem;
+}
+
+.exam-horizontal-prevIcon {
+    position: relative;
+}
+
+.exam-printComponent {
+    visibility: hidden;
+}
+
+.exam-carousel .carousel-control-prev {
+    width: 3rem;
+}
+
+.exam-carousel .carousel-control-next {
+    width: 3rem;
+}

@@ -1,0 +1,84 @@
+.message-gralRoom {
+    position: absolute;
+    color: rgb(165, 164, 164);
+    left: 18.4rem;
+    margin-top: -3.4rem;
+    z-index: 1;
+}
+
+.message-private {
+    position: absolute;
+    color: rgb(165, 164, 164);
+    left: 15.3rem;
+    margin-top: -3.4rem;
+    z-index: 1;
+}
+
+.message-undo-private {
+    position: absolute;
+    border-radius: 5px;
+    background-color: rgb(165, 164, 164);
+    width: 17rem;
+    height: 3.64rem;
+    margin-top: .2rem;
+    opacity: 0;
+    transition: opacity 5s;
+}
+
+/* .messages-undo-notch-private {
+    opacity: 1;
+    transition: opacity 2s;
+    position: relative;
+    left: 8.65rem;
+    bottom: 2.45rem;
+    width: 0;
+    height: 0;
+    border: 0 solid transparent;
+    border-top-width: 11px;
+    border-bottom-width: 11px;
+    border-right: 11px solid rgb(165, 164, 164);
+    transform: rotate(45deg);
+} */
+
+.message-undo-icon-private {
+    position: relative;
+    top: .8rem;
+    left: 7.5rem;
+    font-size: 30px;
+}
+
+.message-undo-gral {
+    position: absolute;
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    background-color: rgb(165, 164, 164);
+    left: 11.16rem;
+    width: 8.79rem;
+    height: 3.64rem;
+    margin-top: .2rem;
+    opacity: 0;
+    transition: opacity 5s;
+}
+
+.messages-undo-notch-gralRoom {
+    opacity: 0;
+    transition: opacity 2s;
+    position: relative;
+    left: 8.6rem;
+    bottom: 2.45rem;
+    width: 0;
+    height: 0;
+    border: 0 solid transparent;
+    border-top-width: 11px;
+    border-bottom-width: 11px;
+    border-right: 11px solid rgb(165, 164, 164);
+    transform: rotate(45deg);
+}
+
+.message-undo-icon-gral {
+    position: relative;
+    top: 1rem;
+    left: 4rem;
+    font-size: 30px;
+}

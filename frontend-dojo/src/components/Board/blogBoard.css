@@ -1,0 +1,26 @@
+
+.blogBoard-title {
+font-size: 3.125rem;
+}
+
+
+@media (max-width: 1820px) {
+
+}
+@media (max-width: 1681px) {
+ 
+}
+@media (max-width: 1370px) {
+    .blogBoard-title {
+       position: relative;
+       left: 8rem;
+        }
+      /* .board-blogCol {
+          left: 15rem;
+      } */
+}
+@media (max-width: 1290px) {
+    .blogBoard-title {
+        font-size: 40px;
+        }
+}

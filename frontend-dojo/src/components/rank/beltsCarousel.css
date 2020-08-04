@@ -1,0 +1,15 @@
+.beltsCarousel-images {
+    position: relative;
+    width: 32rem;
+    height: 20rem;
+    bottom: 5rem;
+    right: .2rem;
+    
+}
+
+.beltsCarousel-image {
+    position: relative;
+    height: 21rem;
+}
+
+

@@ -1,0 +1,45 @@
+.carouselItem-carousel {
+    position: relative;
+    width: 77.5rem;
+    margin-left: 2rem;
+}
+
+.carouselItem-item {
+    position: relative;
+    z-index: 100;
+}
+
+.carouseItem-horizontal-nextIcon {
+    position: absolute;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%233f3c3c' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+    position: relative;
+    filter: drop-shadow(9px 6px 2px #686363);
+    left: 7rem;
+    z-index: 101;
+}
+
+.carouseItem-horizontal-nextIcon:active {
+    position: absolute;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%233f3c3c' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+    position: relative;
+    transform: translateY(2px);
+    filter: drop-shadow(3px 3px 1px #3f3c3c);
+    left: 7rem;
+}
+
+.carouseItem-horizontal-prevIcon {
+    position: absolute;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%233f3c3c' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+    position: relative;
+    filter: drop-shadow(9px 6px 2px #686363);
+    right: 7rem;
+}
+
+.carouseItem-horizontal-prevIcon:active {
+    position: absolute;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%233f3c3c' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+    position: relative;
+    transform: translateY(2px);
+    filter: drop-shadow(3px 3px 1px #3f3c3c);
+    right: 7rem;
+}

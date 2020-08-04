@@ -1,0 +1,331 @@
+.contact-modal-open .modal-content {
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    top: -25rem;
+    right: -88rem;
+    width: 93vw;
+    height: 85vh;
+    transform: scale(1) translate(-43%, 55%);
+    -webkit-transform: scale(1) translate(-43%, 55%);
+    -ms-transform: scale(1) translate(-43%, 55%);
+    transition: transform 1s linear !important;
+    will-change: transform;
+}
+
+.contact-modal-close .modal-content {
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    width: 93vw;
+    height: 85vh;
+    transform: scale(0);
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    top: -25rem;
+    right: -88rem;
+    transition: 1s linear !important;
+    will-change: transform;
+}
+
+.contact-modal-body {
+    padding: 0 !important;
+}
+
+.contact-text {
+    position: absolute;
+    z-index: 10;
+    bottom: 15rem;
+}
+
+.modal-backdrop #root {
+    opacity: 0 !important;
+    filter: blur(6px) brightness(60%) !important;
+}
+
+.contact-marquee-bottom {
+    position: absolute;
+    width: 100%;
+    height: 15rem;
+    bottom: 0;
+    border-bottom-left-radius: 14px;
+    border-bottom-right-radius: 14px;
+    background-color: grey;
+    opacity: .5;
+}
+
+.contact-closeIcon {
+    position: absolute;
+    font-size: 30px;
+    top: .2rem;
+    right: .5rem;
+    color: rgb(88, 88, 88);
+}
+
+.contact-title-aikidoLogo {
+    position: absolute;
+    right: 5rem;
+    bottom: -3rem;
+    width: 35rem;
+    height: auto;
+    opacity: .3;
+}
+
+.contact-backgroundVideo {
+    position: absolute;
+    width: 100%;
+    left: 50%;
+    top: 50%;
+    height: 100%;
+    border-radius: 14px;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+}
+
+.contact-title-welcome {
+    position: absolute;
+    top: 1rem;
+    left: 60rem;
+    font-size: 60px;
+    color: black;
+}
+
+.contact-title-logo {
+    position: absolute;
+    right: 2rem;
+    width: 9.5rem;
+    height: 9.5rem;
+}
+
+.contact-title-socialNetworks {
+    position: absolute;
+    bottom: 4.5rem;
+    left: 3rem;
+}
+
+.contact-title-facebook {
+    position: relative;
+}
+
+.contact-title-facebookLogo {
+    position: relative;
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.contact-title-facebookLink {
+    position: relative;
+    left: .5rem;
+    font-size: 25px;
+}
+
+.contact-title-instagram {
+    position: relative;
+    top: 1.5rem;
+}
+
+.contact-title-instagramLogo {
+    position: relative;
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.contact-title-instagramLink {
+    position: relative;
+    left: .5rem;
+    font-size: 25px;
+    color: rgb(222, 67, 127);
+}
+
+.contact-title-whatsapp {
+    position: relative;
+    top: 3rem;
+}
+
+.contact-title-whatsappLogo {
+    position: relative;
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.contact-title-whatsappLink {
+    display: inline-block;
+    position: relative;
+    left: .5rem;
+    font-size: 25px;
+    color: rgb(21, 149, 12);
+}
+
+.contact-title-gmail {
+    position: absolute;
+    bottom: 10.1rem;
+    left: 40rem;
+}
+
+.contact-title-gmailLogo {
+    position: relative;
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.contact-title-gmailLink {
+    position: relative;
+    display: inline-block;
+    left: .5rem;
+    font-size: 25px;
+    color: rgb(5, 5, 5);
+}
+
+.contact-title-addressDiv {
+    position: absolute;
+    bottom: 5.7rem;
+    left: 40rem;
+}
+
+.contact-title-addressLogo {
+    position: relative;
+    font-size: 35px;
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.contact-title-address {
+    position: relative;
+    display: inline-block;
+    left: .5rem;
+    font-size: 25px;
+    color: rgb(5, 5, 5);
+}
+
+@media (max-width: 1820px) {}
+
+@media (max-width: 1681px) {
+    .contact-modal-open .modal-content {
+        top: -26rem;
+        right: -70rem;
+        width: 93vw;
+        height: 85vh;
+        transform: scale(.9) translate(-43%, 55%);
+        -webkit-transform: scale(.9) translate(-43%, 55%);
+        -ms-transform: scale(.9) translate(-43%, 55%);
+    }
+    .contact-modal-close .modal-content {
+        width: 93vw;
+        height: 85vh;
+        transform: scale(0);
+        -webkit-transform: scale(0);
+        -ms-transform: scale(0);
+        top: -28rem;
+        right: -74rem;
+    }
+    .contact-title-welcome {
+        transform: scale(.8);
+        width: 41rem;
+        top: 1.5rem;
+        left: 50rem;
+    }
+    .contact-title-logo {
+        transform: scale(.9);
+    }
+    .contact-title-addressLogo {
+        position: relative;
+        font-size: 35px;
+        width: 2.5rem;
+        height: 2.5rem;
+        top: .5rem;
+    }
+    .contact-title-address {
+        position: relative;
+        display: inline-block;
+        width: 25rem;
+        top: 2.5rem;
+        left: .5rem;
+        font-size: 25px;
+        color: rgb(5, 5, 5);
+    }
+}
+
+@media (max-width: 1446px) {
+    .contact-modal-open .modal-content {
+        width: 93vw;
+        height: 85vh;
+        transform: scale(.9) translate(-58%, 59%);
+        -webkit-transform: scale(.9) translate(-58%, 59%);
+        -ms-transform: scale(.9) translate(-58%, 59%);
+    }
+    .contact-modal-close .modal-content {
+        width: 93vw;
+        height: 85vh;
+        transform: scale(0.1);
+        -webkit-transform: scale(0);
+        -ms-transform: scale(0);
+        top: -24rem;
+        right: -59rem;
+    }
+    .contact-title-welcome {
+        transform: scale(.8);
+        width: 41rem;
+        top: 1.5rem;
+        left: 29.5rem;
+    }
+    .contact-title-logo {
+        transform: scale(.8);
+    }
+    .contact-title-addressLogo {
+        position: relative;
+        font-size: 35px;
+        width: 2.5rem;
+        height: 2.5rem;
+        top: .5rem;
+    }
+    .contact-title-address {
+        position: relative;
+        display: inline-block;
+        width: 25rem;
+        top: 2.5rem;
+        left: .5rem;
+        font-size: 25px;
+        color: rgb(5, 5, 5);
+    }
+}
+
+@media (max-width: 1370px) {
+    .contact-modal-open .modal-content {
+        width: 93vw;
+        height: 85vh;
+        transform: scale(.9) translate(-67%, 85%);
+        -webkit-transform: scale(.9) translate(-67%, 85%);
+        -ms-transform: scale(.9) translate(-67%, 85%);
+    }
+    .contact-modal-close .modal-content {
+        width: 93vw;
+        height: 85vh;
+        transform: scale(0);
+        -webkit-transform: scale(0);
+        -ms-transform: scale(0);
+        top: -17rem;
+        right: -54rem;
+    }
+}
+
+@media (max-width: 1290px) {
+    .contact-title-welcome {
+        left: 27rem;
+    }
+    .contact-modal-open .modal-content {
+        width: 93vw;
+        height: 85vh;
+        transform: scale(.9) translate(-74%, 80%);
+        -webkit-transform: scale(.9) translate(-74%, 80%);
+        -ms-transform: scale(.9) translate(-74%, 80%);
+    }
+    .contact-modal-close .modal-content {
+        width: 93vw;
+        height: 85vh;
+        transform: scale(0);
+        -webkit-transform: scale(0);
+        -ms-transform: scale(0);
+        top: -21.5rem;
+        right: -50rem;
+    }
+}

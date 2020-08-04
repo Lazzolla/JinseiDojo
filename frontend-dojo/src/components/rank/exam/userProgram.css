@@ -1,0 +1,31 @@
+.userProgram_table {
+    position: relative;
+    font-size: 15px;
+}
+
+.userProgram-button-save {
+    position: absolute;
+    bottom: 2rem;
+    left: 24.5rem;
+    width: 10rem;
+}
+
+.userProgram-button-style {
+    position: relative;
+    height: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+.userProgram-button-spinner {
+    color: black;
+}
+.userProgram-button-primaryText {
+padding-top: .1rem;
+    font-size: 20px;
+}
+.userProgram-button-secondaryText {
+padding-top: .1rem;
+    font-size: 20px;
+    color: black;
+}

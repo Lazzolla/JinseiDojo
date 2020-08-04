@@ -1,0 +1,118 @@
+.bg-publications {
+    background-image: url('../../pictures/backgrounds/miPublicationsBackground.png');
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.publications-container {
+padding-top: 60px;
+}
+
+.publications-title {
+    font-size: 1.875rem;
+}
+
+.publications-button-div {
+    position: absolute;
+    top: 41rem;
+    left: 35rem;
+}
+
+.publications-button-publish {
+    border-radius: 14px;
+    width: 15rem;
+}
+
+.publications-submitError {
+    position: absolute;
+    top: 49rem;
+    left: 25rem;
+    color: red;
+    z-index: 10;
+}
+
+@media (max-width: 1820px) {
+
+}
+@media (max-width: 1681px) {
+
+    .publications-button-div {
+        top: 42.8rem;
+        left: 34rem;
+        transform: scale(.9);
+    }
+
+    .publications-publications {
+        right: 3rem;
+        transform: scale(.8);
+    }
+    .publications-submitError {
+        font-size: 20px ;
+        top: 45rem;
+        left: 25rem;
+    }
+}
+@media (max-width: 1446px) {
+
+    .publications-button-div {
+        top: 43rem;
+        left: 28rem;
+        transform: scale(.9);
+    }
+
+    .publications-publications {
+        top: -2rem;
+        right: 5rem;
+        transform: scale(.75);
+    }
+    .publications-submitError {
+        font-size: 20px ;
+        top: 45rem;
+        left: 20rem;
+    }
+}
+@media (max-width: 1370px) {
+
+.publications-form {
+    top: -1rem;
+    transform: scale(.9);
+}
+
+    .publications-button-div {
+        top: 36rem;
+        left: 25rem;
+        transform: scale(.7);
+    }
+
+    .publications-publications {
+        top: -5rem;
+        right: 5rem;
+        transform: scale(.6);
+    }
+
+    .publications-submitError {
+        font-size: 20px ;
+        top: 38.5rem;
+        left: 20rem;
+    }
+}
+@media (max-width: 1290px) {
+
+    .publications-submitError {
+        font-size: 15px;
+        top: 39rem;
+        left: 10rem;
+    }
+
+    .publications-button-div {
+        top: 34.5rem;
+        left: 25rem;
+        transform: scale(.6);
+    }
+
+    .publications-publications {
+        top: -5rem;
+        right: 5rem;
+        transform: scale(.6);
+    }
+}

@@ -1,0 +1,114 @@
+.carourselBoard-gral {
+    text-align: center;
+    width: 95%;
+    height: 870px;
+}
+
+.carourselBoard-item {
+    position: relative;
+    text-align: center;
+}
+
+.carourselBoard-divImg {
+    display: inline-block;
+    vertical-align: middle;
+    height: 54.375rem;
+}
+
+.carourselBoard-img {
+    display: inline-block;
+    vertical-align: middle;
+    width: 60.625rem;
+    height: 53.75rem;
+    border: 1px solid #817878;
+    border-radius: 14px;
+    box-shadow: 0 -1.1px 0.6px rgba(0, 0, 0, 0.205), 0 -0.7px 1.5px rgba(0, 0, 0, 0.26), 0 -0.1px 2.8px rgba(0, 0, 0, 0.286), 0 0.8px 4.9px rgba(0, 0, 0, 0.293), 0 2px 9.2px rgba(0, 0, 0, 0.279), 0 4px 22px rgba(0, 0, 0, 0.19);
+}
+
+.carouseBoard-prevIcon {
+    position: relative;
+    right: 4rem;
+    background-size: 150%;
+}
+
+.carouseBoard-nextIcon {
+    position: relative;
+    left: 4rem;
+    background-size: 150%;
+}
+
+@media (max-width: 1820px) {
+
+}
+@media (max-width: 1681px) {
+  .carourselBoard-gral {
+        height: 44.375rem;
+    }
+    .carourselBoard-divImg {
+        height: 50rem;
+    }
+    .carourselBoard-img {
+        height: 50rem;
+    }
+    .carourselBoard-gral .carousel-control-next {
+        height: 50rem;
+    }
+
+    .carourselBoard-gral .carousel-control-prev {
+        height: 50rem;
+    } 
+}
+@media (max-width: 1446px) {
+
+}
+@media (max-width: 1370px) {
+
+    .carourselBoard-divImg {
+        width: 37.5rem;
+        height: 36.5rem;
+    }
+    .carourselBoard-img {
+        width: 37.5rem;
+        height: 36.5rem;
+    }
+    .carourselBoard-gral .carousel-control-next {
+        height: 36.5rem;
+    }
+
+    .carourselBoard-gral .carousel-control-prev {
+        height: 36.5rem;
+    } 
+    .carouseBoard-prevIcon {
+        right: 3rem;
+    }
+    
+    .carouseBoard-nextIcon {
+        left: 3rem;
+    }
+}
+@media (max-width: 1290px) {
+    .carourselBoard-gral {
+        height: 37em;
+    }
+    .carourselBoard-divImg {
+        height: 37rem;
+    }
+    .carourselBoard-img {
+        height: 37rem;
+    }
+    .carourselBoard-gral .carousel-control-next {
+        height: 37rem;
+    }
+
+    .carourselBoard-gral .carousel-control-prev {
+        height: 37rem;
+    } 
+    .carouseBoard-prevIcon {
+        right: 3rem;
+    }
+    
+    .carouseBoard-nextIcon {
+        left: 3rem;
+    }
+}
+
