@@ -1,7 +1,8 @@
 const express = require('express'),
     logger = require('morgan'),
     PORT = process.env.PORT || 8080,
-    path = require('path')
+    path = require('path'),
+    config = require('./config/cookiesSecret')
 const passport = require('./passport'),
 
     cors = require('cors'),
@@ -41,8 +42,8 @@ app.enable('trust proxy')
         name: "Lazzolla",
         keys: ['key1', 'key2'],
         saveUninitialized: true,
-        httpOnly: false,
-        secret: 'LazzollaCookiesForSecurity'
+        httpOnly: false, //should be true for security also should be signed
+        secret: config.COOKIES_SECRET
     }))
 app.use(logger('dev'))
     .use(cors({
