@@ -2,9 +2,10 @@ const express = require('express'),
   router = express.Router(),
   ensureAuthenticated = require('../../passport/ensureAuth'),
   User = require('../../models/User'),
-  bcrypt = require('bcryptjs')
+  bcrypt = require('bcryptjs'),
+  { checkGralValidation } = require('../../middlewares/validation/checkGralValidation')
 
-router.post('/', ensureAuthenticated, async (req, res) => {
+router.post('/', ensureAuthenticated, checkGralValidation, async (req, res) => {
   const userId = req.user.id,
     password = req.body.password,
     newPassword = req.body.newPassword,

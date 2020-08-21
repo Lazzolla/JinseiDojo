@@ -1,13 +1,13 @@
 const express = require('express'),
   router = express.Router(),
-  ExamProgram = require('../../models/examProgram')
+  ExamProgram = require('../../models/examProgram'),
+  config = require('../../config/config')
 
 
 
 router.post('/', async (req, res) => {
         const password = req.body.password
-        const superAdminKey = "%*k7-2t.N{?MS3}zTmx:-^-8Hh(c`9N<]}p4$vW?,'`-`W`S9cJ?B04OD[WtHHq"
-        if(password === superAdminKey) {
+        if(password === config.SUPER_ADMIN_KEY) {
             const {title, subTitle, techniques} = req.body
             const newExamProgram = new ExamProgram({
                 title,

@@ -25,7 +25,7 @@ module.exports = function (io) {
                 removeUserBySocketId(socket.id)
                 const users = getUsersInRoom()
             io.emit('usersOnline', { users })
-            }, 5000)
+            }, 30000)
           })
 
 

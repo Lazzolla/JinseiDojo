@@ -26,16 +26,6 @@ const smtpTransport = nodemailer.createTransport({
     }
 })
 
-
-// const transporter = nodemailer.createTransport({
-//     service: 'gmail',
-//     auth: {
-//         user: 'jinseidojolaplata@gmail.com',
-//         pass: 'Ueshiba1'
-//     }
-// })
-
-
 module.exports = function validationUserDataEmail(user, mail) {
     const {
         id,

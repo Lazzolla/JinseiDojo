@@ -21,7 +21,6 @@ export default function Comments(props) {
 
     useEffect(() => {
         if (props.publicationId) {
-            console.log(props.publicationId)
             setPublicationId(props.publicationId)
         }
     }, [props.publicationId])
@@ -112,7 +111,7 @@ export default function Comments(props) {
                         <div 
                         className="publishCard-comment-trash"
                         >
-                            {comment.commentAuthor._id === context.user._id
+                            {comment.commentAuthor._id === context.state.user._id
                               ? <Fragment>  
                                <FontAwesomeIcon
                                className="publishCard-comment-trashIcon"

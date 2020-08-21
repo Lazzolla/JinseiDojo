@@ -9,7 +9,7 @@ const Dropzone = ({ onDrop, accept}) => {
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
     accept,
-    maxSize: 5000000,
+    maxSize: 500000000,
     multiple: true,
   });
   /* 

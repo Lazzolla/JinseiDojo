@@ -1,10 +1,10 @@
 const express = require('express'),
+    helmet = require('helmet'),
     logger = require('morgan'),
     PORT = process.env.PORT || 8080,
     path = require('path'),
-    config = require('./config/cookiesSecret')
-const passport = require('./passport'),
-
+    config = require('./config/cookiesSecret'),
+    passport = require('./passport'),
     cors = require('cors'),
     socketio = require('socket.io'),
     http = require('http')
@@ -27,22 +27,37 @@ const cookieSession = require('cookie-session')
 
 // App initialization and Socket.io init
 const app = express(),
-    server = http.createServer(app),
-    io = socketio(server)
+server = http.createServer(app),
+io = socketio(server)
+
 require('./chat/socket')(io)
 app.set('socketio', io)
 
+// WORK IN PROGRESS
+
+// app.use(helmet())
+// app.use(
+//     helmet.contentSecurityPolicy({
+//       directives: {
+//         "defaultSrc": ["'self'", 'unsafe-inline', 'https://maxcdn.bootstrapcdn.com', 'https://cdnjs.cloudflare.com'],
+//         "scriptSrc": ["'self'", 'unsafe-inline', 'https://code.jquery.com', 'https://cdn.jsdelivr.net', 'https://stackpath.bootstrapcdn.com', 'https://www.youtube.com', 'https://s.ytimg.com'],
+//         "objectSrc": ["'none'"]
+//       },
+//     })
+//   )
 
 // MongoDB connection
 require('./database')
 
 app.enable('trust proxy')
     .use(cookieSession({
-        maxAge: 240 * 60 * 60 * 1000,
-        name: "Lazzolla",
-        keys: ['key1', 'key2'],
+        maxAge: 1000*60*60*24*31*36,
+        name: config.COOKIES_NAME,
+        keys: config.COOKIES_KEYS,
         saveUninitialized: true,
-        httpOnly: false, //should be true for security also should be signed
+        httpOnly: true,
+        secure: true,
+        domain: config.COOKIES_DOMAIN,
         secret: config.COOKIES_SECRET
     }))
 app.use(logger('dev'))

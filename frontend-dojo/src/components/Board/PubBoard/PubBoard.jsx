@@ -27,7 +27,6 @@ export default class PubBoard extends Component {
         this.state = {
             publications: [],
             submitError: '',
-            isAuthenticated: false,
             showUSer: ''
         }
     }
@@ -50,9 +49,6 @@ export default class PubBoard extends Component {
                 this.setState({
                     publications: data
                 })
-                this.setState({
-                    isAuthenticated: this.props.context.user.isAuthenticated
-                })
             }
         } catch (err) {
             this.setState({
@@ -62,7 +58,7 @@ export default class PubBoard extends Component {
     }
     
     modalPubBoard(key, e) {
-        if (this.state.isAuthenticated) {
+        if (this.props.isAuthenticated) {
             if(e.target.id === "pubBoard_author" + key) {
                 this.setState({
                     showUSer: e.target.innerHTML

@@ -53,9 +53,9 @@ export default class Profile extends Component {
 
 
    UNSAFE_componentWillMount() {
-        this.getProfile(this.props.context.user)
+        this.getProfile(this.props.context.state.user)
         socket.on('updatedUser', () => {
-            this.getProfile(this.props.context.user)
+            this.getProfile(this.props.context.state.user)
         })
     }
 
@@ -144,7 +144,7 @@ export default class Profile extends Component {
                                 <div className="profile-picture-div">
                                         <Image className="profile-picture" roundedCircle={true} src={`data:image;base64,` + this.state.profilePicture} />
                                         <Card.ImgOverlay className="profile-icon-img">
-                                        {this.props.context.user.dataValidation
+                                        {this.props.context.state.user.dataValidation
                                         ? <FontAwesomeIcon type="button" name="modalPicture" onClick={() => { this.modalPicUpdRef.current.show() }} icon={faEdit} size='2x' color='#BFBBBA' />
                                         :  <p className="profile-img-validText">Cuando tu perfil se apruebe podras cambiar tu foto.</p> }
                                         </Card.ImgOverlay>
@@ -159,7 +159,7 @@ export default class Profile extends Component {
                                           
                                         {/* EDITBUTTON */}
                                         <div className="profile-edit-icon text-center">
-                                        { this.props.context.user.dataValidation
+                                        { this.props.context.state.user.dataValidation
                                            ? <FontAwesomeIcon type="button" hidden={this.state.editForm} onClick={this.editAndSave} icon={faEdit} size='lg' />
                                         : <p className="profile-edit-pending text-danger">Perfil pendiente de validación.</p> 
                                         }

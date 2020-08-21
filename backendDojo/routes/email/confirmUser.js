@@ -35,17 +35,13 @@ router.post('/', async (req, res) => {
                 }
                 if (instructor) {
                   res.send(`<script>window.alert('La validacion de ${name} ${lastName} fue exitosa'), window.close()</script>`)
-                  // console.log(updateValidation)
                   const { socketId } = getUser(user.nickname)
-                  // console.log(io)
                   io.to(socketId).emit('updateValidation', 'done')
                 }
               })
             } else {
               res.send(`<script>window.alert('La validacion de ${name} ${lastName} fue exitosa'), window.close()</script>`)
-              // console.log(updateValidation)
               const { socketId } = getUser(user.nickname)
-              // console.log(io)
               io.to(socketId).emit('updateValidation', 'done')
             }
           }

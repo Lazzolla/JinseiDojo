@@ -16,7 +16,7 @@ const s3 = new aws.S3({
     Bucket: 'boardbucket'
 })
 
-const profileImageUpload = multer({
+const boardImageUpload = multer({
     storage: multerS3({
         s3: s3,
         bucket: 'boardbucket',
@@ -25,9 +25,9 @@ const profileImageUpload = multer({
             cb(null, path.basename(file.originalname, path.extname(file.originalname)) + '-' + Date.now() + path.extname(file.originalname))
         }
     }),
-    limits: { fileSize: 40000000 },
+    limits: { fileSize: 500000000 },
     fileFilter: (req, file, cb) => {
-        const filetypes = /jpeg|jpg|png|gif/
+        const filetypes = /jpeg|jpg|png|gif|JPEG|JPG|PNG|GIF/
         const mimetype = filetypes.test(file.mimetype)
         const extname = filetypes.test(path.extname(file.originalname))
         if (mimetype && extname) {
@@ -40,7 +40,6 @@ const profileImageUpload = multer({
 router.post('/', ensureAuthenticated, async (req, res) => {
 
     await s3.listObjectsV2(params = { Bucket: 'boardbucket' }, async (err, data) => {
-        console.log(data)
         if(err) {
             res.status(500).json({err})
         }
@@ -56,24 +55,30 @@ router.post('/', ensureAuthenticated, async (req, res) => {
                 }
                 if (data) {
                     console.log(data)
+                    uploadImages()
                 }
             })
+        } else {
+            uploadImages()
         }
-        await profileImageUpload(req, res, (err) => {
-            if (err) {
-                res.status(500).json({ message: err })
-            } else {
-                if (req.files === undefined) {
-                    console.log('Error: No file selected')
-                    res.json('Error: No file selected')
-                } else {
-                    res.json({
-                        message: 'board guardado correctamente'
-                    })
-                }
-            }
-        })
+        
     })
+   async function uploadImages() {
+        await boardImageUpload(req, res, (err) => {
+        if (err) {
+            res.status(500).json({ message: err })
+        } else {
+            if (req.files === undefined) {
+                console.log('Error: No file selected')
+                res.json('Error: No file selected')
+            } else {
+                res.json({
+                    message: 'board guardado correctamente'
+                })
+            }
+        }
+    })
+}
 })
 module.exports = router
 

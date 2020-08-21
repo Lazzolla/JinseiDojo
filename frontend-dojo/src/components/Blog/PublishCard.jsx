@@ -72,7 +72,6 @@ export default function PublishCard(props) {
     }
 
     const sendComment = async (message) => {
-        // event.preventDefault()
         if (message) {
             try {
                 await axios.post('api/blog/postcomment', {

@@ -3,9 +3,10 @@ const express = require('express'),
   ensureAuthenticated = require('../../passport/ensureAuth'),
   User = require('../../models/User'),
   Instructor = require('../../models/Instructor'),
-  validationUserDataEmail = require('../../mailer/templates/DataValidation')
+  validationUserDataEmail = require('../../mailer/templates/DataValidation'),
+  { checkGralValidation } = require('../../middlewares/validation/checkGralValidation')
 
-router.put('/', ensureAuthenticated, async (req, res) => {
+router.put('/', ensureAuthenticated, checkGralValidation, async (req, res) => {
   const {
     nickname,
     name,

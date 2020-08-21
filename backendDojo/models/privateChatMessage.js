@@ -11,7 +11,7 @@ const mongoose = require('mongoose'),
         systemDate: {type: String, default: null},
         receivedNickname: String,
         readed: {type: Boolean, default: false},
-        fullDate: {type: Date, default: new Date()}
+        fullDate: Date
     }
 ]
 })

@@ -1,0 +1,18 @@
+.react-input-emoji--input {
+    max-height: 40px;
+    overflow: auto;
+}
+
+div.react-input-emoji--input::-webkit-scrollbar {
+    background-image: url('../pictures/bgGral.png');
+border-bottom-right-radius: 15px;
+border-top-right-radius: 15px;
+    width: .75rem;
+}
+
+div.react-input-emoji--input::-webkit-scrollbar-thumb {
+    border-radius: 15px;
+    background-image: url('../pictures/chat_profile_bg.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+}

@@ -29,7 +29,6 @@ export default function CarouselVideos(props) {
     async function getVideos() {
       try {
         const {data} = await axios.get('api/instructor/getuservideolist', {withCredentials:true})
-        console.log(data)
         let userVideos = []
         for(let x=0;x<=userRank;x++) {
           userVideos.push(data[x])

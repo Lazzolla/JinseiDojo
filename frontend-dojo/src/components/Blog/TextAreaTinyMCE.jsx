@@ -11,6 +11,7 @@ class TextAreaTinyMCE extends React.Component {
     this.sendContent = this.sendContent.bind(this)
   }
 
+  
   handleEditorChange = (content, editor) => {
     this.setState({
       body: { content }
@@ -29,8 +30,8 @@ class TextAreaTinyMCE extends React.Component {
     return (
       <Editor
         apiKey="jrxdt97t22rzt17j2bvieq3x0hqun4yl0em2blvh9dkwr4te"
-        // initialValue="<p>Escribe tu publicacion aca</p>"
         init={{
+          invalid_elements : "script",
           content_css: 'publications.css',
           height: (window.matchMedia("(max-width: 1370px)")).matches ? "400px" : "500px",
           placeholder: 'Escribe tu publicacion aca...',

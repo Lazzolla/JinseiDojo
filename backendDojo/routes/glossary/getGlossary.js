@@ -1,11 +1,12 @@
 const express = require('express'),
     router = express.Router(),
     GlossaryEntry = require('../../models/GlossaryEntry'),
-    ensureAuthenticated = require('../../passport/ensureAuth')
+    ensureAuthenticated = require('../../passport/ensureAuth'),
+    { checkGralValidation } = require('../../middlewares/validation/checkGralValidation')
 
 
 
-router.get('/', ensureAuthenticated, async (req, res) => {
+router.get('/', ensureAuthenticated, checkGralValidation, async (req, res) => {
     
     await GlossaryEntry.find( (err, entries) => {
         if (err) {

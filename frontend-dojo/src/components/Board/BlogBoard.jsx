@@ -1,7 +1,5 @@
-import React, { Fragment, useState, useContext, useEffect } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import axios from 'axios'
-import Card from 'react-bootstrap/Card'
-import Row from 'react-bootstrap/Row'
 import { GralContext, socket } from '../../App'
 import PubBoard from './PubBoard/PubBoard'
 import './blogBoard.css'
@@ -16,25 +14,25 @@ export default function BlogBoard() {
                                 const { data } = await axios.get('api/blog/latestpub', { withCredentials: true })
                                 setLatestPub(data)
                         } catch (err) {
-console.log(err.response)
+                                console.log(err.response)
                         }
                 })
-        })
+        }, [])
 
         return (
                 <div className="blogBoard-container">
-                                <p
-                                 className="blogBoard-title"
-                                  align="center"
-                                 >
-                                         Últimas publicaciones
+                        <p
+                                className="blogBoard-title"
+                                align="center"
+                        >
+                                Últimas publicaciones
                                          </p>
-                        <div 
-                        className="blogBoard-latestPublish"
+                        <div
+                                className="blogBoard-latestPublish"
                         >
                                 <PubBoard
                                         latestPub={latestPub}
-                                        context={context}
+                                        isAuthenticated={context.state.user.isAuthenticated}
                                 />
                         </div>
                 </div>

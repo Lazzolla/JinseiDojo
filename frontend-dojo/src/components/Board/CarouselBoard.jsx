@@ -10,7 +10,6 @@ export default function CarouselBoard() {
 
     useEffect(() => {
         socket.on('boardUpdated', (data) => {
-            console.log(data)
             getBoard()
         })
         async function getBoard() {

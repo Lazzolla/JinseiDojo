@@ -3,9 +3,10 @@ const express = require('express'),
   {removeUser} = require('../../chat/users')
 
 
-router.get('/', async (req, res) => {
-    removeUser(req.user.id)
-    await req.logOut()
+router.post('/', (req, res) => {
+  
+  removeUser(req.body.userId)
+    req.logOut()
     req.session = null
     req.sessionOptions.maxAge = 0
     return res.status(200).json('Sesión terminada con exito')

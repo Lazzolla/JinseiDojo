@@ -12,8 +12,8 @@ import './gralRoom.css'
 export default function GralRoom(props) {
     const context = useContext(GralContext)
     const observer = useRef()
-
     const [loading, setLoading] = useState(true)
+    const [userId, setUserId] = useState(null)
     const [nickname, setNickname] = useState('')
     const [profilePictureLocation, setProfilePictureLocation] = useState('')
     const [messages, setMessages] = useState([])
@@ -25,7 +25,6 @@ export default function GralRoom(props) {
     const [bodyTag, setBodyTag] = useState(null)
     const [prevHeightBody, setPrevHeightBody] = useState(0)
     const [fetching, setFetching] = useState('')
-    const [disabledInput, setDisabledInput] = useState(true)
 
     const firstMessageRef = useCallback(node => {
         if (loading) return
@@ -45,9 +44,9 @@ export default function GralRoom(props) {
     }, [loading])
 
     useEffect(() => {
-        setNickname(context.user.nickname)
-        setProfilePictureLocation(context.user.profilePictureLocation)
-        setDisabledInput(!context.user.isAuthenticated)
+        setUserId(context.state.user._id)
+        setNickname(context.state.user.nickname)
+        setProfilePictureLocation(context.state.user.profilePictureLocation)
     }, [context])
 
     useEffect(() => {
@@ -66,7 +65,7 @@ export default function GralRoom(props) {
     }, [props.onDeletedMessage])
 
     useEffect(() => {
-        if (context.user.isAuthenticated) {
+        if (context.state.user.isAuthenticated) {
                 if (!bodyTag) {
                     setBodyTag(document.getElementById(props.id))
                     setPageMessages(0)
@@ -96,7 +95,9 @@ export default function GralRoom(props) {
                                     setLoading(false)
                                 }, 500)
                             } catch (err) {
-                                console.log(err.response)
+                               setMessages([{message: err.response.data.message}])
+                               setLoading(false)
+                               setFetching('')
                             }
                         }
                     }
@@ -107,12 +108,13 @@ export default function GralRoom(props) {
         }
         //PREVENT WARNING FROM MISSING DEPENDECIES FOR FIELDS IN FETCH FUNCTION AND SCROLL POSITION
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [pageMessages, context.user.isAuthenticated])
+    }, [pageMessages, context.state.user.isAuthenticated])
 
     useEffect(() => {
-        if (context.user.isAuthenticated) {
+        if (context.state.user.isAuthenticated) {
             const divTag = document.getElementById(props.id)
             socket.on(props.emitAndOn, (data) => {
+                console.log(data)
                 const message = data
                 setMessages(prevState => {
                     return [...prevState, message]
@@ -120,17 +122,17 @@ export default function GralRoom(props) {
                 divTag.scrollTop = divTag.scrollHeight
             })
         }
-    }, [context.user.isAuthenticated, props.emitAndOn, props.id])
+    }, [context.state.user.isAuthenticated, props.emitAndOn, props.id])
 
     useEffect(() => {
         socket.on(props.onTyping, ({ nickname, clearTyping = null }) => {
-            if (nickname !== context.user.nickname) {
+            if (nickname !== context.state.user.nickname) {
                 clearTyping === null
                     ? setTyping(nickname + ' esta escribiendo...')
                     : setTyping('')
             }
         })
-    }, [props.onTyping, context.user.nickname])
+    }, [props.onTyping, context.state.user.nickname])
 
     const sendTyping = () => {
         setLastUpdateTime(Date.now())
@@ -151,7 +153,7 @@ export default function GralRoom(props) {
     const sendMessage = (message) => {
         // event.preventDefault()
         if (message) {
-            const data = { nickname, message, profilePictureLocation }
+            const data = { userId, nickname, message, profilePictureLocation }
             socket.emit(props.emitAndOn, data)
         }
     }

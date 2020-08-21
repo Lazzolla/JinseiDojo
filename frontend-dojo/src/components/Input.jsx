@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState, useContext } from 'react'
-import ReactDOM from 'react-dom'
 import InputEmoji from "react-input-emoji";
 import 'emoji-mart/css/emoji-mart.css'
 import {GralContext} from '../App'
@@ -15,8 +14,8 @@ const context = useContext(GralContext)
 
 
 useEffect(() => {
-setIsAuthenticated(context.user.isAuthenticated)
-}, [context.user.isAuthenticated])
+setIsAuthenticated(context.state.user.isAuthenticated)
+}, [context.state.user.isAuthenticated])
 
 
    useEffect(() => {
@@ -41,13 +40,13 @@ setIsAuthenticated(context.user.isAuthenticated)
     }
 
     const sendMessage = (message) => {
-        
         if(isAuthenticated) {
         props.onKeyPressInput(message)
         }
     }
 
     return (
+        <div className="input-div">
         <InputEmoji
             id={id}
             ref={inputRef}
@@ -57,6 +56,8 @@ setIsAuthenticated(context.user.isAuthenticated)
       onEnter={sendMessage}
       placeholder={props.placeholderInput}
       borderRadius={15}
+      height={40}
     />
+    </div>
     )
 }

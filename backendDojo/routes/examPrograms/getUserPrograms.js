@@ -1,11 +1,12 @@
 const express = require('express'),
     router = express.Router(),
     UserExamProgram = require('../../models/UserExamProgram'),
-    ensureAuthenticated = require('../../passport/ensureAuth')
+    ensureAuthenticated = require('../../passport/ensureAuth'),
+    { checkGralValidation } = require('../../middlewares/validation/checkGralValidation')
 
 
 
-router.get('/', ensureAuthenticated, async (req, res) => {
+router.get('/', ensureAuthenticated, checkGralValidation, async (req, res) => {
     const {id} = req.user
     await UserExamProgram.find({userId: id}, (err, programs) => {
         if (err) {

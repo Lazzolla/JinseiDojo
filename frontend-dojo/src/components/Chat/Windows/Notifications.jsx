@@ -23,10 +23,10 @@ export default function Notifications(props) {
                 console.log(err.response)
             }
         }
-        if (context.user.isAuthenticated) {
+        if (context.state.user.isAuthenticated) {
             getNotifications()
         }
-    }, [context.user.isAuthenticated])
+    }, [context.state.user.isAuthenticated])
 
     useEffect(() => {
         const total = notifications.reduce((acc, value) => {

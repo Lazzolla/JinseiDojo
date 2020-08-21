@@ -78,6 +78,7 @@ useEffect(() => {
                     autoPlay
                     loop
                     muted
+                    preload="auto"
                 >
                     <source src={contactBackground} type="video/mp4" />
                 </video>

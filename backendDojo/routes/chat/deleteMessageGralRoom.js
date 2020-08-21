@@ -14,7 +14,7 @@ router.delete('/', ensureAuthenticated, async (req, res) => {
     const emit = currentRoom === 'gralRoom'
         ? 'gralRoomMessageDeleted'
         : 'instRoomMessageDeleted'
-console.log(chatModel, emit, currentRoom)
+        
     await chatModel.deleteOne({ _id: idMessage }, async (err, response) => {
         if (err) {
             return res.status(500).json({

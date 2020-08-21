@@ -1,15 +1,15 @@
 const express = require('express'),
     router = express.Router(),
     UserExamProgram = require('../../models/UserExamProgram'),
-    ensureAuthenticated = require('../../passport/ensureAuth')
+    ensureAuthenticated = require('../../passport/ensureAuth'),
+    { checkGralValidation } = require('../../middlewares/validation/checkGralValidation')
 
 
 
-router.post('/', ensureAuthenticated, async (req, res) => {
-    console.log(req.user.id)
+router.post('/', ensureAuthenticated, checkGralValidation, async (req, res) => {
     const id = req.user.id
     const { title, selectedFields } = req.body
-    console.log(title, selectedFields)
+    
     await UserExamProgram.findOne({ title: title, userId: id }, async (err, exam) => {
         if (err) {
             return res.status(500).json({

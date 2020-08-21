@@ -26,7 +26,7 @@ export default function Lobby() {
     // LISTEN FOR ONLINE USERS AND  LOAD CURRENT TABS FROM SERVER
 
     useEffect(() => {
-        if (context.user.isAuthenticated) {
+        if (context.state.user.isAuthenticated) {
 
             socket.on('usersOnline', ({ users }) => {
                 setUsers(users)
@@ -39,10 +39,10 @@ export default function Lobby() {
             setOpenChats([])
 
         }
-    }, [context.user.isAuthenticated])
+    }, [context.state.user.isAuthenticated])
 
     const openNewTab = async (user) => {
-        if (user.nickname !== context.user.nickname) {
+        if (user.nickname !== context.state.user.nickname) {
             const ind = openChats.findIndex((el) => el.nickname === user.nickname)
             if (ind === -1) {
                 user.userKey = uuid()
@@ -57,9 +57,8 @@ export default function Lobby() {
     }
 
     useEffect(() => {
-        if (context.user.isAuthenticated) {
-            console.log('aca')
-            socket.on(context.user._id, (data) => {
+        if (context.state.user.isAuthenticated) {
+            socket.on(context.state.user._id, (data) => {
                 const ind = openChats.findIndex(el => el.userId === data)
                 if (ind === -1) {
                     const userTab = users.find(el => el.userId === data)
@@ -68,17 +67,19 @@ export default function Lobby() {
             })
         }
         return () => {
-            socket.off(context.user._id)
+            socket.off(context.state.user._id)
         }
-    }, [users, openChats, context.user.isAuthenticated])
+        //PREVENT WARNING FROM MISSING DEPENDECIES FOR FIELDS IN FETCH FUNCTION AND SCROLL POSITION
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [users, openChats, context.state.user.isAuthenticated])
 
     useEffect(() => {
-        if (context.user.nickname) {
-            const nickname = context.user.nickname,
+        if (context.state.user.nickname) {
+            const nickname = context.state.user.nickname,
                 usersTabs = openChats
             socket.emit('currentTabs', { usersTabs, nickname })
         }
-    }, [openChats, context.user.nickname])
+    }, [openChats, context.state.user.nickname])
 
     const closeTab = (idTab) => {
         const ind = openChats.findIndex(el => el.userKey === idTab)
@@ -138,7 +139,7 @@ export default function Lobby() {
     const showLobby = showGralChat
         ? <div className="lobby-gral">
             <div className="chat-lobby-rooms h5  text-center">
-                {context.user.isInstructor && context.user.dataValidation
+                {context.state.user.isInstructor && context.state.user.dataValidation
                     ? <ButtonDinamic
                         onClick={() => changeChatGlobal()}
                         buttonText={chatGlobalTitle}
@@ -174,7 +175,7 @@ export default function Lobby() {
                     messagesURL='gralmessages'
                     id='gralRoomMessages'
                 />
-                {context.user.isInstructor
+                {context.state.user.isInstructor
                     ? <GralRoom
                         room='instRoom'
                         display={instChatRoom}
@@ -226,7 +227,7 @@ export default function Lobby() {
             />
         </div>
     return (
-        context.user.isAuthenticated
+        context.state.user.isAuthenticated
       ?  <div
             className={showGralChat
                 ? openChats.length > 0

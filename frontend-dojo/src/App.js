@@ -49,6 +49,10 @@ export default class App extends Component {
 
   main() {
     if (window.localStorage.getItem('user')) {
+      // This is in case cookie expired and need it to re logIn
+      if(socket.connected === false) {
+        socket = io('jinseidojo.com', { secure: true, rejectUnauthorized: true })
+      }
       socket.on('updateValidation', async () => {
         const { data } = await axios.get('api/users/getuser', { withCredentials: true })
         this.modalWarningRef.current.show()
@@ -86,7 +90,10 @@ export default class App extends Component {
         <Router>
           <Fragment>
             <GralContext.Provider
-              value={this.state}
+              value={{
+                  state: this.state,
+                  refreshState: this.refreshState
+                }}
             >
               <Route path="/"
                 render={(props) => <Navigation {...props}

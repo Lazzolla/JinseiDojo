@@ -59,7 +59,6 @@ export default class LoginForm extends Component {
                 this.buttonRef.current.success()
                 this.props.victoryClose()
                 this.props.main()
-                // window.location.reload(true)
             } catch (err) {
                 this.setState({
                     submitError: 'No pudimos encontrar su foto de perfil'

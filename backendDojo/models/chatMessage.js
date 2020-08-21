@@ -7,7 +7,7 @@ const mongoose = require('mongoose'),
         nickname: String,
         created_at: String,
         systemDate: {type: String, default: null},
-        fullDate: {type: Date, default: new Date()}
+        fullDate: Date
     })
 
     chatMessageSchema.plugin(mongoosePaginate)

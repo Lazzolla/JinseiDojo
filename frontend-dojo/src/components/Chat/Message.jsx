@@ -1,10 +1,8 @@
-import React, { Fragment, useEffect } from 'react'
+import React, { Fragment} from 'react'
 import axios from 'axios'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import Container from 'react-bootstrap/Container'
-import { Emoji } from 'emoji-mart'
-import 'emoji-mart/css/emoji-mart.css'
 
 import { MessageBox, SystemMessage } from 'react-chat-elements'
 import 'react-chat-elements/dist/main.css'
@@ -18,17 +16,6 @@ export default function Message({
     userRecievedId,
     room
 }) {
-
-    const toUni = function (str) {
-        if (str.length < 4)
-          return str.codePointAt(0).toString(16)
-        return str.codePointAt(0).toString(16) + '-' + str.codePointAt(2).toString(16)
-      }
-
-useEffect(() => {
-//  console.log(toUni(message))
-
-}, [message])
 
 
     let isCurrentUser = false

@@ -36,10 +36,8 @@ fileFilter: (req, file, cb) => {
 }).single('image')
 
 router.post('/', ensureAuthenticated, async (req, res) => {
-    console.log(req.file)
    await profileImageUpload(req, res, (err) => {
         if(err) {
-            console.log(err)
             res.json({err})
         } else {
             if(req.file === undefined) {

@@ -1,6 +1,4 @@
 import React from 'react'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
 import CarouselBoard from './Board/CarouselBoard'
 import BlogBoard from './Board/BlogBoard'
 import './board.css'

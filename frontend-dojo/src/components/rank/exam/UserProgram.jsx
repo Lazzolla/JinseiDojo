@@ -138,8 +138,8 @@ export default function UserProgram(props) {
                     ref={printUserProgramRef}
                     program={printFinal}
                     title={title}
-                    name={context.user.name}
-                    lastName={context.user.lastName}
+                    name={context.state.user.name}
+                    lastName={context.state.user.lastName}
                     kyu={title === "2do Kyu (cinturon azul)"
                         ? true
                         : false

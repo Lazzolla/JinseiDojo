@@ -24,10 +24,10 @@ export default function Rank() {
     const [glossaryTab, setGlossaryTab] = useState('none')
 
     useEffect(() => {
-        if (context.user.rank) {
-            const index = getIndex(context.user.rank)
+        if (context.state.user.rank) {
+            const index = getIndex(context.state.user.rank)
             setUserRank(index)
-            const ranks = getRanks(context.user.rank)
+            const ranks = getRanks(context.state.user.rank)
             setRanks(ranks)
             setActiveBelt(index)
             setVideosBelt(index)

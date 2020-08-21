@@ -48,7 +48,10 @@ export default class Navigation extends Component {
     }
 
     UNSAFE_componentWillMount() {
-        
+        socket.on('forceLogOut', (data) => {
+            this.logOut()
+            alert(data)
+        })
         this.setState({
             isAuthenticated: this.props.user.isAuthenticated,
             nickname: this.props.user.nickname,
@@ -88,11 +91,8 @@ export default class Navigation extends Component {
     }
 
     async logOut() {
-        const response = await axios.get('api/users/logout',
-            {
-                method: "GET",
-                withCredentials: true
-            })
+        const userId = this.props.user.id
+        const response = await axios.post('api/users/logout', {userId})
         if (response.status === 200) {
             window.localStorage.removeItem('user')
             window.localStorage.removeItem('profileImage')
@@ -100,7 +100,6 @@ export default class Navigation extends Component {
                 isAuthenticated: false,
                 currentLocation: ''
             })
-
             this.modalLogoutRef.current.show()
             this.modalLogoutRef.current.victoryClose()
             socket.emit('logOut')

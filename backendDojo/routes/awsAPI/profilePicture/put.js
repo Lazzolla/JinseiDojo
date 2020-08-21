@@ -28,7 +28,7 @@ const profileImagePut = multer({
     }),
     limits: { fileSize: 4000000 },
     fileFilter: (req, file, cb) => {
-        const filetypes = /jpeg|jpg|png|gif/
+        const filetypes = /jpeg|jpg|png|gif|JPEG|JPG|PNG|GIF/
         const mimetype = filetypes.test(file.mimetype)
         const extname = filetypes.test(path.extname(file.originalname))
         if (mimetype && extname) {

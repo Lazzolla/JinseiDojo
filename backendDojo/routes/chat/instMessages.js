@@ -1,16 +1,17 @@
 const express = require('express'),
     router = express.Router(),
     instMessage = require('../../models/instMessage'),
-    ensureAuthenticated = require('../../passport/ensureAuth')
+    ensureAuthenticated = require('../../passport/ensureAuth'),
+    { validateInstructor } = require('../../middlewares/validation/validateInstructor')
 
-router.get('/:page', ensureAuthenticated, async (req, res) => {
+router.get('/:page', ensureAuthenticated, validateInstructor, async (req, res) => {
 
     const page = req.params.page
     await instMessage.find()
-    .sort({ _id: -1 })
-    .skip(15*page)
-    .limit(15)
-        .exec( async (err, messages) => {
+        .sort({ _id: -1 })
+        .skip(15 * page)
+        .limit(15)
+        .exec(async (err, messages) => {
             if (err) {
                 return res.status(500).json({
                     message: err || "No se pudo recuperar los mensajes del chat"
@@ -20,13 +21,13 @@ router.get('/:page', ensureAuthenticated, async (req, res) => {
                 await instMessage.countDocuments({}, (err, count) => {
                     let pages = undefined
                     const difference = count % 15
-                    if(difference !== 0) {
-                        pages = (Math.floor(count/15)) + 1
+                    if (difference !== 0) {
+                        pages = (Math.floor(count / 15)) + 1
                     } else {
-                        pages = count/15
+                        pages = count / 15
                     }
                     const OrderedMessages = messages.reverse()
-                    return res.json({OrderedMessages, pages})
+                    return res.json({ OrderedMessages, pages })
                 })
             }
         })

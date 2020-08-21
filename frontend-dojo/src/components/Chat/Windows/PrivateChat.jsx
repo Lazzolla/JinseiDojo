@@ -54,18 +54,16 @@ export default function PrivateChat(props) {
 
     useEffect(() => {
         setUserDestiny(props.user)
-        setNickname(context.user.nickname)
+        setNickname(context.state.user.nickname)
         setIsTyping('')
     }, [context, props])
 
     useEffect(() => {
        
         socket.on('deletedMessagePrivate', (data) => {
-            console.log(data)
             setMessages(prevState => {
                 data.deletedMessagesIds.forEach(el => {
                     const ind = prevState.findIndex(msg => msg._id === el)
-                    console.log(ind)
                     prevState.splice(ind, 1)
                 })
                 return [...prevState]
@@ -92,6 +90,8 @@ export default function PrivateChat(props) {
                 props.newUnreadMessage(userDestiny.userId)
         })
     }
+            //PREVENT WARNING FROM MISSING DEPENDECIES FOR FIELDS IN FETCH FUNCTION AND SCROLL POSITION
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [userDestiny])
 
     useEffect(() => {
@@ -109,7 +109,6 @@ export default function PrivateChat(props) {
                     setFetching('')
                 }, 2000)
                 const { data } = await axios.get(`api/chat/getprivatemessages?userId=${userDestiny.userId}&page=${pageMessages}&differencePages=${differencePages}&totalPages=${pagesAvailable}`, { withCredentials: true })
-                console.log(data)
                 setMessages(prevState => {
                     return [...data.OrderedMessages, ...prevState]
                 })
@@ -170,7 +169,7 @@ export default function PrivateChat(props) {
                 receivedNickname: userDestiny.nickname,
                 userDestinyId: userDestiny.userId
             }
-            const userId = context.user._id
+            const userId = context.state.user._id
             const data = { userId, nickname, message, receivedUser }
             socket.emit('message', data)
         }

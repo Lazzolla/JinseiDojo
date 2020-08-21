@@ -18,7 +18,6 @@ export default function Rank() {
 
     const changeActiveTab = (event) => {
         const { id } = event.target
-        console.log(id)
         if (id === 'videos') {
             setVideosTab('inline')
             setBoardTab('none')
@@ -39,7 +38,7 @@ export default function Rank() {
     
     return (
         <div className="inst">
-            {context.user.boardManagement
+            {context.state.user.boardManagement
                 ? <div
                     className="inst-button-tab-board  text-center"
                     >
@@ -63,7 +62,7 @@ export default function Rank() {
 
                 />
             </div>
-            {context.user.boardManagement
+            {context.state.user.boardManagement
                 ? <div 
                 className="inst-tab-board" 
                 style={{ display: boardTab }}

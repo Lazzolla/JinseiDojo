@@ -28,7 +28,6 @@ export default function InstructorVideos() {
         async function getVideos() {
             try {
                 const { data } = await axios.get('api/instructor/getvideoslist', { withCredentials: true })
-                console.log(data)
                 setLinks(data)
             } catch (err) {
                 console.log(err.response.data.message)
@@ -40,7 +39,6 @@ export default function InstructorVideos() {
     const getRefresh = async () => {
         try {
             const { data } = await axios.get('api/instructor/getvideoslist', { withCredentials: true })
-            console.log(data)
             setLinks(data)
         } catch (err) {
             console.log(err)
@@ -59,8 +57,6 @@ export default function InstructorVideos() {
 
     const handleUpdates = (e, key) => {
         const { name, value } = e.target
-        console.log(key)
-        console.log(name, value)
         Object.assign(links[index][key], { [name]: value })
         setLinks([...links])
     }
@@ -81,8 +77,7 @@ export default function InstructorVideos() {
         buttonRefSave.current.loading()
         buttonRefSave.current.disabled()
         try {
-            const response = await axios.put('api/instructor/savevideoslist', { links }, { withCredentials: true })
-            console.log(response)
+            await axios.put('api/instructor/savevideoslist', { links }, { withCredentials: true })
             buttonRefSave.current.success()
             modalWarningRef.current.victoryClose()
         } catch (err) {

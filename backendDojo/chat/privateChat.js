@@ -97,6 +97,7 @@ module.exports = function (io, socket) {
                                 const newDateSystem = {
                                     nickname,
                                     systemDate: dateHelpers.dateDDMMYYYY(t),
+                                    fullDate: t,
                                     receivedNickname
                                 }
                                 chat[0].messages.push(newDateSystem)
@@ -110,6 +111,7 @@ module.exports = function (io, socket) {
                                 message,
                                 nickname,
                                 created_at: dateHelpers.timeTwoDigits(t),
+                                fullDate: t,
                                 receivedNickname
                             }
                             chat[0].messages.push(newMessage)
@@ -119,14 +121,12 @@ module.exports = function (io, socket) {
                                 }
                                 if (message) {
                                     socket.emit(userDestinyId, newMessage)
-                                    console.log('aca')
                                         if (socketId !== undefined) {
                                                 socket.broadcast.to(socketId).emit
                                                 (userId, newMessage)
                                                 // Cast Signal to open new Tab
                                                 socket.broadcast.to(socketId).emit
                                                 (userDestinyId, userId)
-                                                console.log('acaTambien')
                                         }
                                 }
                             })

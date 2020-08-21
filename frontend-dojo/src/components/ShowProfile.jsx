@@ -13,12 +13,7 @@ export default function ShowProfile(props) {
     const [loading, setLoading] = useState(true)
 
 
-    React.createElement(
-    'h1',
-    null,
-    "what sadasdadsa"
-        )
-      
+  
 
     useEffect(() => {
         async function getUser(user) {
