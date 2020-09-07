@@ -1,11 +1,8 @@
 const express = require('express'),
+    router = express.Router(),
     aws = require('aws-sdk'),
-    ensureAuthenticated = require('../../../passport/ensureAuth'),
+    { ensureAuthenticated } = require('../../../middlewares/validation/validateCredentials'),
     config = require('../../../config/config')
-
-const router = express.Router()
-
-
 
 const s3 = new aws.S3({
     accessKeyId: config.AWS_KEY_ID,
@@ -32,7 +29,7 @@ router.get('/', ensureAuthenticated, async (req, res) => {
                 return img
             })
             const boardImages = await Promise.all(promesis)
-            res.send({boardImages, extensions})
+            res.send({ boardImages, extensions })
 
         }
     })

@@ -2,7 +2,6 @@ const express = require('express'),
   router = express.Router(),
   codeGenerator = require('../../helpers/emailValidationCode')
 
-
 router.post('/', (req, res) => {
     const { validationCode } = req.body
     if (validationCode == codeGenerator.getCode()) {

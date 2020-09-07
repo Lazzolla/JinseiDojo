@@ -39,13 +39,9 @@ module.exports = function (io) {
             currentTabs(usersTabs, nickname)
         })
         // LATEST PUBLICATIONS CHANGED
-        socket.on('latestPubUpdated', () => {
-            socket.broadcast.emit('latestPubUpdated', 'updated')
-        })
+        socket.on('latestPubUpdated', () => socket.broadcast.emit('latestPubUpdated', 'updated'))
         // NEW COMMENT IN PUBLICATION
-        socket.on('newComment', (id) => {
-            io.emit(id, id)
-        })
+        socket.on('newComment', (id) => io.emit(id, id))
 
 
         // USER UPDATED
@@ -62,9 +58,7 @@ module.exports = function (io) {
         })
 
         // BOARD UPDATED
-        socket.on('updatedBoard', () => {
-            io.emit('boardUpdated', 'boardUpdated')
-        })
+        socket.on('updatedBoard', () => io.emit('boardUpdated', 'boardUpdated'))
         
         require('./gralRoom')(io, socket)
         require('./privateChat')(io, socket)

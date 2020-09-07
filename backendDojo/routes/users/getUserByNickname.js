@@ -1,12 +1,8 @@
-const users = require('../../chat/users')
-
 const express = require('express'),
     router = express.Router(),
     User = require('../../models/User'),
     Instructor = require('../../models/Instructor'),
-    ensureAuthenticated = require('../../passport/ensureAuth')
-
-
+    { ensureAuthenticated } = require('../../middlewares/validation/validateCredentials')
 
 router.get('/:nickname', ensureAuthenticated, async (req, res) => {
 
@@ -60,7 +56,6 @@ router.get('/:nickname', ensureAuthenticated, async (req, res) => {
             }
         }
     })
-
 })
 
 module.exports = router

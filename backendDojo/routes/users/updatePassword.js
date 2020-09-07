@@ -1,9 +1,8 @@
 const express = require('express'),
   router = express.Router(),
-  ensureAuthenticated = require('../../passport/ensureAuth'),
   User = require('../../models/User'),
   bcrypt = require('bcryptjs'),
-  { checkGralValidation } = require('../../middlewares/validation/checkGralValidation')
+  { ensureAuthenticated, checkGralValidation } = require('../../middlewares/validation/validateCredentials')
 
 router.post('/', ensureAuthenticated, checkGralValidation, async (req, res) => {
   const userId = req.user.id,
@@ -41,7 +40,5 @@ router.post('/', ensureAuthenticated, checkGralValidation, async (req, res) => {
     }
   })
 })
-
-
 
 module.exports = router

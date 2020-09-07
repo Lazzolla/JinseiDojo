@@ -1,11 +1,8 @@
-
 const express = require('express'),
     router = express.Router(),
-    mongoose = require('mongoose'),
     chatPrivateRoom = require('../../models/privateChatMessage'),
-    ensureAuthenticated = require('../../passport/ensureAuth'),
-    { getUserOnlineById } = require('../../chat/users'),
-    dateHelpers = require('../../helpers/dates')
+    { ensureAuthenticated } = require('../../middlewares/validation/validateCredentials'),
+    { getUserOnlineById } = require('../../chat/users')
 
 router.delete('/', ensureAuthenticated, async (req, res) => {
     let io = req.app.get('socketio')

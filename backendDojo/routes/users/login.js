@@ -4,7 +4,6 @@ const express = require('express'),
 
 router.post('/', function (req, res, next) {
     passport.authenticate('local-login', async function (err, user, info) {
-  
       if (err) {
         return res.status(500).json({
           message: err|| "Ooops, something happened"

@@ -1,17 +1,10 @@
-const users = require('../../chat/users')
-
 const express = require('express'),
     router = express.Router(),
     GlossaryEntry = require('../../models/GlossaryEntry'),
-    config = require('../../config/config')
+    config = require('../../config/config'),
+    { validateSuperAdmin } = require('../../middlewares/validation/validateCredentials')
 
-
-
-router.post('/', async (req, res) => {
-
-    const password = req.body.password
-
-    if (password === config.SUPER_ADMIN_KEY) {
+router.post('/', validateSuperAdmin, async (req, res) => {
 
         await GlossaryEntry.find(async (err, glossary) => {
             if (err) {
@@ -38,6 +31,5 @@ router.post('/', async (req, res) => {
 
             }
         })
-    }
 })
 module.exports = router

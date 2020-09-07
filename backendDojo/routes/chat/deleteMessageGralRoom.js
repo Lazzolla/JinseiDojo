@@ -2,7 +2,7 @@ const express = require('express'),
     router = express.Router(),
     chatGralRoom = require('../../models/chatMessage'),
     instGralRoom = require('../../models/instMessage'),
-    ensureAuthenticated = require('../../passport/ensureAuth')
+    { ensureAuthenticated } = require('../../middlewares/validation/validateCredentials')
 
 router.delete('/', ensureAuthenticated, async (req, res) => {
     let io = req.app.get('socketio')

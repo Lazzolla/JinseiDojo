@@ -1,0 +1,9 @@
+node_modules
+
+routes/awsAPI/awsAPIKey.js
+
+mailer/bootstrapMail
+
+mailer/testTemplates.js
+mailer/plantilla.html
+mailer/platilladatos.html

@@ -5,7 +5,7 @@ const express = require('express'),
     multer = require('multer'),
     path = require('path'),
     { v4: uuidv4 } = require('uuid'),
-    ensureAuthenticated = require('../../../passport/ensureAuth'),
+    { ensureAuthenticated } = require('../../../middlewares/validation/validateCredentials'),
     User = require('../../../models/User'),
     config = require('../../../config/config')
 

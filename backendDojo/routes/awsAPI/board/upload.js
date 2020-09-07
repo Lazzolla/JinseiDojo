@@ -3,12 +3,10 @@ const express = require('express'),
     multerS3 = require('multer-s3'),
     multer = require('multer'),
     path = require('path'),
-    ensureAuthenticated = require('../../../passport/ensureAuth'),
+    { ensureAuthenticated } = require('../../../middlewares/validation/validateCredentials'),
     config = require('../../../config/config')
 
 const router = express.Router()
-
-
 
 const s3 = new aws.S3({
     accessKeyId: config.AWS_KEY_ID,
@@ -40,8 +38,8 @@ const boardImageUpload = multer({
 router.post('/', ensureAuthenticated, async (req, res) => {
 
     await s3.listObjectsV2(params = { Bucket: 'boardbucket' }, async (err, data) => {
-        if(err) {
-            res.status(500).json({err})
+        if (err) {
+            res.status(500).json({ err })
         }
         if (data.KeyCount > 0) {
             await s3.deleteObjects({
@@ -61,24 +59,24 @@ router.post('/', ensureAuthenticated, async (req, res) => {
         } else {
             uploadImages()
         }
-        
+
     })
-   async function uploadImages() {
+    async function uploadImages() {
         await boardImageUpload(req, res, (err) => {
-        if (err) {
-            res.status(500).json({ message: err })
-        } else {
-            if (req.files === undefined) {
-                console.log('Error: No file selected')
-                res.json('Error: No file selected')
+            if (err) {
+                res.status(500).json({ message: err })
             } else {
-                res.json({
-                    message: 'board guardado correctamente'
-                })
+                if (req.files === undefined) {
+                    console.log('Error: No file selected')
+                    res.json('Error: No file selected')
+                } else {
+                    res.json({
+                        message: 'board guardado correctamente'
+                    })
+                }
             }
-        }
-    })
-}
+        })
+    }
 })
 module.exports = router
 

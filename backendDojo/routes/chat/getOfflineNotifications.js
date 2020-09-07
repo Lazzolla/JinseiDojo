@@ -1,11 +1,8 @@
-
 const express = require('express'),
     router = express.Router(),
     User = require('../../models/User'),
     Notification = require('../../models/Notifications'),
-    ensureAuthenticated = require('../../passport/ensureAuth')
-
-
+    { ensureAuthenticated } = require('../../middlewares/validation/validateCredentials')
 
 router.get('/', ensureAuthenticated, async (req, res) => {
 

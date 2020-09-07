@@ -1,7 +1,7 @@
 const express = require('express'),
     router = express.Router(),
     UserPublish = require('../../models/UserPublish'),
-  ensureAuthenticated = require('../../passport/ensureAuth')
+    { ensureAuthenticated } = require('../../middlewares/validation/validateCredentials')
 
 router.get('/', ensureAuthenticated, async (req, res) => {
 

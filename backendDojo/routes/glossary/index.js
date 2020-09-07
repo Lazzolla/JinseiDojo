@@ -1,6 +1,5 @@
-const express = require('express')
-const router = express.Router()
-
+const express = require('express'),
+      router = express.Router()
 
 router.use('/getglossary', require('./getGlossary'))
       .use('/removeentry', require('./removeEntry'))

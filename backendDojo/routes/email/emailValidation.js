@@ -2,7 +2,7 @@ const express = require('express'),
   router = express.Router(),
   User = require('../../models/User'),
   codeGenerator = require('../../helpers/emailValidationCode'),
-EmailValidation = require('../../mailer/templates/EmailValidation')
+  EmailValidation = require('../../mailer/templates/EmailValidation')
 
 
 

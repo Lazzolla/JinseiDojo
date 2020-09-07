@@ -1,9 +1,8 @@
 const express = require('express'),
     router = express.Router(),
-    ensureAuthenticated = require('../../passport/ensureAuth'),
     InstructorVideos = require('../../models/InstructorVideos'),
     Instructor = require('../../models/Instructor'),
-    { checkGralValidation } = require('../../middlewares/validation/checkGralValidation')
+    { ensureAuthenticated, checkGralValidation } = require('../../middlewares/validation/validateCredentials')
 
 router.get('/', ensureAuthenticated, checkGralValidation, async (req, res) => {
 
@@ -14,20 +13,19 @@ router.get('/', ensureAuthenticated, checkGralValidation, async (req, res) => {
         if (instructor) {
             await InstructorVideos.find({ userId: instructor.userId }, (err, data) => {
                 if (err) {
-                    res.status(500).json({ message: err })
+                    return res.status(500).json({ message: err })
                 }
                 if (data.length > 0) {
-                    res.send(data[0].videos)
+                    return res.send(data[0].videos)
                 } else {
-                    res.status(404).json({ message: "Aun no hay videos de tu instructor, intentalo de nuevo en unos dias." })
+                    return res.status(404).json({ message: "Aun no hay videos de tu instructor, intentalo de nuevo en unos dias." })
                 }
             })
         }
-        if(!instructor) {
-            res.status(404).json({ message: "Aun no hay videos de tu instructor, intentalo de nuevo en unos dias." })
+        if (!instructor) {
+            return res.status(404).json({ message: "Aun no hay videos de tu instructor, intentalo de nuevo en unos dias." })
         }
     })
-
 })
 
 module.exports = router

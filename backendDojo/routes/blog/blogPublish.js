@@ -1,6 +1,6 @@
 const express = require('express'),
     router = express.Router(),
-    ensureAuthenticated = require('../../passport/ensureAuth'),
+    { ensureAuthenticated } = require('../../middlewares/validation/validateCredentials'),
     UserPublish = require('../../models/UserPublish')
 
 router.post('/', ensureAuthenticated, async (req, res) => {

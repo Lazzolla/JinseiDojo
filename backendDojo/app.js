@@ -7,9 +7,9 @@ const express = require('express'),
     passport = require('./passport'),
     cors = require('cors'),
     socketio = require('socket.io'),
-    http = require('http')
-
-require('dotenv').config()
+    http = require('http'),
+    compression = require('compression'),
+    cookieSession = require('cookie-session')
 
 // Routes requires
 const usersRouter = require('./routes/users/index'),
@@ -23,48 +23,37 @@ const usersRouter = require('./routes/users/index'),
     glossaryRouter = require('./routes/glossary/index'),
     dojosRouter = require('./routes/dojos/index')
 
-const cookieSession = require('cookie-session')
-
 // App initialization and Socket.io init
 const app = express(),
 server = http.createServer(app),
 io = socketio(server)
-
 require('./chat/socket')(io)
 app.set('socketio', io)
 
-// WORK IN PROGRESS
+// Secure headers
 
-// app.use(helmet())
-// app.use(
-//     helmet.contentSecurityPolicy({
-//       directives: {
-//         "defaultSrc": ["'self'", 'unsafe-inline', 'https://maxcdn.bootstrapcdn.com', 'https://cdnjs.cloudflare.com'],
-//         "scriptSrc": ["'self'", 'unsafe-inline', 'https://code.jquery.com', 'https://cdn.jsdelivr.net', 'https://stackpath.bootstrapcdn.com', 'https://www.youtube.com', 'https://s.ytimg.com'],
-//         "objectSrc": ["'none'"]
-//       },
-//     })
-//   )
+app.use(helmet())
 
 // MongoDB connection
 require('./database')
-
 app.enable('trust proxy')
     .use(cookieSession({
         maxAge: 1000*60*60*24*31*36,
         name: config.COOKIES_NAME,
         keys: config.COOKIES_KEYS,
         saveUninitialized: true,
-        httpOnly: true,
-        secure: true,
+        httpOnly: false,
+        secure: false,
         domain: config.COOKIES_DOMAIN,
-        secret: config.COOKIES_SECRET
+        secret: config.COOKIES_SECRET,
+        proxi: true
     }))
 app.use(logger('dev'))
     .use(cors({
         origin: 'http://localhost:3000',
         credentials: true
     }))
+    .use(compression())
     .use(express.json())
     .use(express.urlencoded({ extended: false }))
     .use(express.static(path.join(__dirname, "../frontend-dojo/build")))
@@ -93,6 +82,7 @@ app.use(passport.initialize())
     .use('/api/board', boardRouter)
     .use('/api/glossary', glossaryRouter)
     .use('/api/dojos', dojosRouter)
+
 
 server.listen(PORT, () => {
     console.log(`Server is listening on PORT ${PORT}`)

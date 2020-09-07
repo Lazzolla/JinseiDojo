@@ -3,12 +3,12 @@ const express = require('express'),
   Dojos = require('../../models/dojos')
 
 router.get('/', async (req, res) => {
-    
-    await Dojos
-                .find()
-                .exec((err, data) => {
-                    return res.send(data)
-                })
+
+  await Dojos
+    .find()
+    .exec((err, data) => {
+      return res.send(data)
+    })
 })
 
 

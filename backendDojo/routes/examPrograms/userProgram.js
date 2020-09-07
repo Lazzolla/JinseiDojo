@@ -1,10 +1,7 @@
 const express = require('express'),
     router = express.Router(),
     UserExamProgram = require('../../models/UserExamProgram'),
-    ensureAuthenticated = require('../../passport/ensureAuth'),
-    { checkGralValidation } = require('../../middlewares/validation/checkGralValidation')
-
-
+    { ensureAuthenticated, checkGralValidation } = require('../../middlewares/validation/validateCredentials')
 
 router.post('/', ensureAuthenticated, checkGralValidation, async (req, res) => {
     const id = req.user.id

@@ -1,11 +1,8 @@
 const express = require('express'),
+    router = express.Router(),
     aws = require('aws-sdk'),
     { v4: uuidv4 } = require('uuid'),
     config = require('../../../config/config')
-
-const router = express.Router()
-
-
 
 const s3 = new aws.S3({
     accessKeyId: config.AWS_KEY_ID,
@@ -16,12 +13,12 @@ const s3 = new aws.S3({
 router.get('/', async (req, res) => {
 
     await s3.listObjectsV2(params = { Bucket: 'boardbucket' }, async (err, data) => {
-        if(err) {
-            res.status(500).json({err})
+        if (err) {
+            res.status(500).json({ err })
         }
-        if(data) {
+        if (data) {
             const boardLocations = data.Contents.map(loc => {
-            return { id: uuidv4() ,src: "https://boardbucket.s3-sa-east-1.amazonaws.com/" + loc.Key}
+                return { id: uuidv4(), src: "https://boardbucket.s3-sa-east-1.amazonaws.com/" + loc.Key }
             })
             res.send(boardLocations)
         }

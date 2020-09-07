@@ -1,6 +1,5 @@
-const express = require('express')
-const router = express.Router()
-
+const express = require('express'),
+    router = express.Router()
 
 router.use('/signup', require('./signup'))
     .use('/login', require('./login'))
@@ -11,7 +10,5 @@ router.use('/signup', require('./signup'))
     .use('/getuserbynickname', require('./getUserByNickname'))
     .use('/getusersoffline', require('./getUsersOffline'))
     .use('/nicknameexist', require('./nicknameExist'))
-
-
 
 module.exports = router

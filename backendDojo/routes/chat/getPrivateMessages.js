@@ -1,12 +1,8 @@
-
 const express = require('express'),
     router = express.Router(),
     mongoose = require('mongoose'),
     chatPrivateRoom = require('../../models/privateChatMessage'),
-    ensureAuthenticated = require('../../passport/ensureAuth'),
-    dateHelpers = require('../../helpers/dates')
-
-
+    { ensureAuthenticated } = require('../../middlewares/validation/validateCredentials')
 
 router.get('/', ensureAuthenticated, async (req, res) => {
     const currentUser = req.user.id,
@@ -46,9 +42,8 @@ router.get('/', ensureAuthenticated, async (req, res) => {
                             })
                         }
                         if (response) {
-                            const count = response[0].count
-
-                            const difference = count % 15
+                            const count = response[0].count,
+                                difference = count % 15
                             let pages
                             if (difference !== 0) {
                                 pages = (Math.floor(count / 15)) + 1

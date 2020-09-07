@@ -5,23 +5,15 @@ const chatGralRoom = require('../models/chatMessage'),
 module.exports = function (io, socket) {
 
     // GENERAL CHAT
-    socket.on('gralRoom', async (data) => {
-        manageMessage(data, chatGralRoom, 'gralRoom')
-    })
+    socket.on('gralRoom', async data => manageMessage(data, chatGralRoom, 'gralRoom'))
 
     // INSTRUCTORS CHAT
-    socket.on('instRoom', async (data) => {
-           manageMessage(data, instGralRoom, 'instRoom')
-    })
+    socket.on('instRoom', async data => manageMessage(data, instGralRoom, 'instRoom'))
 
     // TYPING
-    socket.on('typingGralRoom', (data) => {
-        io.emit('gralRoomTyping', data)
-    })
+    socket.on('typingGralRoom', data => io.emit('gralRoomTyping', data))
 
-    socket.on('typingInstRoom', (data) => {
-        io.emit('instRoomTyping', data)
-    })
+    socket.on('typingInstRoom', data => io.emit('instRoomTyping', data))
 
     async function manageMessage(data, chatModel, emit) {
         const { message, nickname } = data

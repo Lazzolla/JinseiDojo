@@ -9,14 +9,6 @@ module.exports = function (io, socket) {
         const { userId, nickname, receivedUser: {receivedNickname, userDestinyId}, message } = data
         if (message.length > 0) {
             const t = new Date()
-            // // SenderID
-            // const user = getUserOnlineByNickname(nickname)
-            // let userId
-            // if(user) {
-            //     userId = user.userId
-            // } else {
-
-            // }
             // User Receiver
             const userDestiny = getUserOnlineByNickname(receivedNickname)
             let socketId = undefined

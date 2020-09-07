@@ -6,7 +6,7 @@ let users = [],
 
 const currentTabs = (openChats, nickname) => {
   if (nickname !== '') {
-    const index = openTabs.findIndex((el) => el.nickname === nickname)
+    const index = openTabs.findIndex(el => el.nickname === nickname)
     if (index === -1) {
       const tabs = {
         nickname: nickname,
@@ -19,10 +19,10 @@ const currentTabs = (openChats, nickname) => {
   }
 }
 
-const getCurrentTabs = (nickname) => {
+const getCurrentTabs = nickname => {
   const tabs = openTabs.find((el) => el.nickname === nickname)
   if (tabs === undefined) {
-    return {openChats: []}
+    return { openChats: [] }
   } else {
     return tabs
   }
@@ -37,7 +37,7 @@ const actualUSer = (nickname, profilePictureLocation, socketId, _id) => {
 }
 
 const addUser = ({ nickname, profilePictureLocation, socketId, userId }) => {
-  const checkUser = users.map((user) => {
+  const checkUser = users.map(user => {
     return user.nickname
   }).indexOf(nickname)
   if (checkUser === -1) {
@@ -49,32 +49,31 @@ const addUser = ({ nickname, profilePictureLocation, socketId, userId }) => {
   }
 }
 
-const removeUser = (userId) => {
-  const index = users.findIndex((user) => user.userId === userId)
+const removeUser = userId => {
+  const index = users.findIndex(user => user.userId === userId)
 
   if (index !== -1) return users.splice(index, 1)[0]
 }
 
-const removeUserBySocketId = (socketId) => {
-  const index = users.findIndex((user) => user.socketId === socketId)
-
+const removeUserBySocketId = socketId => {
+  const index = users.findIndex(user => user.socketId === socketId)
   if (index !== -1) return users.splice(index, 1)[0]
 }
 
-const getUser = (nickname) => {
-  const user = users.find((user) => user.nickname === nickname)
+const getUser = nickname => {
+  const user = users.find(user => user.nickname === nickname)
   return user
 }
 
 const getUsersInRoom = () => users
 
-const getUserOnlineByNickname = (nickname) => {
-  const userDestiny = users.find((user) => user.nickname === nickname)
+const getUserOnlineByNickname = nickname => {
+  const userDestiny = users.find(user => user.nickname === nickname)
   return userDestiny
 }
 
-const getUserOnlineById = (id) => {
-  const userDestiny = users.find((user) => user.userId === id)
+const getUserOnlineById = id => {
+  const userDestiny = users.find(user => user.userId === id)
   return userDestiny
 }
 
@@ -89,7 +88,7 @@ const addPrivateChat = (chatId, userId, userIdTwo) => {
 }
 
 const getPrivateChat = (userId, userIdTwo) => {
-  const chat = privateChats.find((el) => {
+  const chat = privateChats.find(el => {
     if (el.userId === userId && el.userIdTwo === userIdTwo) {
       return true
     } else {

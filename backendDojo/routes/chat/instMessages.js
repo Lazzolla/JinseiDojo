@@ -1,8 +1,7 @@
 const express = require('express'),
     router = express.Router(),
     instMessage = require('../../models/instMessage'),
-    ensureAuthenticated = require('../../passport/ensureAuth'),
-    { validateInstructor } = require('../../middlewares/validation/validateInstructor')
+    { ensureAuthenticated, validateInstructor } = require('../../middlewares/validation/validateCredentials')
 
 router.get('/:page', ensureAuthenticated, validateInstructor, async (req, res) => {
 

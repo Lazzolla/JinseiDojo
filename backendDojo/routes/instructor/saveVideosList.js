@@ -1,9 +1,9 @@
 const express = require('express'),
   router = express.Router(),
-  ensureAuthenticated = require('../../passport/ensureAuth'),
-  InstructorVideos = require('../../models/InstructorVideos')
+  InstructorVideos = require('../../models/InstructorVideos'),
+  { ensureAuthenticated, validateInstructor } = require('../../middlewares/validation/validateCredentials')
 
-router.put('/', ensureAuthenticated , async (req, res) => {
+router.put('/', ensureAuthenticated, validateInstructor , async (req, res) => {
     
     const videos = req.body.links
 
