@@ -41,7 +41,7 @@ export default class SignupForms extends Component {
     buttonSignupRef = React.createRef()
     buttonValidationRef = React.createRef()
 
-    async UNSAFE_componentWillMount() {
+    async componentDidMount() {
         const { data } = await axios.get('api/instructor/getlistinstructors')
         this.setState({
             instructors: data
@@ -85,10 +85,7 @@ export default class SignupForms extends Component {
             if (password === passwordCheck) {
                 this.buttonSignupRef.current.loading()
                 try {
-                    await axios.post('api/users/nicknameexist',
-                        {
-                            nickname
-                        })
+                    await axios.post('api/users/nicknameexist', { nickname })
                     try {
                         await axios.post('api/email/emailexist',
                             {
@@ -195,31 +192,22 @@ export default class SignupForms extends Component {
     }
 
     render() {
-
         const formActual = this.state.submitEmail
-            ? <Form
-                onSubmit={event => this.signupSubmit(event)}
-            >
-                <Form.Text
-                    className="text-danger text-center"
-                >
+            ? <Form onSubmit={event => this.signupSubmit(event)}>
+                <Form.Text className="text-danger text-center">
                     <h3 >
                         {this.state.submitError}
                     </h3>
                 </Form.Text>
-                <Form.Text
-                    className="text-center"
-                >
+                <Form.Text className="text-center">
                     <h4>
-                        Te enviamos un correo a tu cuenta con un codigo de validación
-                        </h4>
+                      Te enviamos un correo a tu cuenta con un codigo de validación
+                    </h4>
                 </Form.Text>
-                <Form.Text
-                    className="mt-4 mb-2 text-center"
-                >
+                <Form.Text className="mt-4 mb-2 text-center">
                     <h6>
-                        Por favor ingresa el código que te enviamos debajo y has click en validar para confirmar tu cuenta
-                        </h6>
+                      Por favor ingresa el código que te enviamos debajo y has click en validar para confirmar tu cuenta
+                    </h6>
                 </Form.Text>
                 <Form.Control
                     required
@@ -239,12 +227,8 @@ export default class SignupForms extends Component {
                     ref={this.buttonValidationRef}
                 />
             </Form>
-            : <Form
-                onSubmit={event => this.onSubmitSignup(event)}
-            >
-                <Form.Text
-                    className="text-danger text-center"
-                >
+            : <Form onSubmit={event => this.onSubmitSignup(event)}>
+                <Form.Text className="text-danger text-center">
                     <h6>
                         {this.state.submitError}
                     </h6>
@@ -316,9 +300,7 @@ export default class SignupForms extends Component {
                 <Form.Group>
                     <Form.Row>
                         <Col>
-                            <Form.Label
-                                className="my-2 text-secondary "
-                            >
+                            <Form.Label className="my-2 text-secondary">
                                 Fecha de Nacimiento
                                 </Form.Label>
                         </Col>
@@ -331,9 +313,7 @@ export default class SignupForms extends Component {
                             />
                         </Col>
                         <Col>
-                            <Form.Label
-                                className="text-secondary"
-                            >
+                            <Form.Label className="text-secondary">
                                 Fecha de Inicio de Practica (Aprox)
                                  </Form.Label>
                         </Col>
@@ -350,9 +330,7 @@ export default class SignupForms extends Component {
                 <Form.Group>
                     <Form.Row>
                         <Col>
-                            <Form.Label
-                                className="text-secondary"
-                            >
+                            <Form.Label className="text-secondary">
                                 ¿En que Dojo Practica?
                                  </Form.Label>
                             <Form.Control
@@ -363,21 +341,17 @@ export default class SignupForms extends Component {
                             >
                                 <option></option>
                                 {this.state.dojos.map((dojo, key) => (
-                                    <option
-                                        key={key}
-                                    >
+                                    <option key={key}>
                                         {dojo.dojoName}
                                     </option>
                                 ))}
                                 <option>
                                     No aparece en la lista
-                                    </option>
+                                </option>
                             </Form.Control>
                         </Col>
                         <Col>
-                            <Form.Label
-                                className="text-secondary"
-                            >
+                            <Form.Label className="text-secondary">
                                 ¿Quien es su Instructor?
                                  </Form.Label>
                             <Form.Control
@@ -388,15 +362,13 @@ export default class SignupForms extends Component {
                             >
                                 <option></option>
                                 {this.state.instructors.map((inst, key) => (
-                                    <option
-                                        key={key}
-                                    >
+                                    <option key={key}>
                                         {inst.listName}
                                     </option>
                                 ))}
                                 <option>
                                     No aparece en la lista
-                                    </option>
+                                </option>
                             </Form.Control>
                         </Col>
                     </Form.Row>
@@ -404,15 +376,11 @@ export default class SignupForms extends Component {
                 <Form.Group>
                     <Form.Row>
                         <Col>
-                            <Form.Label
-                                className="text-secondary"
-                            >
+                            <Form.Label className="text-secondary">
                                 ¿Es Usted Instructor?
-                                 </Form.Label>
-                            <div
-                                onChange={this.handleChange}
-                            >
-                                {['radio'].map((type) => (
+                            </Form.Label>
+                            <div onChange={this.handleChange}>
+                                {['radio'].map(type => (
                                     <div
                                         key={`custom-inline-${type}`}
                                         className="mb-3"
@@ -442,11 +410,9 @@ export default class SignupForms extends Component {
                             </div>
                         </Col>
                         <Col>
-                            <Form.Label
-                                className="text-secondary"
-                            >
+                            <Form.Label className="text-secondary">
                                 ¿Cual es su Graduación?
-                                 </Form.Label>
+                            </Form.Label>
                             <Form.Control
                                 required
                                 name="rank"
@@ -455,9 +421,7 @@ export default class SignupForms extends Component {
                             >
                                 <option></option>
                                 {this.state.ranks.map((rank, key) => (
-                                    <option
-                                        key={key}
-                                    >
+                                    <option key={key}>
                                         {rank.rank}
                                     </option>
                                 ))}

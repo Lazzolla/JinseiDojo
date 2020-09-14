@@ -23,16 +23,14 @@ export default class ButtonDinamic extends Component {
         }
     }
 
-    UNSAFE_componentWillMount() {
+    componentDidMount() {
         if (this.props.persistClickDefault) {
             this.setState({
                 persistClick: " persistClick "
             })
         }
     }
-
     // FOR TABS
-
     persistClickOn() {
         this.setState({
             persistClick: " persistClick "
@@ -44,9 +42,7 @@ export default class ButtonDinamic extends Component {
             persistClick: " buttonDinamic "
         })
     }
-
     // FOR FILTERS
-
     persistFilter() {
         if (this.state.persistClick === " buttonDinamic ") {
             this.setState({

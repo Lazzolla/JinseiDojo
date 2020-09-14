@@ -43,8 +43,6 @@ const Image = ({ image, index, moveImage, removeItem }) => {
     })
   })
 
-
-
   drag(drop(ref))
 
   return (

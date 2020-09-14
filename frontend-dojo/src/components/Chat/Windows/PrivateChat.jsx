@@ -60,7 +60,7 @@ export default function PrivateChat(props) {
 
     useEffect(() => {
        
-        socket.on('deletedMessagePrivate', (data) => {
+        socket.on('deletedMessagePrivate', data => {
             setMessages(prevState => {
                 data.deletedMessagesIds.forEach(el => {
                     const ind = prevState.findIndex(msg => msg._id === el)
@@ -124,9 +124,7 @@ export default function PrivateChat(props) {
                     bodyTag.scrollTop = bodyTag.scrollHeight
                     setPrevHeightBody(bodyTag.scrollHeight)
                 }
-                // setTimeout(() => {
                 setLoading(false)
-                // }, 500)
             } catch (err) {
                 setFetching('')
                 setLoading(false)
@@ -139,9 +137,7 @@ export default function PrivateChat(props) {
                 setPageMessages(0)
             }
             if (bodyTag) {
-                if (pageMessages < pagesAvailable || pagesAvailable === 0) {
-                    getMessages()
-                }
+                if (pageMessages < pagesAvailable || pagesAvailable === 0) getMessages()
             }
         }
         //PREVENT WARNING FROM MISSING DEPENDECIES FOR FIELDS IN FETCH FUNCTION AND SCROLL POSITION
@@ -163,7 +159,7 @@ export default function PrivateChat(props) {
         }
     }, [userDestiny])
 
-    const sendMessage = (message) => {
+    const sendMessage = message => {
         if (message) {
             const receivedUser = {
                 receivedNickname: userDestiny.nickname,
@@ -194,12 +190,8 @@ export default function PrivateChat(props) {
     return (
         userDestiny
             ? <Fragment>
-                <Card
-                    className="chat-private-window rounded"
-                >
-                    <Card.Header
-                        className="chat-private-title"
-                    >
+                <Card className="chat-private-window rounded">
+                    <Card.Header className="chat-private-title">
                         <div
                             type="button"
                             className="chat-private-title-name"
@@ -207,9 +199,7 @@ export default function PrivateChat(props) {
                         >
                             {userDestiny.nickname}
                         </div>
-                        <div
-                            className="chat-private-closeBut"
-                        >
+                        <div className="chat-private-closeBut">
                             <FontAwesomeIcon
                                 className="close-chat-icon"
                                 type="button"
@@ -219,9 +209,7 @@ export default function PrivateChat(props) {
                             />
                         </div>
                     </Card.Header>
-                    <div
-                        className="rounded-pill chat-private-fetching"
-                    >
+                    <div className="rounded-pill chat-private-fetching">
                         {fetching}
                     </div>
                     <Card.Body
@@ -231,37 +219,31 @@ export default function PrivateChat(props) {
                         {messages.map((message, i) => {
                             if (i !== 0) {
                                 return <div key={i}>
-                                    <Message
-                                        userRecievedId={userDestiny.userId}
-                                        deleteURL="deletemessageprivateroom"
-                                        iconClass="message-private"
-                                        message={message}
-                                    />
-                                </div>
+                                          <Message
+                                              userRecievedId={userDestiny.userId}
+                                              deleteURL="deletemessageprivateroom"
+                                              iconClass="message-private"
+                                              message={message}
+                                          />
+                                       </div>
                             } else {
                                 return <div ref={firstMessageRef} key={i}>
-                                    <Message
-                                        userRecievedId={userDestiny.userId}
-                                        deleteURL="deletemessageprivateroom"
-                                        iconClass="message-private"
-                                        message={message}
-                                    />
-                                </div>
+                                          <Message
+                                              userRecievedId={userDestiny.userId}
+                                              deleteURL="deletemessageprivateroom"
+                                              iconClass="message-private"
+                                              message={message}
+                                          />
+                                       </div>
                             }
                         })}
                     </Card.Body>
-                    <div
-                        className="rounded-pill private-chat-typing"
-                    >
+                    <div className="rounded-pill private-chat-typing">
                         {typing}
                     </div>
-                    <Card.Footer
-                        className="private-chat-footer"
-                    >
+                    <Card.Footer className="private-chat-footer">
                         <Row>
-                            <Col
-                                className="p-0"
-                            >
+                            <Col className="p-0">
                                 <Input
                                     disabled={loading}
                                     id={props.inputId}

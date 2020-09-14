@@ -14,24 +14,20 @@ export default function Comments(props) {
     const [timming, setTimming] = useState([])
 
     useEffect(() => {
-        if (props.comments) {
-            setComments(props.comments)
-        }
+        if (props.comments) setComments(props.comments)
     }, [props.comments])
 
     useEffect(() => {
-        if (props.publicationId) {
-            setPublicationId(props.publicationId)
-        }
+        if (props.publicationId) setPublicationId(props.publicationId)
     }, [props.publicationId])
 
-    const startDeleting = (id) => {
+    const startDeleting = id => {
         const elementId = id
         const deleteDivId = document.getElementById(elementId)
         const trashId = document.getElementById("trash" + elementId)
         const undoId = document.getElementById("undo" + elementId)
         deleteDivId.style.transition = ''
-        deleteDivId.addEventListener('transitionend', function() {
+        deleteDivId.addEventListener('transitionend', function () {
             undoId.style.opacity = '0'
             undoId.style.zIndex = '0'
             trashId.style.opacity = '1'
@@ -45,37 +41,37 @@ export default function Comments(props) {
         undoId.style.opacity = '1'
         undoId.style.zIndex = '2'
         timming.push({
-           id: elementId, 
-           timer:  setTimeout(async () => {
-            const config = {
-                params: {
-                    publicationId: publicationId,
-                    commentId: elementId
-                },
-                withCredentials: true
-            }
-            try {
-                await axios.delete('api/blog/delcomment', config)
-                socket.emit('newComment', publicationId)
-                setTimming(prevState => {
-                    const newArray = prevState.filter(el => el.id !== elementId)
-                    return [...newArray]
-                })
-            } catch (err) {
-                console.log(err.response)
-        }
-        }, 5000)
-    })
-}
+            id: elementId,
+            timer: setTimeout(async () => {
+                const config = {
+                    params: {
+                        publicationId: publicationId,
+                        commentId: elementId
+                    },
+                    withCredentials: true
+                }
+                try {
+                    await axios.delete('api/blog/delcomment', config)
+                    socket.emit('newComment', publicationId)
+                    setTimming(prevState => {
+                        const newArray = prevState.filter(el => el.id !== elementId)
+                        return [...newArray]
+                    })
+                } catch (err) {
+                    console.log(err.response)
+                }
+            }, 5000)
+        })
+    }
 
-    const cancelDeleting = (id) => {
+    const cancelDeleting = id => {
         const ind = timming.findIndex(el => el.id === id)
         clearTimeout(timming[ind].timer)
         timming.splice(ind, 1)
         refreshStyles(id)
     }
 
-    const refreshStyles = (id) => {
+    const refreshStyles = id => {
         const deleteDivId = document.getElementById(id)
         deleteDivId.style.transition = 'none'
         deleteDivId.style.opacity = '0'
@@ -98,9 +94,7 @@ export default function Comments(props) {
                             className="comment-delete-div"
                         >
                         </div>
-                        <div
-                            className="publishCard-comment-img-div"
-                        >
+                        <div className="publishCard-comment-img-div">
                             <Image
                                 className="publishCard-comment-img"
                                 roundedCircle={true}
@@ -108,13 +102,11 @@ export default function Comments(props) {
                                 src={comment.commentAuthor.profilePictureLocation}
                             />
                         </div>
-                        <div 
-                        className="publishCard-comment-trash"
-                        >
+                        <div className="publishCard-comment-trash">
                             {comment.commentAuthor._id === context.state.user._id
-                              ? <Fragment>  
-                               <FontAwesomeIcon
-                               className="publishCard-comment-trashIcon"
+                                ? <Fragment>
+                                    <FontAwesomeIcon
+                                        className="publishCard-comment-trashIcon"
                                         type="button"
                                         id={"trash" + comment._id}
                                         onClick={() => startDeleting(comment._id)}
@@ -122,37 +114,33 @@ export default function Comments(props) {
                                         size='lg'
                                         color='#817878'
                                     />
-                               <FontAwesomeIcon
-                                    className="comment-delete-icon"
-                                    type="button"
-                                    id={"undo" + comment._id}
-                                    onClick={() => cancelDeleting(comment._id)}
-                                    icon={faUndoAlt}
-                                />
+                                    <FontAwesomeIcon
+                                        className="comment-delete-icon"
+                                        type="button"
+                                        id={"undo" + comment._id}
+                                        onClick={() => cancelDeleting(comment._id)}
+                                        icon={faUndoAlt}
+                                    />
                                 </Fragment>
-                           :null }
+                                : null
+                            }
                         </div>
-                        <div 
-                        className="publishCard-comment-div"
-                        >
+                        <div className="publishCard-comment-div">
                             <span>
-                                <p 
-                                className="publishCard-comment-nickname"
-                                >
+                                <p className="publishCard-comment-nickname">
                                     {comment.commentAuthor.nickname}:
                                     </p>
-                                    </span>
+                            </span>
                             <span>
-                                <p
-                                 className="publishCard-comment-comment"
-                                 >
-                                     {comment.message}
-                                 </p>
-                                 </span>
+                                <p className="publishCard-comment-comment">
+                                    {comment.message}
+                                </p>
+                            </span>
                         </div>
                     </Card.Footer>
                 ))
-                : null}
+                : null
+            }
         </Fragment>
     )
 }

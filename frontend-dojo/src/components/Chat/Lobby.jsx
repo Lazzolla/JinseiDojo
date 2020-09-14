@@ -15,7 +15,6 @@ import './lobby.css'
 
 export default function Lobby() {
     const context = useContext(GralContext)
-    // const [newMessage, setNewMessage] = useState(null)
     const [users, setUsers] = useState([])
     const [openChats, setOpenChats] = useState([])
     const [chatGlobalTitle, setChatGlobalTitle] = useState('Sala de Instructores')
@@ -41,9 +40,9 @@ export default function Lobby() {
         }
     }, [context.state.user.isAuthenticated])
 
-    const openNewTab = async (user) => {
+    const openNewTab = async user => {
         if (user.nickname !== context.state.user.nickname) {
-            const ind = openChats.findIndex((el) => el.nickname === user.nickname)
+            const ind = openChats.findIndex(el => el.nickname === user.nickname)
             if (ind === -1) {
                 user.userKey = uuid()
                 user.messages = []
@@ -58,7 +57,7 @@ export default function Lobby() {
 
     useEffect(() => {
         if (context.state.user.isAuthenticated) {
-            socket.on(context.state.user._id, (data) => {
+            socket.on(context.state.user._id, data => {
                 const ind = openChats.findIndex(el => el.userId === data)
                 if (ind === -1) {
                     const userTab = users.find(el => el.userId === data)
@@ -81,7 +80,7 @@ export default function Lobby() {
         }
     }, [openChats, context.state.user.nickname])
 
-    const closeTab = (idTab) => {
+    const closeTab = idTab => {
         const ind = openChats.findIndex(el => el.userKey === idTab)
         const newAr = openChats.filter(el => el.userKey !== idTab)
         if (ind === 0) {
@@ -94,7 +93,7 @@ export default function Lobby() {
         setOpenChats([...newAr])
     }
 
-    const selectActive = (event) => {
+    const selectActive = event => {
         const idTab = event.target.id
         const ind = openChats.findIndex(el => el.userKey === idTab)
         setOpenChats(prevState => {
@@ -119,11 +118,9 @@ export default function Lobby() {
         }
     }
 
-    const openCloseChat = (action) => {
-        setShowGralChat(action)
-    }
+    const openCloseChat = action => setShowGralChat(action)
 
-    const newUnreadMessage = (userDestinyId) => {
+    const newUnreadMessage = userDestinyId => {
         const index = openChats.findIndex(el => el.userId === userDestinyId)
         if (openChats[index].display === 'none') {
             // openChats[index].unReaded += 1
@@ -228,84 +225,76 @@ export default function Lobby() {
         </div>
     return (
         context.state.user.isAuthenticated
-      ?  <div
-            className={showGralChat
-                ? openChats.length > 0
-                    ? "lobby-chatGralComponent"
-                    : "lobby-chatGralComponent-without-privateChat"
-                : openChats.length > 0
-                    ? "lobby-chatGralComponent-close-with-privateChat"
-                    : "lobby-chatGralComponent-close-without-privateChat"
-
-            }
-        >
-            {showLobby}
-            <div
+            ? <div
                 className={showGralChat
                     ? openChats.length > 0
-                        ? "private-chat-gral-wrapper"
-                        : "private-chat-gral-wrapper-empty"
+                        ? "lobby-chatGralComponent"
+                        : "lobby-chatGralComponent-without-privateChat"
                     : openChats.length > 0
-                        ? "private-chat-gral-wrapper-onClose"
-                        : "private-chat-gral-wrapper-onClose-empty"}
-            >
-                <div
-                    className={openChats.length > 0
-                        ? "pictures-private-chat-container"
-                        : null}
+                        ? "lobby-chatGralComponent-close-with-privateChat"
+                        : "lobby-chatGralComponent-close-without-privateChat"
+
+                }
+              >
+                {showLobby}
+                <div className={showGralChat
+                        ? openChats.length > 0
+                            ? "private-chat-gral-wrapper"
+                            : "private-chat-gral-wrapper-empty"
+                        : openChats.length > 0
+                            ? "private-chat-gral-wrapper-onClose"
+                            : "private-chat-gral-wrapper-onClose-empty"}
                 >
-                    <div
-                        className="pictures-group"
+                    <div className={openChats.length > 0
+                            ? "pictures-private-chat-container"
+                            : null}
                     >
-                        {openChats.map((user, y) => (
-                            <Fragment
-                                key={y}
+                        <div className="pictures-group">
+                            {openChats.map((user, y) => (
+                                <Fragment key={y}>
+                                    <Image
+                                        type="button"
+                                        id={user.userKey}
+                                        onClick={e => selectActive(e)}
+                                        className="pictures-private-chat"
+                                        roundedCircle={true}
+                                        fluid={true}
+                                        src={user.profilePictureLocation}
+                                    />
+                                    <Badge
+                                        className={user.unReaded > 0
+                                            ? "lobby-picture-badge"
+                                            : "lobby-picture-badge-off"
+                                        }
+                                        id={user.userKey}
+                                        variant="danger"
+                                        pill
+                                    >
+                                        {user.unReaded}
+                                    </Badge>
+                                </Fragment>
+                            ))}
+                        </div>
+                    </div>
+                    <div className="chat-private-tab-container">
+                        {openChats.map((user, x) => (
+                            <div
+                                key={x}
+                                className="chat-private-tab"
+                                style={{ display: user.display }}
                             >
-                                <Image
-                                    type="button"
-                                    id={user.userKey}
-                                    onClick={(e) => selectActive(e)}
-                                    className="pictures-private-chat"
-                                    roundedCircle={true}
-                                    fluid={true}
-                                    src={user.profilePictureLocation}
+                                <PrivateChat
+                                    user={user}
+                                    idTab={user.userKey}
+                                    inputId={user.userId}
+                                    closeTab={closeTab}
+                                    newUnreadMessage={newUnreadMessage}
                                 />
-                                <Badge
-                                    className={user.unReaded > 0
-                                        ? "lobby-picture-badge"
-                                        : "lobby-picture-badge-off"
-                                    }
-                                    id={user.userKey}
-                                    variant="danger"
-                                    pill
-                                >
-                                    {user.unReaded}
-                                </Badge>
-                            </Fragment>
+                            </div>
                         ))}
                     </div>
                 </div>
-                <div
-                    className="chat-private-tab-container"
-                >
-                    {openChats.map((user, x) => (
-                        <div
-                            key={x}
-                            className="chat-private-tab"
-                            style={{ display: user.display }}
-                        >
-                            <PrivateChat
-                                user={user}
-                                idTab={user.userKey}
-                                inputId={user.userId}
-                                closeTab={closeTab}
-                                newUnreadMessage={newUnreadMessage}
-                            />
-                        </div>
-                    ))}
-                </div>
             </div>
-        </div>
-        : null
+            : null
     )
 }

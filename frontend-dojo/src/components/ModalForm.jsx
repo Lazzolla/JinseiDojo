@@ -20,7 +20,6 @@ export default class ModalForm extends Component {
         })
     }
 
-
     victoryClose() {
         setTimeout(() => {
             this.close()
@@ -36,7 +35,6 @@ export default class ModalForm extends Component {
     render() {
         return (
             <Modal
-
                 backdrop={this.props.backdrop}
                 onExit={this.props.onExit}
                 className="modalForm-gral"

@@ -71,14 +71,13 @@ export default function PublishCard(props) {
         }
     }
 
-    const sendComment = async (message) => {
+    const sendComment = async message => {
         if (message) {
             try {
                 await axios.post('api/blog/postcomment', {
                     publicationId: pub._id,
                     comment: message
-                },
-                    { withCredentials: true })
+                }, { withCredentials: true })
                 socket.emit('newComment', pub._id)
             } catch (err) {
                 console.log(err.response)
@@ -88,15 +87,9 @@ export default function PublishCard(props) {
 
     return (
         <Fragment>
-            <Card
-                className="publishCard-card bg-transparent"
-            >
-                <Card.Body
-                    className="publishCard-body"
-                >
-                    <div
-                        className="publishCard-trashIcon"
-                    >
+            <Card className="publishCard-card bg-transparent">
+                <Card.Body className="publishCard-body">
+                    <div className="publishCard-trashIcon">
                         {props.deleteOption
                             ? <FontAwesomeIcon
                                 type="button"
@@ -105,7 +98,8 @@ export default function PublishCard(props) {
                                 size='lg'
                                 color='#817878'
                             />
-                            : null}
+                            : null
+                        }
                     </div>
                     <div>
                         {props.userPicture && pub.author
@@ -118,9 +112,7 @@ export default function PublishCard(props) {
                             : null}
                     </div>
 
-                    <Card.Title
-                        className="publishCard-title text-right"
-                    >
+                    <Card.Title className="publishCard-title text-right">
                         {pub.title}
                     </Card.Title>
                     {props.userShow && pub.author
@@ -139,12 +131,8 @@ export default function PublishCard(props) {
                     >
                         Ver la publicacion
                     </Card.Text>
-                    <div
-                        className="publishCard-card-footer"
-                    >
-                        <div
-                            className="publishCard-card-timeAgo text-right text-secondary"
-                        >
+                    <div className="publishCard-card-footer">
+                        <div className="publishCard-card-timeAgo text-right text-secondary">
                             <TimeAgo
                                 datetime={pub.created_at}
                                 locale='es'
@@ -159,7 +147,7 @@ export default function PublishCard(props) {
                 title={pub.title}
                 ref={modalPublishViewRef}
             >
-                <Card >
+                <Card>
                     <Card.Body>
                         <div
                             dangerouslySetInnerHTML={{
@@ -169,17 +157,13 @@ export default function PublishCard(props) {
                     </Card.Body>
                     <Card.Footer>
                         <Row>
-                            <Col
-                                className="publishCard-timeAgo ml-2 col-8"
-                            >
+                            <Col className="publishCard-timeAgo ml-2 col-8">
                                 <TimeAgo
                                     datetime={pub.created_at}
                                     locale='es'
                                 />
                             </Col>
-                            <Col
-                                className="text-right"
-                            >
+                            <Col className="text-right">
                                 {props.deleteOption
                                     ? <FontAwesomeIcon
                                         type="button"
@@ -188,17 +172,13 @@ export default function PublishCard(props) {
                                         size='lg'
                                         color='#817878'
                                     />
-                                    : null}
+                                    : null
+                                }
                             </Col>
                         </Row>
                     </Card.Footer>
-                    <Card.Footer
-                        className="publishCard-comment-footerInput"
-                    >
-                        <div
-                            className="publishCard-comment-input"
-                        >
-                    
+                    <Card.Footer className="publishCard-comment-footerInput">
+                        <div className="publishCard-comment-input">
                             <Input
                                 idInput={pub._id}
                                 sendTyping={null}
@@ -221,14 +201,10 @@ export default function PublishCard(props) {
                 title="¿Estas seguro que queres borra la publicación?"
                 ref={modalDeleteWarningRef}
             >
-                <Card.Text
-                    className="text-center h5"
-                >
+                <Card.Text className="text-center h5">
                     No podras recuperarla una vez borrada
                  </Card.Text>
-                <Card.Text
-                    className="text-center text-danger h5"
-                >
+                <Card.Text className="text-center text-danger h5">
                     {displayError}
                 </Card.Text>
                 <Row>
@@ -271,7 +247,8 @@ export default function PublishCard(props) {
                         user={pub.author.nickname}
                     />
                 </ModalAlert>
-                : null}
+                : null
+            }
         </Fragment >
     )
 }

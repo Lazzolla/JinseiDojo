@@ -7,7 +7,7 @@ import Col from 'react-bootstrap/Col'
 import ButtonDinamic from '../ButtonDinamic'
 import ModalAlert from '../ModalAlert'
 import { socket } from '../../App'
-import {getRanksList} from '../../Helpers/DataConvertions'
+import { getRanksList } from '../../Helpers/DataConvertions'
 
 import './profile.css'
 import './profileEdit.css'
@@ -58,25 +58,25 @@ export default class ProfileEdit extends Component {
     modalValidationWarningRef = React.createRef()
     modalEmailValidationProcessRef = React.createRef()
 
-   UNSAFE_componentWillMount() {
-this.updateEditionForm()
-this.setState({
-    ranks: getRanksList()
-})
+    componentDidMount() {
+        this.updateEditionForm()
+        this.setState({
+            ranks: getRanksList()
+        })
     }
 
-async updateEditionForm() {
-    this.setState(this.props.state)
-    const { data } = await axios.get('api/instructor/getlistinstructors')
-    this.setState({
-        instructors: data
-    })
-    const response = await axios.get('api/dojos/getdojos')
-    this.setState({
-        dojos: response.data
-    })
+    async updateEditionForm() {
+        this.setState(this.props.state)
+        const { data } = await axios.get('api/instructor/getlistinstructors')
+        this.setState({
+            instructors: data
+        })
+        const response = await axios.get('api/dojos/getdojos')
+        this.setState({
+            dojos: response.data
+        })
 
-}
+    }
 
     cancel(event) {
         if (event) {
@@ -84,7 +84,7 @@ async updateEditionForm() {
         }
         this.buttonRefSubmit.current.reset()
         this.buttonRefCancel.current.reset()
-            this.props.closeEdit()
+        this.props.closeEdit()
         this.updateEditionForm()
     }
 
@@ -159,33 +159,33 @@ async updateEditionForm() {
 
     async checkForEmailValidation() {
         if (this.state.mail !== this.props.state.mail) {
-        try {
-            await axios.post('api/email/emailexist',
-                {
-                    name: this.state.name,
-                    lastName: this.state.lastName,
-                    mail: this.state.mail
-                })
-            this.modalValidationWarningRef.current.close()
-            this.modalEmailValidationProcessRef.current.show()
-        } catch(err) {
-            console.log(err.response)
-            // EMAIL EXIST ERROR
-            setTimeout(() => {
+            try {
+                await axios.post('api/email/emailexist',
+                    {
+                        name: this.state.name,
+                        lastName: this.state.lastName,
+                        mail: this.state.mail
+                    })
+                this.modalValidationWarningRef.current.close()
+                this.modalEmailValidationProcessRef.current.show()
+            } catch (err) {
+                console.log(err.response)
+                // EMAIL EXIST ERROR
+                setTimeout(() => {
+                    this.setState({
+                        submitError: ''
+                    })
+                }, 5000)
                 this.setState({
-                    submitError: ''
+                    submitError: err.response.data.message
                 })
-            }, 5000)
-            this.setState({
-                submitError: err.response.data.message
-            })
-            this.buttonRefSubmit.current.reset()
-            this.buttonRefCancel.current.reset()
-            this.modalValidationWarningRef.current.close()
+                this.buttonRefSubmit.current.reset()
+                this.buttonRefCancel.current.reset()
+                this.modalValidationWarningRef.current.close()
+            }
+        } else {
+            this.saveProcess()
         }
-    } else {
-        this.saveProcess()
-    }
     }
 
     async checkValidationCode(event) {
@@ -294,7 +294,6 @@ async updateEditionForm() {
 
 
     render() {
-
         // SHOW CHARACTER AVAILABLE
         const maxCharWarning = this.state.maxChar === "0 caracteres restantes."
             ? "text-danger"
@@ -302,8 +301,7 @@ async updateEditionForm() {
 
         return (
             <Fragment>
-                <Form
-                    className="profileEdit-mask" >
+                <Form className="profileEdit-mask">
                     {/* NICKNAME */}
                     <Form.Control
                         maxLength={14}
@@ -341,12 +339,28 @@ async updateEditionForm() {
                         onChange={this.handleChange} />
                     {/* BIRTHDAY */}
                     <div type="button">
-                        <Form.Control className="birthday-profile-edit text-center" type="date" name="birthDate" placeholder={this.props.state.birthDate} onChange={this.handleChange} />
+                        <Form.Control
+                            className="birthday-profile-edit text-center"
+                            type="date"
+                            name="birthDate"
+                            placeholder={this.props.state.birthDate}
+                            onChange={this.handleChange}
+                        />
                     </div>
                     {/* INITIALDATE */}
-                    <Form.Control className="initialDate-profile-edit text-center" type="date" name="initialDate" placeholder={this.props.state.initialDate} onChange={this.handleChange} />
+                    <Form.Control
+                        className="initialDate-profile-edit text-center"
+                        type="date"
+                        name="initialDate" placeholder={this.props.state.initialDate}
+                        onChange={this.handleChange}
+                    />
                     {/* INSTRUCTOR */}
-                    <Form.Control className="instructor-profile-edit" name="instructor" as="select" onChange={this.handleChange}>
+                    <Form.Control
+                        className="instructor-profile-edit"
+                        name="instructor"
+                        as="select"
+                        onChange={this.handleChange}
+                    >
                         <option>{this.state.instructor}</option>
                         {this.state.instructors.map((inst, key) => (
                             <option key={key}>{inst.listName}</option>
@@ -365,24 +379,42 @@ async updateEditionForm() {
                         <option>No aparece en la lista</option>
                     </Form.Control>
                     {/* RANK */}
-                    <Form.Control className="rank-profile-edit" name="rank" as="select" onChange={this.handleChange}>
+                    <Form.Control
+                        className="rank-profile-edit"
+                        name="rank"
+                        as="select"
+                        onChange={this.handleChange}
+                    >
                         <option>{this.state.rank}</option>
                         {this.state.ranks.map((rank, key) => (
-                                    <option
-                                        key={key}
-                                    >
-                                        {rank.rank}
-                                    </option>
-                                ))}
+                            <option key={key}>
+                                {rank.rank}
+                            </option>
+                        ))}
                     </Form.Control>
                     {/* ABOUTME */}
                     <p className={"maxChar-profile-edit " + maxCharWarning}>
                         {this.state.maxChar}
                     </p>
-                    <Form.Control className="aboutMe-profile-edit text-justify" maxLength="500" as="textarea" name="aboutMe" placeholder={this.props.state.aboutMe} onChange={this.handleChange} />
+                    <Form.Control
+                        className="aboutMe-profile-edit text-justify"
+                        maxLength="500"
+                        as="textarea" name="aboutMe"
+                        placeholder={this.props.state.aboutMe}
+                        onChange={this.handleChange}
+                    />
                     {/* CELLPHONE */}
-                    <Form.Control className="cellphone-profile-edit text-center" maxLength="500" type="text" name="cellphone" placeholder={this.props.state.cellphone} onChange={this.handleChange} />
-                    <p className="warning-profile-edit text-danger text-center">{this.state.submitError}</p>
+                    <Form.Control
+                        className="cellphone-profile-edit text-center"
+                        maxLength="500"
+                        type="text"
+                        name="cellphone"
+                        placeholder={this.props.state.cellphone}
+                        onChange={this.handleChange}
+                    />
+                    <p className="warning-profile-edit text-danger text-center">
+                        {this.state.submitError}
+                    </p>
                     <ButtonDinamic
                         customStyle="buttonCancel-profile-edit"
                         color="btn-dark"
@@ -412,9 +444,13 @@ async updateEditionForm() {
                     title="¿Estas seguro que queres actualizar estos datos?"
                     ref={this.modalValidationWarningRef}
                 >
-                    <Card.Text className="text-center text-danger h5">{this.state.displayError}</Card.Text>
+                    <Card.Text className="text-center text-danger h5">
+                        {this.state.displayError}
+                    </Card.Text>
                     <Row>
-                        <Card.Text className="text-center h5">Modificar el campo de instructor, dojo o graduación hará que tu cuenta quede pendiente de validación y no podras usar las caracteristicas de la página hasta que se valide.</Card.Text>
+                        <Card.Text className="text-center h5">
+                            Modificar el campo de instructor, dojo o graduación hará que tu cuenta quede pendiente de validación y no podras usar las caracteristicas de la página hasta que se valide.
+                            </Card.Text>
                         <Col>
                             <ButtonDinamic
                                 color="btn-secondary"
@@ -449,13 +485,19 @@ async updateEditionForm() {
                 >
                     {<Form onSubmit={event => this.checkValidationCode(event)}>
                         <Form.Text className="text-danger text-center" >
-                            <h3 >{this.state.submitError}</h3>
+                            <h3 >
+                                {this.state.submitError}
+                            </h3>
                         </Form.Text>
                         <Form.Text className="text-center" >
-                            <h4>Te enviamos un correo a tu cuenta con un codigo de validación</h4>
+                            <h4>
+                                Te enviamos un correo a tu cuenta con un codigo de validación
+                            </h4>
                         </Form.Text>
                         <Form.Text className="mt-4 mb-2 text-center" >
-                            <h6>Por favor ingresa el codigo que te enviamos debajo y has click en validar para confirmar.</h6>
+                            <h6>
+                                Por favor ingresa el codigo que te enviamos debajo y has click en validar para confirmar.
+                            </h6>
                         </Form.Text>
                         <Form.Control
                             id="validationcode_signup_form"

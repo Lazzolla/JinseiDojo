@@ -44,60 +44,52 @@ export default function Exam() {
 
   return (
     <Fragment>
-      <div 
-      style={{ display: "none" }}
-      >
+      <div style={{ display: "none" }}>
         <PrintProgram
           program={currentProgram}
-          ref={printProgramRef} 
-          />
+          ref={printProgramRef}
+        />
       </div>
-      <div 
-      className="exam-bg-beltColor" 
-      id="videos_bg_belts"
+      <div
+        className="exam-bg-beltColor"
+        id="videos_bg_belts"
       >
         <div>
-          
         </div>
         <Carousel
           className="exam-carousel "
           indicators={false}
           interval={null}
           nextIcon={
-          <span 
-          aria-hidden="true"
-           className="exam-horizontal-nextIcon carousel-control-next-icon"
-            />}
+            <span
+              aria-hidden="true"
+              className="exam-horizontal-nextIcon carousel-control-next-icon"
+            />
+          }
           prevIcon={
-          <span 
-          aria-hidden="true" 
-          className="exam-horizontal-prevIcon carousel-control-prev-icon"
-           />}
+            <span
+              aria-hidden="true"
+              className="exam-horizontal-prevIcon carousel-control-prev-icon"
+            />
+          }
         >
           {examPrograms.map((exam, key) => (
             <Carousel.Item
               key={key}
               className="exam-carousel-item"
             >
-              <Row 
-              className="exam-item-row"
-              >
-                <Col
-                 className="exam-item-col col-6 "
-                 >
+              <Row className="exam-item-row">
+                <Col className="exam-item-col col-6 ">
                   {key < 3
-                    ? <Card 
-                    className="exam-card-exam"
-                    >
+                    ? <Card className="exam-card-exam">
                       <Card.Body>
-                        <Card.Title 
-                        className="text-left ml-5 mb-3">
+                        <Card.Title className="text-left ml-5 mb-3">
                           Principales Ataques
                           </Card.Title>
-                        <Card.Img 
-                        className="exam-attacks-img"
-                         src={attacks} 
-                         />
+                        <Card.Img
+                          className="exam-attacks-img"
+                          src={attacks}
+                        />
                       </Card.Body>
                     </Card>
                     : <UserProgram
@@ -114,26 +106,24 @@ export default function Exam() {
                         : null}
                     />}
                 </Col>
-                <Col 
-                className="exam-item-col col-6 "
-                >
+                <Col className="exam-item-col col-6 ">
                   <Card className="exam-card-exam">
-                    <FontAwesomeIcon 
-                    className="exam-card-print-icon"
-                     onClick={() => printProgram(key)} type="button" icon={faPrint} size='lg' 
-                     />
-                    <Card.Body 
-                    id="examProgramBody"
-                     className="exam-card-body"
-                     >
-                      <Card.Title 
-                      className="text-center mb-3">
+                    <FontAwesomeIcon
+                      className="exam-card-print-icon"
+                      onClick={() => printProgram(key)} type="button" icon={faPrint} size='lg'
+                    />
+                    <Card.Body
+                      id="examProgramBody"
+                      className="exam-card-body"
+                    >
+                      <Card.Title
+                        className="text-center mb-3">
                         {exam.title}
-                        </Card.Title>
-                      <Card.Subtitle 
-                      className="mb-2 text-center mb-3 text-muted">
+                      </Card.Title>
+                      <Card.Subtitle
+                        className="mb-2 text-center mb-3 text-muted">
                         {exam.subTitle}
-                        </Card.Subtitle>
+                      </Card.Subtitle>
                       <Table
                         bordered={true}
                         striped={true}

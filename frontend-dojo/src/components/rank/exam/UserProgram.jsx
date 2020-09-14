@@ -34,7 +34,7 @@ export default function UserProgram(props) {
     }, [props.userProgram, props.title])
 
     useEffect(() => {
-        userProgram.forEach( field => {
+        userProgram.forEach(field => {
             const idAttack = field.name.slice(0, -1)
             if (props.kyu) {
                 document.getElementById(idAttack + "4")[field.index].disabled = true
@@ -125,15 +125,11 @@ export default function UserProgram(props) {
         setTimeout(() => {
             buttonRefSubmit.current.reset()
         }, 1500)
-
-
     }
 
     return (
         <Fragment>
-            <div
-             style={{ display: "none" }}
-             >
+            <div style={{ display: "none" }}>
                 <PrintUserProgram
                     ref={printUserProgramRef}
                     program={printFinal}
@@ -146,37 +142,28 @@ export default function UserProgram(props) {
                     }
                 />
             </div>
-            <Card 
-            className="exam-card-exam"
-            >
-                <FontAwesomeIcon 
-                className="exam-card-print-icon"
-                 onClick={(event) => printProgram(event)}
-                  type="button"
-                   icon={faPrint}
-                    size='lg' 
-                    />
-                <Card.Body 
-                id="examProgramBody" 
-                className="exam-card-body"
+            <Card className="exam-card-exam">
+                <FontAwesomeIcon
+                    className="exam-card-print-icon"
+                    onClick={(event) => printProgram(event)}
+                    type="button"
+                    icon={faPrint}
+                    size='lg'
+                />
+                <Card.Body
+                    id="examProgramBody"
+                    className="exam-card-body"
                 >
-                    <Card.Title
-                     className="text-left ml-5 mb-3"
-                     >
-                         Armá tu examen
-                         </Card.Title>
-                    <Card.Subtitle 
-                    className="mb-2 text-center mb-3 text-muted"
-                    >
+                    <Card.Title className="text-left ml-5 mb-3">
+                        Armá tu examen
+                    </Card.Title>
+                    <Card.Subtitle className="mb-2 text-center mb-3 text-muted">
                         Podes guardarlo, imprimirlo y editarlo mas tarde si queres.
                     </Card.Subtitle>
-                    <Card.Title
-                     className="text-center">
-                         {title}
-                         </Card.Title>
-                    <Form
-                        onSubmit={(event) => submitProgram(event)}
-                    >
+                    <Card.Title className="text-center">
+                        {title}
+                    </Card.Title>
+                    <Form onSubmit={(event) => submitProgram(event)}>
                         <Table
                             className="userProgram-table text-center"
                             size="sm"
@@ -191,42 +178,40 @@ export default function UserProgram(props) {
                                     >
                                         <strong>
                                             Shomen Uchi
-                                            </strong>
+                                        </strong>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
                                         <SelectExamTechniques
-                                        id={props.kyu
-                                            ? "shomenUchi4"
-                                            : "shomenUchi1"}
-                                        handleChange={handleChange}
-                                    />
+                                            id={props.kyu
+                                                ? "shomenUchi4"
+                                                : "shomenUchi1"}
+                                            handleChange={handleChange}
+                                        />
                                     </td>
                                     <td>
                                         <SelectExamTechniques
-                                        id={props.kyu
-                                            ? "shomenUchi5"
-                                            : "shomenUchi2"}
-                                        handleChange={handleChange}
-                                    />
+                                            id={props.kyu
+                                                ? "shomenUchi5"
+                                                : "shomenUchi2"}
+                                            handleChange={handleChange}
+                                        />
                                     </td>
                                     <td>
                                         <SelectExamTechniques
-                                        id={props.kyu
-                                            ? "shomenUchi6"
-                                            : "shomenUchi3"}
-                                        handleChange={handleChange}
-                                    />
+                                            id={props.kyu
+                                                ? "shomenUchi6"
+                                                : "shomenUchi3"}
+                                            handleChange={handleChange}
+                                        />
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td
-                                        colSpan={3}
-                                    >
+                                    <td colSpan={3}>
                                         <strong>
                                             Yokomen Uchi
-                                            </strong>
+                                        </strong>
                                     </td>
                                 </tr>
                                 <tr>
@@ -256,12 +241,10 @@ export default function UserProgram(props) {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td
-                                        colSpan={3}
-                                    >
+                                    <td colSpan={3}>
                                         <strong>
                                             Ushiro Riotekubidori
-                                            </strong>
+                                        </strong>
                                     </td>
                                 </tr>
                                 <tr>
@@ -292,12 +275,10 @@ export default function UserProgram(props) {
                                 </tr>
 
                                 <tr>
-                                    <td
-                                        colSpan={3}
-                                    >
+                                    <td colSpan={3}>
                                         <strong>
                                             Hamni Hantachi Waza
-                                            </strong>
+                                        </strong>
                                     </td>
                                 </tr>
                                 <tr>
@@ -330,16 +311,13 @@ export default function UserProgram(props) {
                                                 id={"hamniHantachiWaza3"}
                                                 handleChange={handleChange}
                                             />
-                                        </td>}
-
-
-
+                                        </td>
+                                    }
                                 </tr>
                                 <tr>
-                                    <td
-                                        colSpan={3}
-                                    ><strong>
-                                        Suwari Waza
+                                    <td colSpan={3}>
+                                        <strong>
+                                            Suwari Waza
                                         </strong>
                                     </td>
                                 </tr>
@@ -379,14 +357,13 @@ export default function UserProgram(props) {
                                     <td colSpan={3}>
                                         <strong>{props.kyu
                                             ? "Jiyu Waza con 2 ukes"
-                                            : "Jiyu Waza"}</strong>
+                                            : "Jiyu Waza"}
+                                        </strong>
                                     </td>
                                 </tr>
                             </tbody>
                         </Table>
-                        <div 
-                        className="userProgram-button-save"
-                        >
+                        <div className="userProgram-button-save">
                             <ButtonDinamic
                                 customStyle="userProgram-button-style"
                                 styleSpinner="userProgram-button-spinner"

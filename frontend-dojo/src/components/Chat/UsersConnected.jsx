@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment} from 'react'
+import React, { useState, useEffect, Fragment } from 'react'
 import axios from 'axios'
 import Image from 'react-bootstrap/Image'
 import Card from 'react-bootstrap/Card'
@@ -14,15 +14,14 @@ export default function UsersConnected(props) {
 
     useEffect(() => {
         if (props.users) {
-            if(props.users.length > 0) {
-            setUsersOnline(props.users)
-            setCurrentSearch(props.users)
+            if (props.users.length > 0) {
+                setUsersOnline(props.users)
+                setCurrentSearch(props.users)
             }
         }
     }, [props.users])
 
     useEffect(() => {
-    
         async function getUsersOffline() {
             const { data } = await axios.get('api/users/getusersoffline', { withCredentials: true })
             const usersData = data.map((user) => {
@@ -41,8 +40,7 @@ export default function UsersConnected(props) {
         }
     }, [usersOnline])
 
-
-    const handleChange = (e) => {
+    const handleChange = e => {
         const { value } = e.target
         const cleanValue = value.trim()
         if (cleanValue !== '') {
@@ -59,9 +57,7 @@ export default function UsersConnected(props) {
 
     return (
         <Fragment>
-            <div
-                className="container-usersConnected card-columns"
-            >
+            <div className="container-usersConnected card-columns">
                 {
                     currentSearch.map((user, i) => (
                         <Card
@@ -70,18 +66,14 @@ export default function UsersConnected(props) {
                             type="button"
                             className="bg-transparent chat-gral-card-user"
                         >
-                            <Card.Body
-                                className="p-0 chat-gral-bodyTable"
-                            >
+                            <Card.Body className="p-0 chat-gral-bodyTable">
                                 <Image
                                     className="chat-gral-icon img-responsive"
                                     src={user.socketId
                                         ? onlineIcon
                                         : offlineIcon}
                                 />
-                                <Card.Text
-                                    className="chat-verticalText-gral mb-1"
-                                >
+                                <Card.Text className="chat-verticalText-gral mb-1">
                                     {user.nickname}
                                 </Card.Text>
                                 <Image
@@ -94,14 +86,12 @@ export default function UsersConnected(props) {
                         </Card>
                     ))}
             </div>
-            <div
-                className="usersConnected-input-container"
-            >
+            <div className="usersConnected-input-container">
                 <Form.Control
                     type="text"
                     className="usersConnected-input"
                     placeholder="Buscar por nickname"
-                    onChange={(e) => handleChange(e)}
+                    onChange={e => handleChange(e)}
                 />
             </div>
         </Fragment>

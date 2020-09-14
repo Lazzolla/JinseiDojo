@@ -34,7 +34,6 @@ export default function Rank() {
         }
     }, [context])
 
-
     const changeActiveTab = (event) => {
         const { id } = event.target
         if (id === 'videos') {
@@ -46,7 +45,6 @@ export default function Rank() {
             buttonExamRef.current.persistClickOff()
             buttonGlossaryRef.current.persistClickOff()
             buttonVideoRef.current.persistClickOn()
-
         }
         if (id === 'exam') {
             setActiveBelt(userRank)
@@ -74,7 +72,6 @@ export default function Rank() {
         setVideosBelt(index)
     }
 
-
     return (
         <div className="rank">
             <div className="rank-belts">
@@ -82,8 +79,7 @@ export default function Rank() {
                     activeBelt={activeBelt}
                 />
             </div>
-            <div
-                className="rank-button-tab-videos  text-center">
+            <div className="rank-button-tab-videos  text-center">
                 <ButtonDinamic
                     persistClickDefault={true}
                     id="videos"
@@ -98,7 +94,6 @@ export default function Rank() {
                     onClick={(event) => changeActiveTab(event)}
                     buttonText="Examen"
                     ref={buttonExamRef}
-
                 />
             </div>
             <div className="rank-button-tab-glosary text-center">
@@ -107,25 +102,30 @@ export default function Rank() {
                     onClick={(event) => changeActiveTab(event)}
                     buttonText="Glosario"
                     ref={buttonGlossaryRef}
-
                 />
             </div>
-            <div className="rank-tab-videos" style={{ display: videoTab }}>
+            <div
+                className="rank-tab-videos"
+                style={{ display: videoTab }}
+            >
                 <CarouselVideos
                     userRank={userRank}
                     ranks={ranks}
                     returnIndex={returnIndex}
                 />
             </div>
-            <div className="rank-tab-exam" style={{ display: examTab }}>
-                <Exam
-                />
+            <div
+                className="rank-tab-exam"
+                style={{ display: examTab }}
+            >
+                <Exam />
             </div>
-            <div className="rank-tab-glossary" style={{ display: glossaryTab }}>
-                <Glossary
-                />
+            <div
+                className="rank-tab-glossary"
+                style={{ display: glossaryTab }}
+            >
+                <Glossary />
             </div>
-
         </div>
     )
 }

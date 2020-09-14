@@ -1,24 +1,25 @@
-import React, { Fragment} from 'react'
+import React, { Fragment } from 'react'
 import axios from 'axios'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import Container from 'react-bootstrap/Container'
-
 import { MessageBox, SystemMessage } from 'react-chat-elements'
 import 'react-chat-elements/dist/main.css'
 import './message.css'
 
 export default function Message({
-    message: { _id, nickname = null, message = null, created_at = null,
-        systemDate = null },
+    message: {
+        _id, nickname = null, message = null, created_at = null,
+        systemDate = null
+    },
     iconClass,
     deleteURL,
     userRecievedId,
     room
 }) {
 
-
     let isCurrentUser = false
+
     if (nickname !== null) {
         if (JSON.parse(window.localStorage.getItem('user')) !== null) {
             const user = JSON.parse(window.localStorage.getItem('user'))
@@ -79,10 +80,10 @@ export default function Message({
             {systemDate
                 ? <SystemMessage
                     text={systemDate}
-                />
+                  />
                 : <Container>
                     {messageUser}
-                </Container>
+                  </Container>
             }
         </Fragment>
     )

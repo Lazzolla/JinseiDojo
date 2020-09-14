@@ -9,14 +9,12 @@ export default function CarouselBoard() {
     const [items, setItems] = useState([])
 
     useEffect(() => {
-        socket.on('boardUpdated', (data) => {
-            getBoard()
-        })
+        socket.on('boardUpdated', () => getBoard())
         async function getBoard() {
             try {
-            const { data } = await axios.get('api/board/getboard')
-            setItems(data)
-            } catch(err) {
+                const { data } = await axios.get('api/board/getboard')
+                setItems(data)
+            } catch (err) {
                 console.log(err.response)
             }
         }
@@ -29,23 +27,22 @@ export default function CarouselBoard() {
             indicators={false}
             interval={3000}
             nextIcon={
-            <span 
-            aria-hidden="true"
-             className="carouseBoard-nextIcon carousel-control-next-icon"
-              />}
+                <span
+                    aria-hidden="true"
+                    className="carouseBoard-nextIcon carousel-control-next-icon"
+                />}
             prevIcon={
-            <span 
-            aria-hidden="true" 
-            className="carouseBoard-prevIcon carousel-control-prev-icon" 
-            />}
+                <span
+                    aria-hidden="true"
+                    className="carouseBoard-prevIcon carousel-control-prev-icon"
+                />}
         >
             {items.map((item, key) => (
                 <Carousel.Item
                     key={key}
                     className="carourselBoard-item container-fluid h-auto"
                 >
-                    <div className="carourselBoard-divImg "
-                    >
+                    <div className="carourselBoard-divImg">
                         <img
                             className="carourselBoard-img  img-fluid d-block"
                             src={item.src}

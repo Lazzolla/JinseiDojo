@@ -20,7 +20,6 @@ export default class Chat extends Component {
         })
     }
 
-
     close() {
         if (this.props.onExited) {
             this.props.onExited()

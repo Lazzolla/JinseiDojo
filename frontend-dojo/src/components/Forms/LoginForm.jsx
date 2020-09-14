@@ -82,9 +82,7 @@ export default class LoginForm extends Component {
                     onSubmit={event => this.onSubmitLogin(event)}
                 >
                     <Form.Group>
-                        <Form.Text
-                            className="text-danger text-center"
-                        >
+                        <Form.Text className="text-danger text-center">
                             <h6 >
                                 {this.state.submitError}
                             </h6>

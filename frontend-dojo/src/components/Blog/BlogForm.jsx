@@ -22,7 +22,7 @@ export default class BlogForm extends Component {
     }
   }
 
-  UNSAFE_componentWillMount() {
+  componentDidMount() {
     this.getPublications()
   }
 
@@ -68,15 +68,10 @@ export default class BlogForm extends Component {
   }
 
   render() {
-
     return (
       <Fragment>
-        <div
-          className="blogForm-container"
-        >
-          <div
-            className="blogForm-row"
-          >
+        <div className="blogForm-container">
+          <div className="blogForm-row">
             {
               this.state.currentSearch
                 ? this.state.currentSearch.map((pub, key) => (
@@ -91,35 +86,23 @@ export default class BlogForm extends Component {
             }
           </div>
         </div>
-        <div
-          className="blogForm-card-filters"
-        >
-          <div
-            className="blogForm-form-search-title"
-          >
-            <h3
-              className="blogForm-form-h3-title"
-            >
+        <div className="blogForm-card-filters">
+          <div className="blogForm-form-search-title">
+            <h3 className="blogForm-form-h3-title">
               Titulo
             </h3>
             <Form.Control
               name="title"
               className="blogForm-form-input-title"
-              onChange={(e) => this.handleChange(e)}
+              onChange={e => this.handleChange(e)}
               type="text"
             />
           </div>
-          <div
-            className="blogForm-filters-timeFilter"
-          >
-            <p
-              className={this.state.recents}
-            >
+          <div className="blogForm-filters-timeFilter">
+            <p className={this.state.recents}>
               Mas antiguas
         </p>
-            <div
-              className="blogForm-filters-icon"
-            >
+            <div className="blogForm-filters-icon">
               <FontAwesomeIcon
                 type="button"
                 icon={faSort}
@@ -127,9 +110,7 @@ export default class BlogForm extends Component {
                 size='3x'
               />
             </div>
-            <p
-              className={this.state.olders}
-            >
+            <p className={this.state.olders}>
               Mas recientes
          </p>
           </div>

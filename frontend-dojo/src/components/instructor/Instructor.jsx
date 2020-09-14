@@ -16,7 +16,7 @@ export default function Rank() {
     const [videosTab, setVideosTab] = useState('inline')
     const [boardTab, setBoardTab] = useState("none")
 
-    const changeActiveTab = (event) => {
+    const changeActiveTab = event => {
         const { id } = event.target
         if (id === 'videos') {
             setVideosTab('inline')
@@ -39,20 +39,17 @@ export default function Rank() {
     return (
         <div className="inst">
             {context.state.user.boardManagement
-                ? <div
-                    className="inst-button-tab-board  text-center"
-                    >
+                ? <div className="inst-button-tab-board text-center">
                     <ButtonDinamic
                         id="board"
-                        onClick={(event) => changeActiveTab(event)}
+                        onClick={event => changeActiveTab(event)}
                         buttonText="Cartelera de novedades"
                         ref={buttonBoardRef}
                     />
                 </div>
-                : null}
-            <div 
-            className="inst-button-tab-videos  text-center"
-            >
+                : null
+                }
+            <div className="inst-button-tab-videos text-center">
                 <ButtonDinamic
                     persistClickDefault={true}
                     id="videos"
@@ -69,16 +66,15 @@ export default function Rank() {
                 >
                     <BoardMixing />
                 </div>
-                : null}
+                : null
+                }
             <div 
             className="inst-tab-videos"
              style={{ display: videosTab }}
              >
                 <InstructorVideos />
             </div>
-            <div 
-            className="inst-button-tab-glosary text-center"
-            >
+            <div className="inst-button-tab-glosary text-center">
             </div>
         </div>
     )

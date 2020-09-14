@@ -4,6 +4,7 @@ import ButtonDinamic from '../ButtonDinamic'
 import axios from 'axios'
 import { arrayBufferToBase64 } from '../../Helpers/blobsAnd64'
 import { socket } from '../../App'
+
 export default class ProPicUpdForm extends Component {
     constructor(props) {
         super(props)
@@ -80,7 +81,7 @@ export default class ProPicUpdForm extends Component {
             <Form
                 className="mt-1"
                 name="profilePicture"
-                onSubmit={(event) => this.savePicture(event)}
+                onSubmit={event => this.savePicture(event)}
             >
                 <Form.Group
                     controlId="customFile"

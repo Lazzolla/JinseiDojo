@@ -10,9 +10,7 @@ export default function FiltersCard(props) {
     const [currentSearch, setCurrentSearch] = useState([])
 
     useEffect(() => {
-        if(props.currentSearch) {
-            setCurrentSearch(props.currentSearch)
-        }
+        if (props.currentSearch) setCurrentSearch(props.currentSearch)
     }, [props.currentSearch])
 
     const changeFilter = () => {
@@ -29,52 +27,35 @@ export default function FiltersCard(props) {
         }
     }
 
-
     return (
-        <div 
-        className="filtersCard-card-filters"
-        >
-            <div
-             className="filtersCard-form-search-author"
-            >
-                <h3
-                 className="filtersCard-form-h3-author"
-                >
+        <div className="filtersCard-card-filters">
+            <div className="filtersCard-form-search-author">
+                <h3 className="filtersCard-form-h3-author">
                     Autor
                 </h3>
                 <Form.Control
                     name="author"
                     className="filtersCard-form-input-author"
-                    onChange={(e) => props.handleChange(e)}
+                    onChange={e => props.handleChange(e)}
                     type="text"
                 />
             </div>
-            <div
-             className="filtersCard-form-search-title"
-            >
-                <h3
-                 className="filtersCard-form-h3-title"
-                >
+            <div className="filtersCard-form-search-title">
+                <h3 className="filtersCard-form-h3-title">
                     Titulo
                 </h3>
                 <Form.Control
                     name="title"
                     className="filtersCard-form-input-title"
-                    onChange={(e) => props.handleChange(e)}
+                    onChange={e => props.handleChange(e)}
                     type="text"
                 />
             </div>
-            <div 
-            className="filtersCard-filters-timeFilter"
-            >
-                <p 
-                className={recents}
-                >
+            <div className="filtersCard-filters-timeFilter">
+                <p className={recents}>
                     Mas antiguas
             </p>
-                <div 
-                className="filtersCard-filters-icon"
-                >
+                <div className="filtersCard-filters-icon">
                     <FontAwesomeIcon
                         type="button"
                         icon={faSort}
@@ -82,9 +63,7 @@ export default function FiltersCard(props) {
                         size='3x'
                     />
                 </div>
-                <p 
-                className={olders}
-                >
+                <p className={olders}>
                     Mas recientes
              </p>
             </div>

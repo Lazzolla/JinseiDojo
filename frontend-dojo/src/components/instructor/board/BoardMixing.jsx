@@ -29,16 +29,16 @@ export default function BoardMixing() {
 
     useEffect(() => {
         async function getBoard() {
-            const {data} = await axios.get('api/board/getboard64',
-            { withCredentials: true })
-        const imgs64 = data.boardImages.map((el, key) => {
-            const src = `data:image/${data.extensions[key]};base64,` + BufferToBase64(el.Body.data)
-            const img = {id: uuid(), src}
-            return img
-            
-        })
-        setImages(imgs64)
-        setRefresh(imgs64)
+            const { data } = await axios.get('api/board/getboard64',
+                { withCredentials: true })
+            const imgs64 = data.boardImages.map((el, key) => {
+                const src = `data:image/${data.extensions[key]};base64,` + BufferToBase64(el.Body.data)
+                const img = { id: uuid(), src }
+                return img
+
+            })
+            setImages(imgs64)
+            setRefresh(imgs64)
         }
         getBoard()
     }, [])
@@ -50,9 +50,9 @@ export default function BoardMixing() {
         let boardImages = new FormData()
         for (let x = 0; x < images.length; x++) {
             const type = images[x].src.match(/([a-zA-Z]*);/g)
-            if(type) {
-            const imgType = type[0].slice(0, -1)
-            boardImages.append('boardImages', Base64ToArrayBuffer(images[x].src), x + "." + imgType)
+            if (type) {
+                const imgType = type[0].slice(0, -1)
+                boardImages.append('boardImages', Base64ToArrayBuffer(images[x].src), x + "." + imgType)
             }
         }
         try {
@@ -87,7 +87,7 @@ export default function BoardMixing() {
         );
     };
 
-    const onDrop = (acceptedFiles,fileRejections) => {
+    const onDrop = (acceptedFiles, fileRejections) => {
         if (fileRejections.length > 0) {
             setTimeout(() => {
                 setErrorDisplay('')
@@ -126,45 +126,35 @@ export default function BoardMixing() {
 
     // We pass onDrop function and accept prop to the component. It will be used as initial params for useDropzone hook
     return (
-        <main 
-        className="boardMixing-gral"
-        >
-            <h3
-             className="boardMixing-text"
-             >
-                 Los cambios que guardes no pueden deshacerse. Al momento de guardar esta seguro que la cartelera se ve como deberia. El orden de los elementos refleja el orden en que se veran. Podes volver a empezar haciendo click en el boton de refrescar
-                 </h3>
-            <h2
-             className="boardMixing-warningText"
-             >
-                 {errorDisplay}
-                 </h2>
-                  <div
-                   type="button" 
-                   onClick={() => setImages(refresh)} className="boardMixing-refreshContainer"
-                   >
-    <FontAwesomeIcon 
-    className="boardMixing-refreshIcon" 
-     icon={faRedo}
-      size='lg'
-       />
-    </div>
-            <DndProvider 
-            backend={HTML5Backend}
+        <main className="boardMixing-gral">
+            <h3 className="boardMixing-text">
+                Los cambios que guardes no pueden deshacerse. Al momento de guardar esta seguro que la cartelera se ve como deberia. El orden de los elementos refleja el orden en que se veran. Podes volver a empezar haciendo click en el boton de refrescar
+            </h3>
+            <h2 className="boardMixing-warningText">
+                {errorDisplay}
+            </h2>
+            <div
+                type="button"
+                onClick={() => setImages(refresh)} className="boardMixing-refreshContainer"
             >
+                <FontAwesomeIcon
+                    className="boardMixing-refreshIcon"
+                    icon={faRedo}
+                    size='lg'
+                />
+            </div>
+            <DndProvider backend={HTML5Backend}>
                 <Dropzone
                     onDrop={onDrop}
                     accept={"image/*"}
                 />
                 <ImagesBoard
-                 images={images} 
-                 moveImage={moveImage} 
-                 removeItem={removeItem}
-                  />
+                    images={images}
+                    moveImage={moveImage}
+                    removeItem={removeItem}
+                />
             </DndProvider>
-            <div
-                className="board-button-save"
-            >
+            <div className="board-button-save">
                 <ButtonDinamic
                     buttonText="Guardar cartelera"
                     successText="Cartelera guardada"
@@ -180,9 +170,7 @@ export default function BoardMixing() {
                 title="¿Estas seguro que queres guardar la cartelera?"
                 ref={modalWarningRef}
             >
-                <Card.Text 
-                className="text-center h5"
-                >
+                <Card.Text className="text-center h5">
                     Cualquier cambio que hayas hecho no podra recuperarse.
                     </Card.Text>
                 <Row>

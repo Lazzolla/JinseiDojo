@@ -5,7 +5,6 @@ import DropdownButton from 'react-bootstrap/DropdownButton'
 import Image from 'react-bootstrap/Image'
 import Badge from 'react-bootstrap/Badge'
 import { GralContext } from '../../../App'
-
 import './notifications.css'
 
 export default function Notifications(props) {
@@ -23,9 +22,7 @@ export default function Notifications(props) {
                 console.log(err.response)
             }
         }
-        if (context.state.user.isAuthenticated) {
-            getNotifications()
-        }
+        if (context.state.user.isAuthenticated) getNotifications()
     }, [context.state.user.isAuthenticated])
 
     useEffect(() => {
@@ -57,7 +54,7 @@ export default function Notifications(props) {
         }
     }, [props.openChats, notifications])
 
-    const refreshNotifications = (user) => {
+    const refreshNotifications = user => {
         user.userId = user.id
         props.openNewTab(user)
     }
@@ -70,9 +67,7 @@ export default function Notifications(props) {
                 title={totalNotifications}
             >
                 {notifications.map((noti, key) => (
-                    <Fragment
-                        key={key}
-                    >
+                    <Fragment key={key}>
                         <Dropdown.Item
                             onClick={() => refreshNotifications(noti.userPopulate[0])}
                             style={
@@ -93,9 +88,7 @@ export default function Notifications(props) {
                                 fluid={true}
                                 src={noti.userPopulate[0].profilePictureLocation}
                             />
-                            <p
-                                className="notifications-nickname"
-                            >
+                            <p className="notifications-nickname">
                                 {noti.userPopulate[0].nickname}
                             </p>
                             <Badge

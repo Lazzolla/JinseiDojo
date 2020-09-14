@@ -40,7 +40,8 @@ export default function CarouselItem(props) {
                 links.map((videosURL, key) => (
                     <Carousel.Item
                         className="carouselItem-item"
-                        key={key}>
+                        key={key}
+                    >
                         <table>
                             <VideoPlayer
                                 videosURL={videosURL}

@@ -60,13 +60,12 @@ export default class PasswordUpd extends Component {
         }
     }
 
-
     render() {
         return (
             <Form
                 className="mt-1"
                 name="profilePicture"
-                onSubmit={(event) => this.updatePassword(event)}
+                onSubmit={event => this.updatePassword(event)}
             >
                 <Form.Control
                     required

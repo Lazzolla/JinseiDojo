@@ -17,7 +17,6 @@ export default function CarouselVideos(props) {
   const [links, setLinks] = useState([])
   const [errorDisplay, setErrorDisplay] = useState('')
 
-
   useEffect(() => {
     if (props.userRank) {
       setUserRank(props.userRank)
@@ -28,15 +27,15 @@ export default function CarouselVideos(props) {
   useEffect(() => {
     async function getVideos() {
       try {
-        const {data} = await axios.get('api/instructor/getuservideolist', {withCredentials:true})
+        const { data } = await axios.get('api/instructor/getuservideolist', { withCredentials: true })
         let userVideos = []
-        for(let x=0;x<=userRank;x++) {
+        for (let x = 0; x <= userRank; x++) {
           userVideos.push(data[x])
         }
         setLinks(userVideos)
-        userVideos=[]
-      } catch(err) {
-          setErrorDisplay(err.response.data.message)
+        userVideos = []
+      } catch (err) {
+        setErrorDisplay(err.response.data.message)
       }
     }
     getVideos()
@@ -52,7 +51,6 @@ export default function CarouselVideos(props) {
     sliderRef.current.slickPrev()
     sliderTitleRef.current.slickPrev()
   }
-
 
   // REACT_SLICK CONFIG
   var settings = {
@@ -87,88 +85,75 @@ export default function CarouselVideos(props) {
     adaptiveHeight: true
   }
 
-
   return (
-    
-      userRank
-        ? <Fragment>
-          {links.length > 0
-         ? <Fragment>
-         <div 
-         className="videos-row-title"
-         >
-             <Slider
-              ref={sliderTitleRef}
-              {...settingsTitle}
-            >
-              {ranks.map((rank, key) => (
-                <div
-                 key={key}
-                 >
-                  <h3 
-                  className="videos-carousel-title" >
-                    {rank}
+    userRank
+      ? <Fragment>
+        {links.length > 0
+          ? <Fragment>
+            <div className="videos-row-title">
+              <Slider
+                ref={sliderTitleRef}
+                {...settingsTitle}
+              >
+                {ranks.map((rank, key) => (
+                  <div key={key}>
+                    <h3 className="videos-carousel-title">
+                      {rank}
                     </h3>
-                </div>
-              ))}
-            </Slider>
-          </div>
-          <div 
-           className="video-button-up-carousel  text-center"
-           >
-            <ButtonDinamic
-            customStyle="video-button-up-carousel-button"
-            onClick={() => previous()}
-            stylePrimaryText="video-button-up-carousel-icon" 
-            buttonText={
-            <FontAwesomeIcon 
-            type="button" 
-            icon={faCaretUp} 
-            size='3x' 
-            />} 
-            />
-          </div>
-          <div
-           className="videos-row"
-           >
-            <Slider
-              ref={sliderRef}
-              {...settings}
+                  </div>
+                ))}
+              </Slider>
+            </div>
+            <div className="video-button-up-carousel  text-center">
+              <ButtonDinamic
+                customStyle="video-button-up-carousel-button"
+                onClick={() => previous()}
+                stylePrimaryText="video-button-up-carousel-icon"
+                buttonText={<FontAwesomeIcon
+                  type="button"
+                  icon={faCaretUp}
+                  size='3x'
+                />
+                }
+              />
+            </div>
+            <div className="videos-row">
+              <Slider
+                ref={sliderRef}
+                {...settings}
+              >
+                {links.map((videosURL, key) => (
+                  <div key={key}>
+                    <CarouselItem
+                      videosURL={videosURL}
+                    />
+                  </div>
+                ))}
+              </Slider>
+            </div>
+            <div
+              type="button"
+              className="video-button-down-carousel  text-center"
             >
-             {links.map((videosURL, key) => (
-                <div
-                 key={key}
-                 >
-                  <CarouselItem
-                    videosURL={videosURL}
+              <ButtonDinamic
+                customStyle="video-button-down-carousel-button"
+                onClick={() => next()}
+                stylePrimaryText="video-button-down-carousel-icon"
+                buttonText={
+                  <FontAwesomeIcon
+                    type="button"
+                    icon={faCaretDown}
+                    size='3x'
                   />
-                </div>
-              ))}
-            </Slider>
-          </div>
-          <div 
-          type="button" 
-          className="video-button-down-carousel  text-center"
-          >
-            <ButtonDinamic
-            customStyle="video-button-down-carousel-button"
-            onClick={() => next()} 
-            stylePrimaryText="video-button-down-carousel-icon"
-            buttonText={
-            <FontAwesomeIcon 
-            type="button" 
-            icon={faCaretDown} 
-            size='3x' 
-            />}
-            />
-          </div>
+                }
+              />
+            </div>
           </Fragment>
-           : <h1
-            className="videos-row-title">
-              {errorDisplay}
-              </h1>
-            }
-    </Fragment>
-        : null
+          : <h1 className="videos-row-title">
+            {errorDisplay}
+          </h1>
+        }
+      </Fragment>
+      : null
   )
 }

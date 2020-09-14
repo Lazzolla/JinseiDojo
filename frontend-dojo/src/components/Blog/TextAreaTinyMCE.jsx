@@ -11,7 +11,6 @@ class TextAreaTinyMCE extends React.Component {
     this.sendContent = this.sendContent.bind(this)
   }
 
-  
   handleEditorChange = (content, editor) => {
     this.setState({
       body: { content }

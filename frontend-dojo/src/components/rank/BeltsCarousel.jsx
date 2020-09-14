@@ -4,7 +4,7 @@ import Slider from "react-slick"
 import './beltsCarousel.css'
 
 export default function BeltsCarousel(props) {
-const sliderTitleRef = useRef(null)
+    const sliderTitleRef = useRef(null)
 
     const [belts] = useState([
         'white', 'yellow', 'orange', 'green', 'blue', 'brown', 'black1', 'black2', 'black3'
@@ -16,7 +16,7 @@ const sliderTitleRef = useRef(null)
 
     var settings = {
         className: "center",
-        
+
         dots: false,
         infinite: false,
         speed: 500,
@@ -29,24 +29,24 @@ const sliderTitleRef = useRef(null)
         adaptiveHeight: true,
         vertical: true,
         fade: true,
-      }
+    }
 
     return (
         belts
             ?
             <Slider
-            ref={sliderTitleRef}
-            {...settings}
-          >
+                ref={sliderTitleRef}
+                {...settings}
+            >
                 {belts.map((belt, key) => (
-                    <div 
-                    key={key} 
-                    className="beltsCarousel-image"
-                     >
-                        <img 
-                        src={require(`../../pictures/rank/belts/${belt}.png`)}
-                         alt={'belt'}
-                          />
+                    <div
+                        key={key}
+                        className="beltsCarousel-image"
+                    >
+                        <img
+                            src={require(`../../pictures/rank/belts/${belt}.png`)}
+                            alt={'belt'}
+                        />
                     </div>
                 ))}
             </Slider>

@@ -12,9 +12,6 @@ export default function ShowProfile(props) {
     const [user, setUser] = useState({})
     const [loading, setLoading] = useState(true)
 
-
-  
-
     useEffect(() => {
         async function getUser(user) {
             try {
@@ -40,17 +37,19 @@ export default function ShowProfile(props) {
     }
 
     return (
-        <Card
-            className="showProfile-card bg-transparent"
-        >
+        <Card className="showProfile-card bg-transparent">
             {!loading
-                ? <Card.Body
-                    className="showProfile-body"
-                >
-                    <Image className="showProfile-img card-img" roundedCircle={true} src={user.profilePictureLocation} />
+                ? <Card.Body className="showProfile-body">
+                    <Image
+                        className="showProfile-img card-img"
+                        roundedCircle={true}
+                        src={user.profilePictureLocation}
+                    />
 
                     <div className="showProfile-nickname-container ">
-                        <Card.Title className="showProfile-nickname">{user.nickname}</Card.Title>
+                        <Card.Title className="showProfile-nickname">
+                            {user.nickname}
+                        </Card.Title>
                     </div>
                     <Card.Subtitle className="showProfile-dojo text-secondary">
                         {user.dojo === 'No aparece en la lista'
@@ -58,57 +57,65 @@ export default function ShowProfile(props) {
                             : user.dojo
                         }
                     </Card.Subtitle>
-                    <div
-                        className="showProfile-bar"
-                    />
+                    <div className="showProfile-bar" />
                     <div className="showProfile-data">
-                    <Card.Text className="showProfile-name">{"Nombre: "}</Card.Text>
-                    <Card.Text className="showProfile-name-content">{user.name + " " + user.lastName}</Card.Text>
-                    <Card.Text className="showProfile-rank">{"Graduación: "}</Card.Text>
-                    <Card.Text className="showProfile-rank-content">{user.rank}</Card.Text>
-                    <Card.Text className="showProfile-instructor">{"Instructor: "}</Card.Text>
-                    <Card.Text className="showProfile-instructor-content">
-                        {user.instructor === 'No aparece en la lista'
-                            ? "- "
-                            : user.instructor
+                        <Card.Text className="showProfile-name">
+                            {"Nombre: "}
+                        </Card.Text>
+                        <Card.Text className="showProfile-name-content">
+                            {user.name + " " + user.lastName}
+                        </Card.Text>
+                        <Card.Text className="showProfile-rank">
+                            {"Graduación: "}
+                        </Card.Text>
+                        <Card.Text className="showProfile-rank-content">
+                            {user.rank}
+                        </Card.Text>
+                        <Card.Text className="showProfile-instructor">
+                            {"Instructor: "}
+                        </Card.Text>
+                        <Card.Text className="showProfile-instructor-content">
+                            {user.instructor === 'No aparece en la lista'
+                                ? "- "
+                                : user.instructor
+                            }
+                        </Card.Text>
+                        {user.mail
+                            ? <Fragment>
+                                <Card.Text className="showProfile-mail">
+                                    {"Correo: "}
+                                </Card.Text>
+                                <Card.Text className="showProfile-mail-content">
+                                    {user.mail}
+                                </Card.Text>
+                                <Card.Text className="showProfile-cellphone">
+                                    {"Celular: "}
+                                </Card.Text>
+                                <Card.Text className="showProfile-cellphone-content">
+                                    {user.cellphone}
+                                </Card.Text>
+                                <Card.Text className="showProfile-age">
+                                    {"Edad: "}
+                                </Card.Text>
+                                <Card.Text className="showProfile-age-content">
+                                    {user.age + " años"}
+                                </Card.Text>
+                                <Card.Text className="showProfile-birthDate">
+                                    {"Fecha de nacimiento: "}
+                                </Card.Text>
+                                <Card.Text className="showProfile-birthDate-content">
+                                    {user.birthDate}
+                                </Card.Text>
+                                <Card.Text className="showProfile-initialDate">
+                                    {"Inicio de practica: "}
+                                </Card.Text>
+                                <Card.Text className="showProfile-initialDate-content">
+                                    {user.initialDate}
+                                </Card.Text>
+                            </Fragment>
+                            : null
                         }
-                    </Card.Text>
-                    {user.mail
-                        ? <Fragment>
-                            <Card.Text className="showProfile-mail">
-                                {"Correo: "}
-                            </Card.Text>
-                            <Card.Text className="showProfile-mail-content">
-                                {user.mail}
-                            </Card.Text>
-                            <Card.Text className="showProfile-cellphone">
-                                {"Celular: "}
-                            </Card.Text>
-                            <Card.Text className="showProfile-cellphone-content">
-                                {user.cellphone}
-                            </Card.Text>
-                            <Card.Text className="showProfile-age">
-                                {"Edad: "}
-                            </Card.Text>
-                            <Card.Text className="showProfile-age-content">
-                                {user.age + " años"}
-                            </Card.Text>
-                            <Card.Text className="showProfile-birthDate">
-                                {"Fecha de nacimiento: "}
-                            </Card.Text>
-                            <Card.Text className="showProfile-birthDate-content">
-                                {user.birthDate}
-                            </Card.Text>
-                            <Card.Text className="showProfile-initialDate">
-                                {"Inicio de practica: "}
-                            </Card.Text>
-                            <Card.Text className="showProfile-initialDate-content">
-                                {user.initialDate}
-                            </Card.Text>
-                            
-                        </Fragment>
-                        : null}
-                        </div>
+                    </div>
                     <Card.Text className="showProfile-aboutMe">
                         {user.aboutMe === 'Escribe algo sobre tí (500 caracteres max)'
                             ? 'El usuario todavia no agrego información.'
@@ -116,11 +123,15 @@ export default function ShowProfile(props) {
                         }
                     </Card.Text>
                 </Card.Body>
-                : <Card.Body
-                    className="showProfile-body"
-                >
-                    <Spinner className="showProfile-spinner" animation="border" role="status" />
-                        <p className="showProfile-spinner-text">Cargando...</p>
+                : <Card.Body className="showProfile-body">
+                    <Spinner
+                        className="showProfile-spinner"
+                        animation="border"
+                        role="status"
+                    />
+                    <p className="showProfile-spinner-text">
+                        Cargando...
+                        </p>
                 </Card.Body>
             }
         </Card>

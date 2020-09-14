@@ -31,11 +31,11 @@ require('./chat/socket')(io)
 app.set('socketio', io)
 
 // Secure headers
-
 app.use(helmet())
 
 // MongoDB connection
 require('./database')
+
 app.enable('trust proxy')
     .use(cookieSession({
         maxAge: 1000*60*60*24*31*36,
@@ -57,7 +57,6 @@ app.use(logger('dev'))
     .use(express.json())
     .use(express.urlencoded({ extended: false }))
     .use(express.static(path.join(__dirname, "../frontend-dojo/build")))
-
 
 // Return all Routes from React Router    
 app.get(['/', '/profile', '/rank', '/instructor', '/publications', '/blog'], function (req, res) {
@@ -82,7 +81,6 @@ app.use(passport.initialize())
     .use('/api/board', boardRouter)
     .use('/api/glossary', glossaryRouter)
     .use('/api/dojos', dojosRouter)
-
 
 server.listen(PORT, () => {
     console.log(`Server is listening on PORT ${PORT}`)

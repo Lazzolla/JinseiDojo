@@ -3,10 +3,9 @@ import Form from 'react-bootstrap/Form'
 
 export default function SelectExamTechniques(props) {
 
-
     return (
         <Form.Control
-        hidden={props.hidden}
+            hidden={props.hidden}
             id={props.id}
             plaintext={true}
             className="bg-transparent"

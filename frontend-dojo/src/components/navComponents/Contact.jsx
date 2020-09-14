@@ -21,7 +21,7 @@ export default function Contact(props) {
 
 useEffect(() => {
     if(window.localStorage.getItem('contactModal') === null && !props.isAuthenticated) {
-        modalContactRef.current.show()
+            modalContactRef.current.show()
         setTimeout(() => {
             modalContactRef.current.close()
         }, 10000)
@@ -70,11 +70,10 @@ useEffect(() => {
                 dialogClassName="contact-modal-dialog"
                 backdrop="contact-modal-backdrop"
             >
-                <div
-                className="contact-container"
-                >
+                <div className="contact-container">
                 <video
                     className="contact-backgroundVideo"
+                    id='publicityVideo'
                     autoPlay
                     loop
                     muted
@@ -93,7 +92,7 @@ useEffect(() => {
                             />
                 <p className="contact-title-welcome">
                     Bienvenido a Jinsei Dojo
-    </p>
+                </p>
                 <Image
                     className="contact-title-logo"
                     roundedCircle={true}
@@ -143,11 +142,9 @@ useEffect(() => {
                                 fluid={true}
                                 src={whatsapp}
                             />
-                            <p
-                                className="contact-title-whatsappLink"
-                            >
-                                +54 9 221 303 8365
-                             </p>
+                            <p className="contact-title-whatsappLink">
+                                +54 9 221 641 1370
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -157,24 +154,19 @@ useEffect(() => {
                         fluid={true}
                         src={gmail}
                     />
-                    <p
-                        className="contact-title-gmailLink"
-                    >
+                    <p className="contact-title-gmailLink">
                         jinseidojolaplata@gmail.com
-                             </p>
+                    </p>
                 </div>
                 <div className="contact-title-addressDiv">
                     <FontAwesomeIcon
                         className="contact-title-addressLogo"
                         icon={faHome}
                     />
-                    <p
-                        className="contact-title-address"
-                    >
+                    <p className="contact-title-address">
                        Calle 48 e/5 y 6 N° 524
                        La Plata, Buenos Aires, Argentina
-                             </p>
-
+                    </p>
                 </div>
                 </div>
             </ModalChat>

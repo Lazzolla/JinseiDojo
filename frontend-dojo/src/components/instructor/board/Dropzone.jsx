@@ -1,10 +1,10 @@
 import React, { Fragment } from "react"
 import { useDropzone } from "react-dropzone"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faImages} from '@fortawesome/free-solid-svg-icons'
+import { faImages } from '@fortawesome/free-solid-svg-icons'
 import './boardStyling.css'
 
-const Dropzone = ({ onDrop, accept}) => {
+const Dropzone = ({ onDrop, accept }) => {
   // Initializing useDropzone hooks with options
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
@@ -17,95 +17,99 @@ const Dropzone = ({ onDrop, accept}) => {
   and also exposes isDragActive boolean
   */
   return (
-      <Fragment>
-    <div 
-    className="dropzone-gral" 
-    id="dropzone-board" {...getRootProps()}>
-      <input
-       className="dropzone-input" {...getInputProps()} 
-       />
-      <div 
-      className="dropzone-one text-center"
-      >
-        {isDragActive ? (
-          <FontAwesomeIcon 
-          className="dropzone-content-drop"  
-          icon={faImages}
-           size='lg' 
-           />
-        ) : (
-          <FontAwesomeIcon
-           className="dropzone-content"  
-           icon={faImages} 
-           size='lg'
-            />
-        )}
-      </div>
+    <Fragment>
       <div
-       className="dropzone-two text-center">
-        {isDragActive ? (
-          <FontAwesomeIcon
-           className="dropzone-content-drop"  
-           icon={faImages}
-            size='lg' 
+        className="dropzone-gral"
+        id="dropzone-board" {...getRootProps()}>
+        <input className="dropzone-input" {...getInputProps()} />
+        <div className="dropzone-one text-center">
+          {isDragActive ? (
+            <FontAwesomeIcon
+              className="dropzone-content-drop"
+              icon={faImages}
+              size='lg'
             />
-        ) : (
-          <FontAwesomeIcon 
-          className="dropzone-content" 
-           icon={faImages} 
-           size='lg' 
-           />
-        )}
-      </div>
-      <div className="dropzone-three text-center">
-        {isDragActive ? (
-          <FontAwesomeIcon
-           className="dropzone-content-drop" 
-            icon={faImages}
-             size='lg' 
-             />
-        ) : (
-          <FontAwesomeIcon
-           className="dropzone-content"
-             icon={faImages}
-              size='lg' 
+          ) : (
+              <FontAwesomeIcon
+                className="dropzone-content"
+                icon={faImages}
+                size='lg'
               />
-        )}
+            )}
+        </div>
+        <div className="dropzone-two text-center">
+          {isDragActive
+            ? (
+              <FontAwesomeIcon
+                className="dropzone-content-drop"
+                icon={faImages}
+                size='lg'
+              />
+            )
+            : (
+              <FontAwesomeIcon
+                className="dropzone-content"
+                icon={faImages}
+                size='lg'
+              />
+            )
+          }
+        </div>
+        <div className="dropzone-three text-center">
+          {isDragActive
+            ? (
+              <FontAwesomeIcon
+                className="dropzone-content-drop"
+                icon={faImages}
+                size='lg'
+              />
+            )
+            : (
+              <FontAwesomeIcon
+                className="dropzone-content"
+                icon={faImages}
+                size='lg'
+              />
+            )
+          }
+        </div>
+        <div className="dropzone-four text-center">
+          {isDragActive
+            ? (
+              <FontAwesomeIcon
+                className="dropzone-content-drop"
+                icon={faImages}
+                size='lg'
+              />
+            )
+            : (
+              <FontAwesomeIcon
+                className="dropzone-content"
+                icon={faImages}
+                size='lg'
+              />
+            )
+          }
+        </div>
+        <div className="dropzone-five text-center">
+          {isDragActive
+            ? (
+              <FontAwesomeIcon
+                className="dropzone-content-drop"
+                icon={faImages}
+                size='lg'
+              />
+            )
+            : (
+              <FontAwesomeIcon
+                className="dropzone-content"
+                icon={faImages}
+                size='lg'
+              />
+            )
+          }
+        </div>
       </div>
-      <div className="dropzone-four text-center"
-      >
-        {isDragActive ? (
-          <FontAwesomeIcon 
-          className="dropzone-content-drop" 
-           icon={faImages} 
-           size='lg'
-            />
-        ) : (
-          <FontAwesomeIcon 
-          className="dropzone-content"
-            icon={faImages}
-             size='lg' 
-             />
-        )}
-      </div>
-      <div 
-      className="dropzone-five text-center"
-      >
-        {isDragActive ? (
-          <FontAwesomeIcon 
-          className="dropzone-content-drop" 
-           icon={faImages}
-            size='lg'
-             />
-        ) : (
-          <FontAwesomeIcon 
-          className="dropzone-content"  
-          icon={faImages}
-           size='lg' 
-           />
-        )}
-      </div>
-    </div>
     </Fragment>
   )
 }

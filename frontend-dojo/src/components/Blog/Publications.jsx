@@ -27,7 +27,6 @@ export default class Publications extends Component {
     buttonRefSubmit = React.createRef()
     pubListRef = React.createRef()
 
-
     handleChange(event) {
         const { name, value } = event.target
         this.setState({
@@ -80,30 +79,18 @@ export default class Publications extends Component {
     render() {
         return (
             <Fragment>
-                <h3
-                    className="publications-submitError"
-                >
+                <h3 className="publications-submitError">
                     {this.state.submitError}
                 </h3>
-                <div
-                    className="bg-publications"
-                >
-                    <Row
-                        className="publications-container  container-fluid"
-                    >
+                <div className="bg-publications">
+                    <Row className="publications-container  container-fluid">
                         <Col>
                             <Row>
-                                <Col
-                                    className="publications-form text-center"
-                                >
-                                    <Card.Title
-                                        className="publications-title mt-3"
-                                    >
+                                <Col className="publications-form text-center">
+                                    <Card.Title className="publications-title mt-3">
                                         Escribe una publicación para compartir con la comunidad
                         </Card.Title>
-                                    <Form
-                                        onSubmit={event => this.createPublish(event)}
-                                    >
+                                    <Form onSubmit={event => this.createPublish(event)}>
                                         <Form.Control
                                             required
                                             maxLength={26}
@@ -112,33 +99,25 @@ export default class Publications extends Component {
                                             placeholder="Elige un titulo que describa tu publicacion"
                                             onChange={this.handleChange}
                                         />
-                                        <TextAreaTinyMCE
-                                            ref={this.textAreaRef}
-                                        />
-                                        <div
-                                        className="publications-button-div"
-                                        >
-                                        <ButtonDinamic
-                                            customStyle="publications-button-publish"
-                                            successText="Publicado"
-                                            buttonText="Publicar"
-                                            name="submitbtn"
-                                            type="submit"
-                                            size="btn-lg"
-                                            spinnerSize="lg"
-                                            ref={this.buttonRefSubmit}
-                                        />
+                                        <TextAreaTinyMCE ref={this.textAreaRef} />
+                                        <div className="publications-button-div">
+                                            <ButtonDinamic
+                                                customStyle="publications-button-publish"
+                                                successText="Publicado"
+                                                buttonText="Publicar"
+                                                name="submitbtn"
+                                                type="submit"
+                                                size="btn-lg"
+                                                spinnerSize="lg"
+                                                ref={this.buttonRefSubmit}
+                                            />
                                         </div>
                                     </Form>
                                 </Col>
                             </Row>
                         </Col>
-                        <Col
-                            className="publications-publications container-fluid"
-                        >
-                            <BlogForm
-                                ref={this.pubListRef}
-                            />
+                        <Col className="publications-publications container-fluid">
+                            <BlogForm ref={this.pubListRef} />
                         </Col>
                     </Row>
                 </div>

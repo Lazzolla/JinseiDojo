@@ -51,11 +51,11 @@ export default function GralRoom(props) {
 
     useEffect(() => {
         if (props.onDeletedMessage) {
-            socket.on(props.onDeletedMessage, (data) => {
+            socket.on(props.onDeletedMessage, data => {
                 setMessages(prevState => {
-                        data.deletedMessagesIds.forEach ( el => {
-                      const ind = prevState.findIndex(msg => msg._id === el)
-                      prevState.splice(ind, 1)
+                    data.deletedMessagesIds.forEach(el => {
+                        const ind = prevState.findIndex(msg => msg._id === el)
+                        prevState.splice(ind, 1)
                     })
                     return [...prevState]
                 })
@@ -66,43 +66,43 @@ export default function GralRoom(props) {
 
     useEffect(() => {
         if (context.state.user.isAuthenticated) {
-                if (!bodyTag) {
-                    setBodyTag(document.getElementById(props.id))
-                    setPageMessages(0)
-                }
-                if (bodyTag) {
-                    async function getMessages() {
-                        setLoading(true)
-                        if (pageMessages < pagesAvailable) {
-                            setFetching('Cargando...')
-                            try {
-                                const { data } = await axios.get(`api/chat/${props.messagesURL}/${pageMessages}`, { withCredentials: true })
-                                setMessages(prevState => {
-                                    return [...data.OrderedMessages, ...prevState]
-                                })
-                                setFetching('')
-                                if (pageMessages !== 0) {
-                                    const scrollFluid = bodyTag.scrollHeight % prevHeightBody === 0
-                                        ? bodyTag.scrollHeight % prevHeightBody
-                                        : prevHeightBody
-                                    bodyTag.scrollTo(0, scrollFluid)
-                                } else {
-                                    setPagesAvailable(data.pages)
-                                    bodyTag.scrollTop = bodyTag.scrollHeight
-                                    setPrevHeightBody(bodyTag.scrollHeight)
-                                }
-                                setTimeout(() => {
-                                    setLoading(false)
-                                }, 500)
-                            } catch (err) {
-                               setMessages([{message: err.response.data.message}])
-                               setLoading(false)
-                               setFetching('')
+            if (!bodyTag) {
+                setBodyTag(document.getElementById(props.id))
+                setPageMessages(0)
+            }
+            if (bodyTag) {
+                async function getMessages() {
+                    setLoading(true)
+                    if (pageMessages < pagesAvailable) {
+                        setFetching('Cargando...')
+                        try {
+                            const { data } = await axios.get(`api/chat/${props.messagesURL}/${pageMessages}`, { withCredentials: true })
+                            setMessages(prevState => {
+                                return [...data.OrderedMessages, ...prevState]
+                            })
+                            setFetching('')
+                            if (pageMessages !== 0) {
+                                const scrollFluid = bodyTag.scrollHeight % prevHeightBody === 0
+                                    ? bodyTag.scrollHeight % prevHeightBody
+                                    : prevHeightBody
+                                bodyTag.scrollTo(0, scrollFluid)
+                            } else {
+                                setPagesAvailable(data.pages)
+                                bodyTag.scrollTop = bodyTag.scrollHeight
+                                setPrevHeightBody(bodyTag.scrollHeight)
                             }
+                            setTimeout(() => {
+                                setLoading(false)
+                            }, 500)
+                        } catch (err) {
+                            setMessages([{ message: err.response.data.message }])
+                            setLoading(false)
+                            setFetching('')
                         }
                     }
-                    getMessages()
                 }
+                getMessages()
+            }
         } else {
             setMessages([])
         }
@@ -113,8 +113,7 @@ export default function GralRoom(props) {
     useEffect(() => {
         if (context.state.user.isAuthenticated) {
             const divTag = document.getElementById(props.id)
-            socket.on(props.emitAndOn, (data) => {
-                console.log(data)
+            socket.on(props.emitAndOn, data => {
                 const message = data
                 setMessages(prevState => {
                     return [...prevState, message]
@@ -150,8 +149,7 @@ export default function GralRoom(props) {
         setIsTyping(true)
     }
 
-    const sendMessage = (message) => {
-        // event.preventDefault()
+    const sendMessage = message => {
         if (message) {
             const data = { userId, nickname, message, profilePictureLocation }
             socket.emit(props.emitAndOn, data)
@@ -164,14 +162,10 @@ export default function GralRoom(props) {
                 className={props.gralClasses}
                 style={{ display: props.display }}
             >
-                <Card.Header
-                    className="chat-gral-title p-1 h5  text-center"
-                >
+                <Card.Header className="chat-gral-title p-1 h5 text-center">
                     {props.title}
                 </Card.Header>
-                <div
-                    className="rounded-pill gralChat-fetching"
-                >
+                <div className="rounded-pill gralChat-fetching">
                     {fetching}
                 </div>
                 <Card.Body
@@ -181,37 +175,31 @@ export default function GralRoom(props) {
                     {messages.map((message, i) => {
                         if (i !== 0) {
                             return <div key={i}>
-                                <Message
-                                    deleteURL='deletemessagegralroom'
-                                    iconClass="message-gralRoom"
-                                    room = {props.room}
-                                    message={message}
-                                />
-                            </div>
+                                      <Message
+                                          deleteURL='deletemessagegralroom'
+                                          iconClass="message-gralRoom"
+                                          room={props.room}
+                                          message={message}
+                                      />
+                                   </div>
                         } else {
                             return <div ref={firstMessageRef} key={i}>
-                                <Message
-                                    deleteURL='deletemessagegralroom'
-                                    iconClass="message-gralRoom"
-                                    room = {props.room}
-                                    message={message}
-                                />
-                            </div>
+                                      <Message
+                                          deleteURL='deletemessagegralroom'
+                                          iconClass="message-gralRoom"
+                                          room={props.room}
+                                          message={message}
+                                      />
+                                   </div>
                         }
                     })}
                 </Card.Body>
-                <div
-                    className="rounded-pill gralChat-typing"
-                >
+                <div className="rounded-pill gralChat-typing">
                     {typing}
                 </div>
-                <Card.Footer
-                    className="chat-gral-footer"
-                >
+                <Card.Footer className="chat-gral-footer">
                     <Row>
-                        <Col
-                            className="p-0"
-                        >
+                        <Col className="p-0">
                             <Input
                                 idInput={props.inputId}
                                 placeholderInput="Escribí un mensaje aca..."
@@ -219,7 +207,6 @@ export default function GralRoom(props) {
                                 onKeyPressInput={sendMessage}
                             />
                         </Col>
-
                     </Row>
                 </Card.Footer>
             </Card>

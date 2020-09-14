@@ -92,7 +92,7 @@ export default class Navigation extends Component {
 
     async logOut() {
         const userId = this.props.user.id
-        const response = await axios.post('api/users/logout', {userId})
+        const response = await axios.post('api/users/logout', { userId })
         if (response.status === 200) {
             window.localStorage.removeItem('user')
             window.localStorage.removeItem('profileImage')
@@ -132,9 +132,7 @@ export default class Navigation extends Component {
         }
     }
 
-
     render() {
-
         // Dropdown logged User
         const login = this.state.isAuthenticated
             ? <NavDropdown
@@ -143,50 +141,47 @@ export default class Navigation extends Component {
                 title={this.state.nickname || "Nombre"}
                 id="basic-nav-dropdown"
             >
-                <NavDropdown.Item
-                    href="/profile">
+                <NavDropdown.Item href="/profile">
                     Mi Perfil
-                    </NavDropdown.Item>
+                </NavDropdown.Item>
                 <NavDropdown.Item
                     disabled={!this.state.validated}
-                    href="/rank">
+                    href="/rank"
+                >
                     Graduación
-                      </NavDropdown.Item>
+                </NavDropdown.Item>
                 <NavDropdown.Item
                     hidden={!(this.state.validated && this.state.isInstructor)}
-                    href="/instructor">
-                    Instructor
-                      </NavDropdown.Item>
-                <NavDropdown.Item
-                    disabled={!this.state.validated}
-                    href="/publications">
-                    Mis Publicaciones
-                    </NavDropdown.Item>
-                {/* <NavDropdown.Item
-                    disabled={!this.state.validated}
-                    href="#action/3.3">
-                    Galeria
-                    </NavDropdown.Item> */}
-                <NavDropdown.Divider />
-                <NavDropdown.Item
-                    onClick={this.logOut}
+                    href="/instructor"
                 >
+                    Instructor
+                </NavDropdown.Item>
+                <NavDropdown.Item
+                    disabled={!this.state.validated}
+                    href="/publications"
+                >
+                    Mis Publicaciones
+                </NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item onClick={this.logOut}>
                     Salir
-                     </NavDropdown.Item>
+                </NavDropdown.Item>
             </NavDropdown>
             : <Nav>
                 <Nav.Link
                     name="modalSignup"
                     className="navigation-signup"
-                    onClick={this.renderModal}>
+                    onClick={this.renderModal}
+                >
                     Registrarse
-                     </Nav.Link>
+                </Nav.Link>
                 <Nav.Link
                     name="modalLogin"
                     className="navigation-login"
-                    onClick={this.renderModal}>
+                    onClick={this.renderModal}
+                >
                     Ingresar
-                    </Nav.Link>
+                </Nav.Link>
             </Nav>
 
         return (
@@ -199,21 +194,18 @@ export default class Navigation extends Component {
                 <Fragment>
                     <Navbar.Brand
                         className="navigation-brand"
-                        href="/">Jinsei Dojo</Navbar.Brand>
-                    <Navbar.Brand
-                        className="navigation-currentLocation"
+                        href="/"
                     >
+                        Jinsei Dojo
+                    </Navbar.Brand>
+                    <Navbar.Brand className="navigation-currentLocation">
                         {this.state.currentLocation}
                     </Navbar.Brand>
                     <Navbar.Toggle
                         aria-controls="basic-navbar-nav"
                     />
-                    <Navbar.Collapse
-                        id="basic-navbar-nav"
-                    >
-                        <Nav
-                            className="navigation-homeNav ml-auto"
-                        >
+                    <Navbar.Collapse id="basic-navbar-nav">
+                        <Nav className="navigation-homeNav ml-auto">
                             {window.location.pathname === "/"
                                 ? null
                                 : <Nav.Link href="/">
@@ -229,26 +221,25 @@ export default class Navigation extends Component {
                                 href="https://www.federacionaikikaiargentina.org/"
                             >
                                 Nuestra federación
-                            </Nav.Link>
+                        </Nav.Link>
                             <Nav.Link
                                 className="navigation-WhatIsAikido"
                                 onClick={this.openWhatIsAikido}
                             >
                                 ¿Qué es el Aikido?
-                            </Nav.Link>
+                        </Nav.Link>
                             <Nav.Link
                                 className="navigation-contactUs"
                                 onClick={this.openContact}
                             >
                                 Contactanos
-                            </Nav.Link>
-
+                        </Nav.Link>
                             <Nav.Link
                                 className="navigation-blog"
                                 hidden={!(this.state.validated && this.props.location.pathname !== "/blog")}
                                 href="/blog">
                                 Blog
-                            </Nav.Link>
+                        </Nav.Link>
                             <div>
                                 {login}
                             </div>
@@ -259,7 +250,7 @@ export default class Navigation extends Component {
                         openContact={this.state.openContact}
                         isAuthenticated={this.state.isAuthenticated}
                     />
-{/* Modal WhatIsAikido */}
+                    {/* Modal WhatIsAikido */}
                     <WhatsIsAikido
                         openWhatIsAikido={this.state.openWhatIsAikido}
                     />

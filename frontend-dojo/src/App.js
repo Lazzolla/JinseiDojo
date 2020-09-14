@@ -20,6 +20,7 @@ import './index.css'
 export let socket
 
 export const GralContext = createContext([])
+
 export default class App extends Component {
 
   constructor(props) {
@@ -35,13 +36,10 @@ export default class App extends Component {
     }
   }
 
-
-
   modalWarningRef = React.createRef()
   buttonRefSubmit = React.createRef()
-
+  // Use componentWillMount to initialize Socket globally before componentDidMount
   async UNSAFE_componentWillMount() {
-
     socket = io('jinseidojo.com', { secure: true, rejectUnauthorized: true })
     socket.emit('online')
     this.main()
@@ -85,7 +83,6 @@ export default class App extends Component {
 
   render() {
     return (
-
       <Fragment >
         <Router>
           <Fragment>
@@ -95,47 +92,21 @@ export default class App extends Component {
                   refreshState: this.refreshState
                 }}
             >
-              <Route path="/"
-                render={(props) => <Navigation {...props}
+              <Route path="/" render={(props) => 
+              <Navigation {...props}
                   user={this.state.user}
                   main={this.main}
                   refreshState={this.refreshState}
-                />}
+                />
+              }
               />
-              <Route
-                exact
-                path="/"
-                component={Board}
-              />
-              <Route
-                path="/"
-                component={Lobby}
-              />
-              <ProtectedProfile
-                exact
-                path="/profile"
-                component={Profile}
-              />
-              <ProtectedRoute
-                exact
-                path="/rank"
-                component={Rank}
-              />
-              <ProtectedInstructor
-                exact
-                path="/instructor"
-                component={Instructor}
-              />
-              <ProtectedRoute
-                exact
-                path="/publications"
-                component={Publications}
-              />
-              <ProtectedRoute
-                exact
-                path="/blog"
-                component={Blog}
-              />
+              <Route  exact path="/" component={Board}  />
+              <Route path="/" component={Lobby} />
+              <ProtectedProfile exact path="/profile" component={Profile} />
+              <ProtectedRoute exact path="/rank" component={Rank} />
+              <ProtectedInstructor exact path="/instructor" component={Instructor} />
+              <ProtectedRoute exact path="/publications" component={Publications} />
+              <ProtectedRoute exact path="/blog" component={Blog} />
             </GralContext.Provider>
           </Fragment>
         </Router>
@@ -147,9 +118,7 @@ export default class App extends Component {
           title="Tu instructor validó tus datos!"
           ref={this.modalWarningRef}
         >
-          <Card.Text
-            className="text-center h5"
-          >
+          <Card.Text className="text-center h5">
             Ya podes usar todo el contenido de la página.
         </Card.Text>
           <ButtonDinamic

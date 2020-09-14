@@ -32,8 +32,6 @@ export default function Glossary() {
             }
         }
         getGlossary()
-
-
     }, [])
 
     const handleChange = (e) => {
@@ -47,7 +45,6 @@ export default function Glossary() {
     }
 
     const manageFilters = (ref, id) => {
-
         if (ref !== currentFilter) {
             if (currentFilter !== null) {
                 currentFilter.current.persistClickOff()
@@ -91,22 +88,14 @@ export default function Glossary() {
 
     return (
         <Fragment>
-            <div 
-            className="glossary-form-search"
-            >
-                <Row 
-                className="glossary-form-row"
-                >
-                    <Col 
-                    className="glossary-form-colH3 col-2"
-                    >
+            <div className="glossary-form-search">
+                <Row className="glossary-form-row">
+                    <Col className="glossary-form-colH3 col-2">
                         <h3>
                             Buscar
-                            </h3>
+                        </h3>
                     </Col>
-                    <Col
-                     className="glossary-form-col-Input col-4"
-                     >
+                    <Col className="glossary-form-col-Input col-4">
                         <Form.Control
                             onChange={(e) => handleChange(e)}
                             name="search"
@@ -115,58 +104,38 @@ export default function Glossary() {
                     </Col>
                 </Row>
             </div>
-            <Card 
-            className="glossary-card bg-transparent"
-            >
-                <Card.Body
-                 className="glossary-card-body"
-                 >
-
-                    <div 
-                    className="glossary-table"
-                    >
-                        <Table
-                            borderless={true}
-                        >
-                            <thead 
-                            className="glosary-table-thead"
-                            >
+            <Card className="glossary-card bg-transparent">
+                <Card.Body className="glossary-card-body">
+                    <div className="glossary-table">
+                        <Table borderless={true}>
+                            <thead className="glosary-table-thead">
                                 <tr>
-                                    <th 
-                                    className="glossary-table-th"
-                                    >
+                                    <th className="glossary-table-th">
                                         Termino
-                                        </th>
-                                    <th 
-                                    className="glossary-table-th"
-                                    >
+                                    </th>
+                                    <th className="glossary-table-th">
                                         Descripción
-                                        </th>
+                                    </th>
                                 </tr>
                             </thead>
-                            <tbody 
-                            className="glosary-table-body"
-                            >
+                            <tbody className="glosary-table-body">
                                 {currentSearch.map((el, key) => (
-                                    <tr 
-                                    key={key}
-                                    >
+                                    <tr key={key}>
                                         <td>
                                             {el.title}
-                                            </td>
+                                        </td>
                                         <td>
                                             {el.description}
-                                            </td>
+                                        </td>
                                     </tr>
                                 ))}
-
                             </tbody>
                         </Table>
                     </div>
                     <div
-                     type="button" 
-                     className="video-button-down-carousel  text-center"
-                     >
+                        type="button"
+                        className="video-button-down-carousel  text-center"
+                    >
                         <ButtonDinamic
                             customStyle="glossary-button-attacks"
                             onClick={(e) => handleFilters(e)}

@@ -15,7 +15,7 @@ export default function Board() {
                 <div className="board-blogCol container-fluid">
                     <BlogBoard />
                 </div>
-                </div>
+            </div>
         </div>
     )
 }

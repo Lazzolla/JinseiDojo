@@ -10,12 +10,8 @@ export default function ExamTechniques(props) {
             {props.links
                 ? <tbody className="instructorVideos-tbody">
                     {props.links.map((link, key) => (
-                        <tr
-                            key={key}
-                        >
-                            <td
-                                className="instructorVideos-removeIcon text-center"
-                            >
+                        <tr key={key}>
+                            <td className="instructorVideos-removeIcon text-center">
                                 <div
                                     className="instructorVideos-iconRemoveDiv"
                                     type="button"
@@ -27,28 +23,24 @@ export default function ExamTechniques(props) {
                                     />
                                 </div>
                             </td>
-                            <td
-                                className="instructorVideos-titleCol"
-                            >
+                            <td className="instructorVideos-titleCol">
                                 <Form.Control
                                     required
                                     id="instructorVideosInputTitle"
                                     name="title"
-                                    onChange={(e) => props.handleUpdates(e, key)}
+                                    onChange={e => props.handleUpdates(e, key)}
                                     className="instructorVideos-titleForm"
                                     maxLength={38}
                                     plaintext={true}
                                     placeholder={link.title}
                                 />
                             </td>
-                            <td
-                                className="instructorVideos-urlCol"
-                            >
+                            <td className="instructorVideos-urlCol">
                                 <Form.Control
                                     required
                                     id="instructorVideosInputUrl"
                                     name="url"
-                                    onChange={(e) => props.handleUpdates(e, key)}
+                                    onChange={e => props.handleUpdates(e, key)}
                                     plaintext={true}
                                     placeholder={link.url}
                                 />
@@ -56,9 +48,7 @@ export default function ExamTechniques(props) {
                         </tr>
                     ))}
                     <tr>
-                        <td
-                            colSpan={3}
-                        >
+                        <td colSpan={3}>
                             <div
                                 type="button"
                                 onClick={() => props.addNewVideo()}
@@ -68,11 +58,9 @@ export default function ExamTechniques(props) {
                                     icon={faPlus}
                                     size='lg'
                                 />
-                                <h3
-                                    className="videoTable-textPlus"
-                                >
+                                <h3 className="videoTable-textPlus">
                                     Agregar otro video
-                                    </h3>
+                                </h3>
                             </div>
                         </td>
                     </tr>

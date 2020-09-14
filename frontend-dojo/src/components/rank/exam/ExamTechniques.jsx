@@ -6,9 +6,7 @@ export default function ExamTechniques(props) {
             {props.techniques
                 ? <tbody>
                     {props.techniques.map((tec, key) => (
-                        <tr
-                            key={key}
-                        >
+                        <tr key={key}>
                             <td>
                                 {tec.attack}
                             </td>
@@ -18,7 +16,8 @@ export default function ExamTechniques(props) {
                         </tr>
                     ))}
                 </tbody>
-                : null}
+                : null
+            }
         </Fragment>
     )
 }
