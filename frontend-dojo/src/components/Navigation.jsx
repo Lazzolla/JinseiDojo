@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react'
+import { LinkContainer } from 'react-router-bootstrap';
 import ReactDOM from 'react-dom'
 import { Nav, Navbar, NavDropdown } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -141,27 +142,26 @@ export default class Navigation extends Component {
                 title={this.state.nickname || "Nombre"}
                 id="basic-nav-dropdown"
             >
-                <NavDropdown.Item href="/profile">
-                    Mi Perfil
+                <LinkContainer to="/profile">
+                    <NavDropdown.Item>
+                        Mi Perfil
                 </NavDropdown.Item>
-                <NavDropdown.Item
-                    disabled={!this.state.validated}
-                    href="/rank"
-                >
-                    Graduación
+                </LinkContainer>
+                <LinkContainer to="/rank">
+                    <NavDropdown.Item disabled={!this.state.validated}>
+                        Graduación
                 </NavDropdown.Item>
-                <NavDropdown.Item
-                    hidden={!(this.state.validated && this.state.isInstructor)}
-                    href="/instructor"
-                >
-                    Instructor
+                </LinkContainer>
+                <LinkContainer to="/instructor">
+                    <NavDropdown.Item hidden={!(this.state.validated && this.state.isInstructor)}>
+                        Instructor
                 </NavDropdown.Item>
-                <NavDropdown.Item
-                    disabled={!this.state.validated}
-                    href="/publications"
-                >
-                    Mis Publicaciones
+                </LinkContainer>
+                <LinkContainer to="/publications">
+                    <NavDropdown.Item disabled={!this.state.validated}>
+                        Mis Publicaciones
                 </NavDropdown.Item>
+                </LinkContainer>
                 <NavDropdown.Divider />
                 <NavDropdown.Item onClick={this.logOut}>
                     Salir
@@ -192,12 +192,11 @@ export default class Navigation extends Component {
                 fixed="top"
             >
                 <Fragment>
-                    <Navbar.Brand
-                        className="navigation-brand"
-                        href="/"
-                    >
-                        Jinsei Dojo
+                    <LinkContainer to="/">
+                        <Navbar.Brand className="navigation-brand">
+                            Jinsei Dojo
                     </Navbar.Brand>
+                    </LinkContainer>
                     <Navbar.Brand className="navigation-currentLocation">
                         {this.state.currentLocation}
                     </Navbar.Brand>
@@ -208,12 +207,15 @@ export default class Navigation extends Component {
                         <Nav className="navigation-homeNav ml-auto">
                             {window.location.pathname === "/"
                                 ? null
-                                : <Nav.Link href="/">
-                                    <FontAwesomeIcon
-                                        icon={faHome}
-                                        size='1x'
-                                    />
-                                </Nav.Link>}
+                                : <LinkContainer to="/">
+                                    <Nav.Link>
+                                        <FontAwesomeIcon
+                                            icon={faHome}
+                                            size='1x'
+                                        />
+                                    </Nav.Link>
+                                </LinkContainer>
+                            }
                             <Nav.Link
                                 className="navigation-WhatIsAikido"
                                 target="_blank"
@@ -234,12 +236,14 @@ export default class Navigation extends Component {
                             >
                                 Contactanos
                         </Nav.Link>
+                        <LinkContainer to="/blog">
                             <Nav.Link
                                 className="navigation-blog"
                                 hidden={!(this.state.validated && this.props.location.pathname !== "/blog")}
-                                href="/blog">
+                                >
                                 Blog
                         </Nav.Link>
+                        </LinkContainer>
                             <div>
                                 {login}
                             </div>
